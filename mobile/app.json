@@ -1,0 +1,31 @@
+{
+    "name": "Radar Solidário",
+    "displayName": "RadarSolidario",
+    "expo": {
+        "version": "1.0.0",
+        "privacy": "public",
+        "slug": "RadarSolidario",
+        "name": "Radar Solidário",
+        "sdkVersion": "41.0.0",
+        "orientation": "portrait",
+        "entryPoint": "./src/index.js",
+        "assetBundlePatterns": ["**/*"],
+        "icon": "./src/assets/images/icon.png",
+        "platforms": ["ios", "android", "web"],
+        "splash": {
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff",
+            "image": "./src/assets/images/splash.png"
+        },
+        "packagerOpts": {
+            "config": "metro.config.js",
+            "sourceExts": ["js", "jsx"]
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "ios": {
+            "supportsTablet": true
+        }
+    }
+}
