@@ -1,18 +1,11 @@
 //#region Imports
 
-import FieldInput from 'containers/FieldInput';
-import React from 'react';
-import { FormContextProvider } from 'storages/form/context';
-import { View } from 'react-native';
+import React, { Fragment } from 'react';
 
 //#endregion
 
 const Authentication = () => (
-    <FormContextProvider>
-        <View style={{ width: 300, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <FieldInput name={'teste'} />
-        </View>
-    </FormContextProvider>
+    <Fragment></Fragment>
 );
 
 export default Authentication;
