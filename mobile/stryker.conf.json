@@ -4,8 +4,8 @@
     "testRunner": "jest",
     "reporters": ["progress", "clear-text", "html"],
     "coverageAnalysis": "off",
-    "mutator": { "plugins": ["classProperties"], "excludedMutations": ["StringLiteral"] },
+    "mutator": { "plugins": [], "excludedMutations": ["StringLiteral"] },
     "jest": {
-        "projectType": "create-react-app"
+        "projectType": "custom"
     }
 }
