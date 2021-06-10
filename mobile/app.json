@@ -2,11 +2,11 @@
     "name": "Radar Solidário",
     "displayName": "RadarSolidario",
     "expo": {
-        "version": "1.0.0",
+        "version": "0.0.1",
         "privacy": "public",
-        "slug": "RadarSolidario",
-        "name": "Radar Solidário",
         "sdkVersion": "41.0.0",
+        "slug": "radar-solidario",
+        "name": "Radar Solidário",
         "orientation": "portrait",
         "entryPoint": "./src/index.js",
         "assetBundlePatterns": ["**/*"],
@@ -26,6 +26,9 @@
         },
         "ios": {
             "supportsTablet": true
+        },
+        "android": {
+            "package": "com.solidario.radar"
         }
     }
 }
