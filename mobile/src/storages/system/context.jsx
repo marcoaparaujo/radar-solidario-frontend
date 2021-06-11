@@ -5,15 +5,14 @@ import SYSTEM_FIELDS from 'utils/constants/fields/system';
 
 //#endregion
 
-const { TOKEN, NAME, ROLE, USER_TYPE } = SYSTEM_FIELDS;
+const { TOKEN, NAME, ROLE } = SYSTEM_FIELDS;
 
 const SystemContext = createContext();
 
 const initialState = {
     [ROLE]: null,
     [NAME]: null,
-    [TOKEN]: null,
-    [USER_TYPE]: null
+    [TOKEN]: null
 };
 
 export const SystemContextProvider = ({ children, defaultValues }) => {
