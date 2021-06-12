@@ -16,7 +16,7 @@ const initialState = {
     ...CONTEXT_INITIAL_STATE
 };
 
-export const AuthenticationContextProvider = ({ children, defaultValues, schema = authenticationSchema }) => {
+export const AuthenticationContextProvider = ({ children, defaultValues }) => {
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
     const setIsLoading = useCallback(
