@@ -1,6 +1,6 @@
 //#region Imports
 
-import Authentication from 'views/authentication';
+import Authentication from 'views/authentication/LoginPage';
 import Home from 'views/home';
 
 //#endregion
