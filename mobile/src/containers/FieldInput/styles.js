@@ -8,7 +8,7 @@ import { StyleSheet } from 'react-native';
 //#endregion
 
 const { RIGHT } = ALIGN;
-const { LIGHT, PRIMARY, POSITIVE, NEGATIVE } = COLOR;
+const { LIGHT,SECONDARY, PRIMARY, POSITIVE, NEGATIVE } = COLOR;
 
 const useStyles = () =>
     StyleSheet.create({
@@ -21,12 +21,10 @@ const useStyles = () =>
         input: {
             height: 47,
             width: '100%',
-            borderWidth: 2,
             borderRadius: 5,
-            borderBottomWidth: 3,
-            borderColor: PRIMARY.DARK,
-            backgroundColor: LIGHT.LIGHT,
-            outlineColor: POSITIVE.MEDIUM
+            backgroundColor: LIGHT.DARK
+
+
         },
         inputContainer: {
             width: '100%',
