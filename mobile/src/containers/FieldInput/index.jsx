@@ -65,18 +65,10 @@ const FieldInput = ({
             containerStyle={styles.container}
             disabled={isDisabled || isLoading}
             placeholder={placeholder || label}
-            leftIcon={icon && <Icon name={icon} />}
             inputContainerStyle={styles.inputContainer}
             onChangeText={(text) => handleChange(text)}
             label={<FieldLabel label={label} isRequired={isRequired} />}
-            rightIcon={
-                <FieldInputRightIcon
-                    visible={visible}
-                    isLoading={isLoading}
-                    isPassword={isPassword}
-                    setVisible={setVisible}
-                />
-            }
+
             {...rest}
         />
     );
