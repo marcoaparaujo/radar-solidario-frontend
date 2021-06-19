@@ -1,35 +1,29 @@
 //#region Imports
 
 import ALIGN from 'assets/styles/align';
-import COLOR from 'assets/styles/color';
 import FONT from 'assets/styles/font';
 import { StyleSheet } from 'react-native';
+import { useTheme } from 'react-native-elements';
 
 //#endregion
 
-const { RIGHT } = ALIGN;
-const { LIGHT,SECONDARY, PRIMARY, POSITIVE, NEGATIVE } = COLOR;
+const useStyles = () => {
+    const { theme } = useTheme();
 
-const useStyles = () =>
-    StyleSheet.create({
+    return StyleSheet.create({
+        input: {
+            fontSize: 16,
+            minHeight: 56,
+            marginLeft: 15
+        },
         container: {
-            marginTop: 5,
-            width: '100%',
             paddingLeft: 0,
             paddingRight: 0
         },
-        input: {
-            height: 47,
-            width: '100%',
-            borderRadius: 5,
-            backgroundColor: LIGHT.DARK
-
-
-        },
         inputContainer: {
-            width: '100%',
-            borderBottomWidth: 0,
-            borderColor: 'transparent'
+            borderTopEndRadius: 4,
+            borderTopStartRadius: 4,
+            backgroundColor: theme.colors.light.dark
         },
         error: {
             margin: 0,
@@ -37,10 +31,11 @@ const useStyles = () =>
             marginTop: 5,
             width: '100%',
             marginBottom: 5,
-            color: NEGATIVE.DARK,
-            ...RIGHT,
+            color: theme.colors.negative.dark,
+            ...ALIGN.RIGHT,
             ...FONT.MEDIUM
         }
     });
+};
 
 export default useStyles;

@@ -34,7 +34,7 @@ const FieldInput = ({
         formState: { errors }
     } = useFormContext();
 
-    const { field } = useController({ name, control });
+    const { field } = useController({ name, control, defaultValue: '' });
 
     const error = useMemo(() => {
         const value = extractErrors(name, errors);
@@ -59,16 +59,26 @@ const FieldInput = ({
             ref={inputRef}
             value={field.value}
             errorMessage={error}
-            inputStyle={styles.input}
             errorStyle={styles.error}
             secureTextEntry={visible}
+            inputStyle={styles.input}
             containerStyle={styles.container}
             disabled={isDisabled || isLoading}
             placeholder={placeholder || label}
             inputContainerStyle={styles.inputContainer}
             onChangeText={(text) => handleChange(text)}
-            label={<FieldLabel label={label} isRequired={isRequired} />}
-
+            // label={<FieldLabel label={label} isRequired={isRequired} />}
+            leftIcon={icon && <Icon solid name={icon} type='font-awesome-5' />}
+            rightIcon={
+                (isPassword || isLoading) && (
+                    <FieldInputRightIcon
+                        visible={visible}
+                        isLoading={isLoading}
+                        isPassword={isPassword}
+                        setVisible={setVisible}
+                    />
+                )
+            }
             {...rest}
         />
     );
