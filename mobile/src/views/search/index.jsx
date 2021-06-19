@@ -4,9 +4,6 @@ import React, { Fragment } from 'react';
 
 //#endregion
 
-const Home = () => <Fragment>
+const Search = () => <Fragment></Fragment>;
 
-    
-</Fragment>;
-
-export default Home;
+export default Search;
