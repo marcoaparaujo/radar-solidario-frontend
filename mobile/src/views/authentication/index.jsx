@@ -18,10 +18,10 @@ const Authentication = () => {
 
             <View style={styles.form}>
                 <FormLogin />
-                <Text>Esqueci a senha</Text>
+                <Text style={styles.text}>Esqueci a senha</Text>
             </View>
 
-            <Text>Para se cadastrar, é necessário convite via TOKEN</Text>
+            <Text style={styles.text}>Para se cadastrar, é necessário convite via TOKEN</Text>
         </View>
     );
 };

@@ -1,18 +1,22 @@
 //#region Imports
 
+import { useNavigation } from '@react-navigation/native';
 import AuthenticationFields from 'form-fields/authentication';
 import React, { Fragment, useCallback } from 'react';
 import { Button } from 'react-native-elements';
+import { ROUTE_NAMES } from 'routes/routes';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
 import authenticationSchema from 'utils/validations/yup/schemas/authentication';
 
 //#endregion
 
 const Content = () => {
+    const { navigate } = useNavigation();
     const { handleSubmit } = useFormContext();
 
     const onSubmit = useCallback((data) => {
         console.log(data);
+        navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.SEARCH });
     }, []);
 
     return (

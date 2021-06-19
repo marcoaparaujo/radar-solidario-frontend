@@ -1,24 +1,30 @@
 //#region Imports
 
-import { useTheme } from '@react-navigation/native';
 import React, { Fragment, useMemo } from 'react';
 import { ActivityIndicator } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { Icon, useTheme } from 'react-native-elements';
 import useStyles from './styles';
 
 //#endregion
 
 const FieldInputRightContent = ({ isLoading, isPassword, visible, setVisible }) => {
-    const theme = useTheme();
     const styles = useStyles();
+    const { theme } = useTheme();
 
     const icon = useMemo(() => (visible ? 'eye' : 'eye-slash'), [visible]);
 
     return (
         <Fragment>
-            {isLoading && <ActivityIndicator size='small' color={theme.colors.primary} style={styles.container} />}
+            {isLoading && (
+                <ActivityIndicator size='small' color={theme.colors.primary.medium} style={styles.container} />
+            )}
             {isPassword && !isLoading && (
-                <Icon name={icon} style={styles.container} onPress={() => setVisible((prevState) => !prevState)} />
+                <Icon
+                    name={icon}
+                    style={styles.container}
+                    color={theme.colors.black}
+                    onPress={() => setVisible((prevState) => !prevState)}
+                />
             )}
         </Fragment>
     );

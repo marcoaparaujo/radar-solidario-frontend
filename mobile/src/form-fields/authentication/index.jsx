@@ -10,13 +10,7 @@ import AUTHENTICATION_LABELS from 'utils/constants/labels/authentication';
 const AuthenticationFields = () => (
     <Fragment>
         <FieldInput name={AUTHENTICATION_FIELDS.EMAIL} label={AUTHENTICATION_LABELS.EMAIL} />
-
-
-        <FieldInput
-            isPassword
-            name={AUTHENTICATION_FIELDS.PASSWORD}
-            label={AUTHENTICATION_LABELS.PASSWORD}
-        />
+        <FieldInput isPassword name={AUTHENTICATION_FIELDS.PASSWORD} label={AUTHENTICATION_LABELS.PASSWORD} />
     </Fragment>
 );
 

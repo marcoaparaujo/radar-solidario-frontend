@@ -1,5 +1,5 @@
 const AUTHENTICATION_LABELS = {
-    EMAIL: 'Email',
+    EMAIL: 'E-mail',
     PASSWORD: 'Senha'
 };
 
