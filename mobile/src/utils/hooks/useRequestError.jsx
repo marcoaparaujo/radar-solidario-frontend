@@ -12,7 +12,7 @@ const useRequestError = () => {
 
     const getAction = useMemo(
         () => ({
-            401: navigate(ROUTE_NAMES.AUTHENTICATION)
+            401: () => navigate(ROUTE_NAMES.AUTHENTICATION)
         }),
         [navigate]
     );
