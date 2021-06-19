@@ -1,29 +1,31 @@
 const COLOR = {
     PRIMARY: {
-        DARK: '#1c1b1b',
-        LIGHT: '#424242',
-        MEDIUM: '#363636',
+        DARK: '#CC4E4E',
+        LIGHT: '#FF8080',
+        MEDIUM: '#EC6566'
     },
     SECONDARY: {
-        DARK: '#575252',
-        LIGHT: '#828282',
-        MEDIUM: '#717171',
+        DARK: '#2D8FB3',
+        LIGHT: '#54C6F0',
+        MEDIUM: '#42AFD7'
     },
     POSITIVE: {
-        DARK: '#0051bd',
-        LIGHT: '#1771e8',
-        MEDIUM: '#0a62d6',
+        DARK: '#0051BD',
+        LIGHT: '#1771E8',
+        MEDIUM: '#0A62D6'
     },
     NEGATIVE: {
-        DARK: '#b50404',
-        LIGHT: '#db1a1a',
-        MEDIUM: '#cf0f0f',
+        DARK: '#B50404',
+        LIGHT: '#DB1A1A',
+        MEDIUM: '#cF0F0F'
     },
     LIGHT: {
-        DARK: '#e1e1e1',
-        LIGHT: '#f4f4f4',
-        MEDIUM: '#ffffff',
-    }
+        DARK: '#E1E1E1',
+        LIGHT: '#F4F4F4',
+        MEDIUM: '#FFFFFF'
+    },
+    GREY: '#363636',
+    BLACK: '#717171'
 };
 
 export default COLOR;
