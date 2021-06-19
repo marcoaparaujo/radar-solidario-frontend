@@ -1,11 +1,11 @@
 //#region Imports
 
+import Logo from 'assets/images/logo.gif';
 import React from 'react';
 import { View } from 'react-native';
-import { Text, Image } from 'react-native-elements';
+import { Image, Text } from 'react-native-elements';
 import FormLogin from './FormLogin';
 import useStyles from './styles';
-import Logo from 'assets/images/logo.gif';
 
 //#endregion
 

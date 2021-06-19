@@ -3,7 +3,7 @@
 import { useNavigation } from '@react-navigation/native';
 import AuthenticationFields from 'form-fields/authentication';
 import React, { Fragment, useCallback } from 'react';
-import { Button } from 'react-native-elements';
+import Button from 'components/Button';
 import { ROUTE_NAMES } from 'routes/routes';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
 import authenticationSchema from 'utils/validations/yup/schemas/authentication';
@@ -22,7 +22,7 @@ const Content = () => {
     return (
         <Fragment>
             <AuthenticationFields />
-            <Button onPress={handleSubmit(onSubmit)} title='Enviar' />
+            <Button onPress={handleSubmit(onSubmit)} title='Entrar' />
         </Fragment>
     );
 };
