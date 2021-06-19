@@ -3,7 +3,7 @@
 import RobotoBold from 'assets/fonts/Roboto-Bold.ttf';
 import RobotoMedium from 'assets/fonts/Roboto-Medium.ttf';
 import RobotoRegular from 'assets/fonts/Roboto-Regular.ttf';
-import SplashScreen from 'components/AppLoader';
+import SplashScreen from 'components/SplashScreen';
 import * as Font from 'expo-font';
 import * as Splash from 'expo-splash-screen';
 import React, { useCallback, useEffect, useState } from 'react';
