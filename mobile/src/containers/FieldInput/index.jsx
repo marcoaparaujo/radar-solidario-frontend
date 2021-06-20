@@ -70,14 +70,12 @@ const FieldInput = ({
             // label={<FieldLabel label={label} isRequired={isRequired} />}
             leftIcon={icon && <Icon solid name={icon} type='font-awesome-5' />}
             rightIcon={
-                (isPassword || isLoading) && (
-                    <FieldInputRightIcon
-                        visible={visible}
-                        isLoading={isLoading}
-                        isPassword={isPassword}
-                        setVisible={setVisible}
-                    />
-                )
+                <FieldInputRightIcon
+                    visible={visible}
+                    isLoading={isLoading}
+                    isPassword={isPassword}
+                    setVisible={setVisible}
+                />
             }
             {...rest}
         />

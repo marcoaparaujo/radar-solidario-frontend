@@ -19,7 +19,7 @@ const useStyles = () =>
             height: 150
         },
         form: {
-            height: 260,
+            height: 270,
             width: '100%',
             paddingLeft: 36,
             paddingRight: 36,

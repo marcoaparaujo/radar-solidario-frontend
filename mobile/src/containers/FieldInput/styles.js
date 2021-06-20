@@ -27,6 +27,7 @@ const useStyles = () => {
         },
         error: {
             margin: 0,
+            height: 18,
             fontSize: 14,
             marginTop: 5,
             width: '100%',
