@@ -1,7 +1,7 @@
 //#region Imports
 
 import { useNavigation } from '@react-navigation/native';
-import AuthenticationFields from 'form-fields/authentication';
+import FieldsAuthentication from 'form-fields/FieldsAuthentication';
 import React, { Fragment, useCallback } from 'react';
 import { Button } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
@@ -21,7 +21,7 @@ const Content = () => {
 
     return (
         <Fragment>
-            <AuthenticationFields />
+            <FieldsAuthentication />
             <Button onPress={handleSubmit(onSubmit)} title='Enviar' />
         </Fragment>
     );
