@@ -1,9 +1,9 @@
 //#region Imports
 
 import { useNavigation } from '@react-navigation/native';
+import Button from 'components/Button';
 import FieldsAuthentication from 'form-fields/FieldsAuthentication';
 import React, { Fragment, useCallback } from 'react';
-import { Button } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
 import authenticationSchema from 'utils/validations/yup/schemas/authentication';
@@ -22,7 +22,7 @@ const Content = () => {
     return (
         <Fragment>
             <FieldsAuthentication />
-            <Button onPress={handleSubmit(onSubmit)} title='Enviar' />
+            <Button onPress={handleSubmit(onSubmit)}>Entrar</Button>
         </Fragment>
     );
 };
