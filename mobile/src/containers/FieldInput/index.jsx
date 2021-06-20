@@ -3,6 +3,7 @@
 import FieldLabel from 'components/FieldLabel';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
+import { View } from 'react-native-animatable';
 import { Icon, Input } from 'react-native-elements';
 import useFormContext from 'storages/form/context';
 import extractErrors from 'utils/functions/extractErrors';
@@ -55,30 +56,31 @@ const FieldInput = ({
     );
 
     return (
-        <Input
-            ref={inputRef}
-            value={field.value}
-            errorMessage={error}
-            errorStyle={styles.error}
-            secureTextEntry={visible}
-            inputStyle={styles.input}
-            containerStyle={styles.container}
-            disabled={isDisabled || isLoading}
-            placeholder={placeholder || label}
-            inputContainerStyle={styles.inputContainer}
-            onChangeText={(text) => handleChange(text)}
-            // label={<FieldLabel label={label} isRequired={isRequired} />}
-            leftIcon={icon && <Icon solid name={icon} type='font-awesome-5' />}
-            rightIcon={
-                <FieldInputRightIcon
-                    visible={visible}
-                    isLoading={isLoading}
-                    isPassword={isPassword}
-                    setVisible={setVisible}
-                />
-            }
-            {...rest}
-        />
+        <View ref={inputRef} style={styles.view}>
+            <Input
+                value={field.value}
+                errorMessage={error}
+                errorStyle={styles.error}
+                secureTextEntry={visible}
+                inputStyle={styles.input}
+                containerStyle={styles.container}
+                disabled={isDisabled || isLoading}
+                placeholder={placeholder || label}
+                inputContainerStyle={styles.inputContainer}
+                onChangeText={(text) => handleChange(text)}
+                label={<FieldLabel label={label} isRequired={isRequired} />}
+                leftIcon={icon && <Icon solid name={icon} type='font-awesome-5' />}
+                rightIcon={
+                    <FieldInputRightIcon
+                        visible={visible}
+                        isLoading={isLoading}
+                        isPassword={isPassword}
+                        setVisible={setVisible}
+                    />
+                }
+                {...rest}
+            />
+        </View>
     );
 };
 

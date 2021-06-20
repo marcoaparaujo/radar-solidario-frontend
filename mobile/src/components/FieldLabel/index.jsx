@@ -12,7 +12,7 @@ const FieldLabel = ({ label, isRequired, ...rest }) => {
     return (
         <Text style={styles.label} {...rest}>
             {label}
-            {!isRequired && <Text style={styles.required}>*</Text>}
+            {isRequired && <Text style={styles.required}>*</Text>}
         </Text>
     );
 };

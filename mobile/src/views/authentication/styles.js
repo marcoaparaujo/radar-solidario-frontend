@@ -19,7 +19,7 @@ const useStyles = () =>
             height: 150
         },
         form: {
-            height: 270,
+            height: 260,
             width: '100%',
             paddingLeft: 36,
             paddingRight: 36,
@@ -30,6 +30,9 @@ const useStyles = () =>
         text: {
             fontSize: 12,
             ...FONT.MEDIUM
+        },
+        forgotPassword: {
+            marginTop: 10
         }
     });
 

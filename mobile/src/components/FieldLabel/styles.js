@@ -1,8 +1,8 @@
 //#region Imports
 
 import COLOR from 'assets/styles/color';
-import { StyleSheet } from 'react-native';
 import FONT from 'assets/styles/font';
+import { StyleSheet } from 'react-native';
 
 //#endregion
 
@@ -16,6 +16,7 @@ const useStyles = () =>
             ...FONT.MEDIUM
         },
         required: {
+            marginLeft: 5,
             color: NEGATIVE.MEDIUM
         }
     });

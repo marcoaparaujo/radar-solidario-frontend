@@ -11,6 +11,9 @@ const useStyles = () => {
     const { theme } = useTheme();
 
     return StyleSheet.create({
+        view: {
+            width: '100%'
+        },
         input: {
             fontSize: 16,
             minHeight: 56,

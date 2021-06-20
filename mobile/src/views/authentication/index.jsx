@@ -4,6 +4,7 @@ import Logo from 'assets/images/logo.gif';
 import React from 'react';
 import { View } from 'react-native';
 import { Image, Text } from 'react-native-elements';
+import slsx from 'slsx';
 import FormLogin from './FormLogin';
 import useStyles from './styles';
 
@@ -11,6 +12,7 @@ import useStyles from './styles';
 
 const Authentication = () => {
     const styles = useStyles();
+    const forgotPasswordStyle = slsx(styles.text, styles.forgotPassword);
 
     return (
         <View style={styles.container}>
@@ -18,7 +20,7 @@ const Authentication = () => {
 
             <View style={styles.form}>
                 <FormLogin />
-                <Text style={styles.text}>Esqueci a senha</Text>
+                <Text style={forgotPasswordStyle}>Esqueci a senha</Text>
             </View>
 
             <Text style={styles.text}>Para se cadastrar, é necessário convite via TOKEN</Text>
