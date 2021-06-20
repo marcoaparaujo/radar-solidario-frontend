@@ -20,6 +20,7 @@
         "adam-bender.commit-message-editor",
         "CoenraadS.bracket-pair-colorizer-2",
         "christian-kohler.path-intellisense",
-        "nucllear.vscode-extension-auto-import"
+        "kisstkondoros.vscode-gutter-preview",
+        "nucllear.vscode-extension-auto-import",
     ]
 }
