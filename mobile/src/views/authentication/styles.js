@@ -15,8 +15,8 @@ const useStyles = () =>
             justifyContent: 'space-around'
         },
         image: {
-            width: 150,
-            height: 150
+            width: 200,
+            height: 200
         },
         form: {
             height: 260,
@@ -28,7 +28,7 @@ const useStyles = () =>
             justifyContent: 'space-between'
         },
         text: {
-            fontSize: 12,
+            fontSize: 13,
             ...FONT.MEDIUM
         },
         forgotPassword: {
