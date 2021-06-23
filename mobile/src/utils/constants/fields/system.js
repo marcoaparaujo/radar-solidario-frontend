@@ -1,7 +1,7 @@
 const SYSTEM_FIELDS = {
     THIS: 'system',
-    ROLE: 'role',
     NAME: 'name',
+    ROLE: 'roles',
     TOKEN: 'token'
 };
 

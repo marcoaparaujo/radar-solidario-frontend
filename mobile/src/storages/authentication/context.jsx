@@ -3,8 +3,7 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import AUTHENTICATION_FIELDS from 'utils/constants/fields/authentication';
 import CONTEXT_INITIAL_STATE from 'utils/constants/types/context-initial-state';
-import isInvalid from 'utils/functions/isInvalid';
-import authenticationSchema from 'utils/validations/yup/schemas/authentication';
+import isInvalid from '../../utils/functions/isInvalid';
 import useAuthenticationService from './service';
 
 //#endregion
@@ -28,6 +27,8 @@ export const AuthenticationContextProvider = ({ children, defaultValues }) => {
         [setState]
     );
 
+    const setErrors = useCallback((errors = null) => setState((prevState) => ({ ...prevState, errors })), [setState]);
+
     const setAuthentication = useCallback(
         (authentication, errors = null) => setState((prevState) => ({ ...prevState, authentication, errors })),
         [setState]
@@ -39,7 +40,7 @@ export const AuthenticationContextProvider = ({ children, defaultValues }) => {
     );
 
     return (
-        <AuthenticationContext.Provider value={{ state, setIsLoading, setAuthentication, setIsLogin }}>
+        <AuthenticationContext.Provider value={{ state, setIsLoading, setErrors, setAuthentication, setIsLogin }}>
             {children}
         </AuthenticationContext.Provider>
     );
@@ -49,8 +50,8 @@ const useAuthenticationContext = () => {
     const context = useContext(AuthenticationContext);
     const service = useAuthenticationService(context);
 
-    const { state, setIsLoading, setAuthentication, setIsLogin } = context;
-    return { setIsLoading, setAuthentication, setIsLogin, ...state, ...service };
+    const { state, setIsLoading, setErrors, setAuthentication, setIsLogin } = context;
+    return { setIsLoading, setErrors, setAuthentication, setIsLogin, ...state, ...service };
 };
 
 export default useAuthenticationContext;

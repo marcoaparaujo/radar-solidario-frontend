@@ -6,15 +6,18 @@ import { ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import THEME from 'utils/constants/theme';
 import Router from './routes';
+import { SystemContextProvider } from './storages/system/context';
 
 //#endregion
 
 const App = () => (
     <SafeAreaProvider>
         <ThemeProvider theme={THEME}>
-            <SplashLoader>
-                <Router />
-            </SplashLoader>
+            <SystemContextProvider>
+                <SplashLoader>
+                    <Router />
+                </SplashLoader>
+            </SystemContextProvider>
         </ThemeProvider>
     </SafeAreaProvider>
 );

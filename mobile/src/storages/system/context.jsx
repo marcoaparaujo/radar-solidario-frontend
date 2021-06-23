@@ -19,7 +19,7 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
     const setLogin = useCallback(
-        ({ role, name, token }) => setState((prevState) => ({ ...prevState, role, name, token })),
+        ({ roles, name, token }) => setState((prevState) => ({ ...prevState, roles, name, token })),
         [setState]
     );
 

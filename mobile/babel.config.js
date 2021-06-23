@@ -20,8 +20,6 @@ module.exports = function (api) {
                 {
                     safe: false,
                     path: '.env',
-                    blacklist: null,
-                    whitelist: null,
                     moduleName: '@env',
                     allowUndefined: true
                 }

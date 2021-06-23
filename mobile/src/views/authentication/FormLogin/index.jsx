@@ -5,6 +5,7 @@ import Button from 'components/Button';
 import FieldsAuthentication from 'form-fields/FieldsAuthentication';
 import React, { Fragment, useCallback } from 'react';
 import { ROUTE_NAMES } from 'routes/routes';
+import useAuthenticationContext from 'storages/authentication/context';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
 import authenticationSchema from 'utils/validations/yup/schemas/authentication';
 
@@ -12,12 +13,17 @@ import authenticationSchema from 'utils/validations/yup/schemas/authentication';
 
 const Content = () => {
     const { navigate } = useNavigation();
-    const { handleSubmit } = useFormContext();
 
-    const onSubmit = useCallback((data) => {
-        console.log(data);
-        navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.SEARCH });
-    }, []);
+    const { handleSubmit } = useFormContext();
+    const { requestState, fetchLogin } = useAuthenticationContext();
+
+    const onSubmit = useCallback(
+        async (data) => {
+            const { errors } = await fetchLogin(data);
+            !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.SEARCH });
+        },
+        [requestState]
+    );
 
     return (
         <Fragment>

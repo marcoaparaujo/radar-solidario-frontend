@@ -5,12 +5,13 @@ import React from 'react';
 import { View } from 'react-native';
 import { Image, Text } from 'react-native-elements';
 import slsx from 'slsx';
+import { AuthenticationContextProvider } from 'storages/authentication/context';
 import FormLogin from './FormLogin';
 import useStyles from './styles';
 
 //#endregion
 
-const Authentication = () => {
+const Content = () => {
     const styles = useStyles();
     const forgotPasswordStyle = slsx(styles.text, styles.forgotPassword);
 
@@ -27,5 +28,11 @@ const Authentication = () => {
         </View>
     );
 };
+
+const Authentication = () => (
+    <AuthenticationContextProvider>
+        <Content />
+    </AuthenticationContextProvider>
+);
 
 export default Authentication;

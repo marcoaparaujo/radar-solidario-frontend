@@ -1,11 +1,11 @@
 //#region Imports
 
-import { LOCAL_BASE_URL } from '@env';
+import { API_URL } from '@env';
 
 //#endregion
 
 const ENDPOINT = {
-    BASE: LOCAL_BASE_URL,
+    BASE: API_URL,
     SECURITY: {
         LOGIN: 'security/login'
     }
