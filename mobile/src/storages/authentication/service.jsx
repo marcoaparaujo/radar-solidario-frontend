@@ -8,11 +8,13 @@ import { postLogin } from './services/send-data';
 //#endregion
 
 const useAuthenticationService = ({ setIsLoading, setErrors }) => {
-    const { setLogin } = useSystemContext();
     const { run, requestState } = useRequestState();
+    const { setLogin, setSnackbar } = useSystemContext();
 
     useEffect(() => {
         setIsLoading(requestState.isLoading);
+
+        requestState.errors && setSnackbar(true, requestState.errors);
     }, [requestState]);
 
     const fetchLogin = useCallback(
@@ -21,7 +23,6 @@ const useAuthenticationService = ({ setIsLoading, setErrors }) => {
                 postLogin(form)
                     .then(({ data }) => setLogin(data))
                     .catch(({ response: { data } }) => {
-                        console.log(data);
                         setErrors(data.errors);
                     })
             );

@@ -29,7 +29,7 @@ const useRequestError = () => {
                 return responseError.data && responseError.data.errors;
             }
 
-            return MISC_ERRORS.UNKNOW;
+            return Array(MISC_ERRORS.UNKNOW);
         },
         [navigate, getAction]
     );

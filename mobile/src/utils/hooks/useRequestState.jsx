@@ -32,11 +32,11 @@ const useRequestState = () => {
             setRequestState({ ...initalState, isLoading: true });
             waitResults(options);
 
-            let responseObj = null;
+            let response = null;
             try {
                 const { data } = await callback();
 
-                responseObj = {
+                response = {
                     ...initalState,
                     data: data.data || data,
                     errors: data.errors || initalState.errors
@@ -45,14 +45,14 @@ const useRequestState = () => {
                 const fltError = getError(error);
                 clearRequestState(options);
 
-                responseObj = {
+                response = {
                     ...initalState,
                     errors: fltError
                 };
             }
 
-            setRequestState(responseObj);
-            return responseObj;
+            setRequestState(response);
+            return response;
         },
         [clear]
     );

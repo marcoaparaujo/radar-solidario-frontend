@@ -15,15 +15,12 @@ const Content = () => {
     const { navigate } = useNavigation();
 
     const { handleSubmit } = useFormContext();
-    const { requestState, fetchLogin } = useAuthenticationContext();
+    const { fetchLogin } = useAuthenticationContext();
 
-    const onSubmit = useCallback(
-        async (data) => {
-            const { errors } = await fetchLogin(data);
-            !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.SEARCH });
-        },
-        [requestState]
-    );
+    const onSubmit = useCallback(async (data) => {
+        const { errors } = await fetchLogin(data);
+        !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.SEARCH });
+    }, []);
 
     return (
         <Fragment>
