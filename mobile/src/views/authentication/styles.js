@@ -2,6 +2,7 @@
 
 import ALIGN from 'assets/styles/align';
 import FONT from 'assets/styles/font';
+import MARGIN from 'assets/styles/margin';
 import { StyleSheet } from 'react-native';
 
 //#endregion
@@ -21,9 +22,8 @@ const useStyles = () =>
         form: {
             height: 260,
             width: '100%',
-            paddingLeft: 36,
-            paddingRight: 36,
             ...ALIGN.CENTER,
+            ...MARGIN.H_FORM,
             flexDirection: 'column',
             justifyContent: 'space-between'
         },
