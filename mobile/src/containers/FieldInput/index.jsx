@@ -3,7 +3,7 @@
 import FieldLabel from 'components/FieldLabel';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
-import { View } from 'react-native-animatable';
+import { View } from 'react-native-reanimated';
 import { Icon, Input } from 'react-native-elements';
 import useFormContext from 'storages/form/context';
 import extractErrors from 'utils/functions/extractErrors';
