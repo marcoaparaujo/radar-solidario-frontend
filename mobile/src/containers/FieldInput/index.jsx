@@ -3,7 +3,7 @@
 import FieldLabel from 'components/FieldLabel';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
-import { View } from 'react-native-reanimated';
+// import { View } from 'react-native-reanimated';
 import { Icon, Input } from 'react-native-elements';
 import useFormContext from 'storages/form/context';
 import extractErrors from 'utils/functions/extractErrors';
@@ -40,7 +40,7 @@ const FieldInput = ({
     const error = useMemo(() => {
         const value = extractErrors(name, errors);
         if (value) {
-            inputRef.current.shake();
+            // inputRef.current.shake();
             return value.message;
         }
 
@@ -56,31 +56,31 @@ const FieldInput = ({
     );
 
     return (
-        <View ref={inputRef} style={styles.view}>
-            <Input
-                value={field.value}
-                errorMessage={error}
-                errorStyle={styles.error}
-                secureTextEntry={visible}
-                inputStyle={styles.input}
-                containerStyle={styles.container}
-                disabled={isDisabled || isLoading}
-                placeholder={placeholder || label}
-                inputContainerStyle={styles.inputContainer}
-                onChangeText={(text) => handleChange(text)}
-                label={<FieldLabel label={label} isRequired={isRequired} />}
-                leftIcon={icon && <Icon solid name={icon} type='font-awesome-5' />}
-                rightIcon={
-                    <FieldInputRightIcon
-                        visible={visible}
-                        isLoading={isLoading}
-                        isPassword={isPassword}
-                        setVisible={setVisible}
-                    />
-                }
-                {...rest}
-            />
-        </View>
+        // <View ref={inputRef} style={styles.view}>
+        <Input
+            value={field.value}
+            errorMessage={error}
+            errorStyle={styles.error}
+            secureTextEntry={visible}
+            inputStyle={styles.input}
+            containerStyle={styles.container}
+            disabled={isDisabled || isLoading}
+            placeholder={placeholder || label}
+            inputContainerStyle={styles.inputContainer}
+            onChangeText={(text) => handleChange(text)}
+            label={<FieldLabel label={label} isRequired={isRequired} />}
+            leftIcon={icon && <Icon solid name={icon} type='font-awesome-5' />}
+            rightIcon={
+                <FieldInputRightIcon
+                    visible={visible}
+                    isLoading={isLoading}
+                    isPassword={isPassword}
+                    setVisible={setVisible}
+                />
+            }
+            {...rest}
+        />
+        // </View>
     );
 };
 
