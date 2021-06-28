@@ -26,6 +26,7 @@ const Content = () => {
         <Fragment>
             <FieldsAuthentication />
             <Button onPress={handleSubmit(onSubmit)}>Entrar</Button>
+            <Button onPress={() => navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.SEARCH })}>Avançar</Button>
         </Fragment>
     );
 };
