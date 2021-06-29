@@ -8,6 +8,9 @@ const ENDPOINT = {
     BASE: API_URL,
     SECURITY: {
         LOGIN: 'security/login'
+    },
+    FAMILY: {
+        GET: 'family'
     }
 };
 

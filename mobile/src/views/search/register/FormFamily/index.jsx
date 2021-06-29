@@ -1,0 +1,42 @@
+//#region Imports
+
+import { useNavigation } from '@react-navigation/native';
+import Button from 'components/Button';
+import FieldsAddress from 'form-fields/FieldsAddress';
+import FieldsFamily from 'form-fields/FieldsFamily';
+import React, { Fragment, useCallback, useMemo } from 'react';
+import useFormContext, { FormContextProvider } from 'storages/form/context';
+import addressSchema from 'utils/validations/yup/schemas/address';
+import familySchema from 'utils/validations/yup/schemas/family';
+
+//#endregion
+
+const Content = () => {
+    const { navigate } = useNavigation();
+    const { handleSubmit } = useFormContext();
+
+    const onSubmit = useCallback(async (data) => {
+        console.log(data);
+    }, []);
+
+    return (
+        <Fragment>
+            <FieldsFamily />
+            <FieldsAddress />
+
+            <Button onPress={handleSubmit(onSubmit)}>Concluir</Button>
+        </Fragment>
+    );
+};
+
+const FormFamily = () => {
+    const schema = useMemo(() => familySchema.concat(addressSchema), [familySchema, addressSchema]);
+
+    return (
+        <FormContextProvider schema={schema}>
+            <Content />
+        </FormContextProvider>
+    );
+};
+
+export default FormFamily;
