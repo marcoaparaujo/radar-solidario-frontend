@@ -10,6 +10,7 @@ import yup from '../yup';
 //#endregion
 
 const familySchema = yup.object().shape({
+    head: yup.string().required().min(1).max(255).label('Resposável'),
     [FAMILY_FIELDS.CPF]: yup.string().required().min(14).max(14).label(FAMILY_LABELS.CPF),
     [AUTHENTICATION_FIELDS.EMAIL]: yup.string().email().required().min(6).max(80).label(AUTHENTICATION_LABELS.EMAIL),
     [FAMILY_FIELDS.NIS]: yup
