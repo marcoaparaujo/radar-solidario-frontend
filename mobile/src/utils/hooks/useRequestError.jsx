@@ -19,14 +19,12 @@ const useRequestError = () => {
 
     const getError = useCallback(
         (error) => {
-            const responseError = error && error.response;
-            if (responseError) {
-                const action = getAction[responseError.status];
-                if (action) {
-                    return action();
-                }
+            const errors = error && error.data && error.data.errors;
+            if (errors && errors.length) {
+                const action = getAction[error.status];
+                action && action();
 
-                return responseError.data && responseError.data.errors;
+                return errors;
             }
 
             return Array(MISC_ERRORS.UNKNOW);

@@ -23,7 +23,10 @@ const Content = () => {
     const onSubmit = useCallback(async (data) => {
         data = formatSendAddress(data);
 
+        data.cpf = null;
+        data.nis = null;
         const { errors } = await includeFamily(data);
+        console.log('errors', errors);
         !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.FAMILY.SEARCH });
     }, []);
 

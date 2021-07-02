@@ -19,18 +19,7 @@ const useFamilyService = ({ setIsLoading, setFamily, setErrors }) => {
         setFamily(data, errors);
     }, [run, setFamily]);
 
-    const includeFamily = useCallback(
-        async (form) => {
-            return run(() =>
-                postFamily(form)
-                    .then(({ data }) => setFamily(data))
-                    .catch(({ response: { data } }) => {
-                        setErrors(data.errors);
-                    })
-            );
-        },
-        [run]
-    );
+    const includeFamily = useCallback((form) => run(() => postFamily(form)), [run]);
 
     return {
         fetchFamily,

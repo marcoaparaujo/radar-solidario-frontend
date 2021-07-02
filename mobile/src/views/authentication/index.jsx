@@ -1,6 +1,7 @@
 //#region Imports
 
 import Logo from 'assets/images/logo.gif';
+import Snackbar from 'components/Snackbar';
 import React from 'react';
 import { View } from 'react-native';
 import { Image, Text } from 'react-native-elements';
@@ -25,6 +26,8 @@ const Content = () => {
             </View>
 
             <Text style={styles.text}>Para se cadastrar, é necessário convite via TOKEN</Text>
+
+            <Snackbar />
         </View>
     );
 };

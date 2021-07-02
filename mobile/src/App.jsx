@@ -1,6 +1,5 @@
 //#region Imports
 
-import Snackbar from 'components/Snackbar';
 import SplashLoader from 'containers/SplashLoader';
 import React from 'react';
 import { ThemeProvider } from 'react-native-elements';
@@ -18,8 +17,6 @@ const App = () => (
                 <SplashLoader>
                     <Router />
                 </SplashLoader>
-
-                <Snackbar />
             </SystemContextProvider>
         </ThemeProvider>
     </SafeAreaProvider>
