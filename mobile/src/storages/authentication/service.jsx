@@ -9,23 +9,19 @@ import { postLogin } from './services/send-data';
 
 const useAuthenticationService = ({ setIsLoading, setErrors }) => {
     const { run, requestState } = useRequestState();
-    const { setLogin, setSnackbar } = useSystemContext();
+    const { setLogin } = useSystemContext();
 
     useEffect(() => {
         setIsLoading(requestState.isLoading);
-
-        requestState.errors && setSnackbar(true, requestState.errors);
     }, [requestState]);
 
     const fetchLogin = useCallback(
-        (form) => {
-            return run(() =>
-                postLogin(form)
-                    .then(({ data }) => setLogin(data))
-                    .catch(({ response: { data } }) => {
-                        setErrors(data.errors);
-                    })
-            );
+        async (form) => {
+            const response = await run(() => postLogin(form));
+            const { data, errors } = response;
+
+            errors.length ? setErrors(errors) : setLogin(data);
+            return response;
         },
         [run]
     );

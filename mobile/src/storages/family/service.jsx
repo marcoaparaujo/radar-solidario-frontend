@@ -7,7 +7,7 @@ import { postFamily } from './services/send-data';
 
 //#endregion
 
-const useFamilyService = ({ setIsLoading, setFamily, setErrors }) => {
+const useFamilyService = ({ setIsLoading, setFamily }) => {
     const { run, requestState } = useRequestState();
 
     useEffect(() => {
@@ -15,11 +15,23 @@ const useFamilyService = ({ setIsLoading, setFamily, setErrors }) => {
     }, [requestState]);
 
     const fetchFamily = useCallback(async () => {
-        const { data, errors } = await run(() => getFamily());
+        const response = await run(() => getFamily());
+        const { data, errors } = response;
+
         setFamily(data, errors);
+        return response;
     }, [run, setFamily]);
 
-    const includeFamily = useCallback((form) => run(() => postFamily(form)), [run]);
+    const includeFamily = useCallback(
+        async (form) => {
+            const response = await run(() => postFamily(form));
+            const { data, errors } = response;
+
+            setFamily(data, errors);
+            return response;
+        },
+        [run, setFamily]
+    );
 
     return {
         fetchFamily,
