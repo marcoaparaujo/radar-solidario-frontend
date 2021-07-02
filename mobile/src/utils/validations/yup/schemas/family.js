@@ -17,8 +17,8 @@ const familySchema = yup.object().shape({
         .number()
         .required()
         .transform(emptyStringToUndefined)
-        .min(11)
-        .max(11)
+        .min(1)
+        .max(99999999999)
         .label(FAMILY_LABELS.NIS)
 });
 

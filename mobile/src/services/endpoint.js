@@ -10,7 +10,8 @@ const ENDPOINT = {
         LOGIN: 'security/login'
     },
     FAMILY: {
-        GET: 'family'
+        GET: 'family',
+        INCLUDE: 'family'
     }
 };
 

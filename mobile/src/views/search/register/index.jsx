@@ -1,13 +1,14 @@
 //#region Imports
 
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { FamilyContextProvider } from 'storages/family/context';
 import FormFamily from './FormFamily';
 import useStyles from './styles';
 
 //#endregion
 
-const FamilyRegister = () => {
+const Content = () => {
     const styles = useStyles();
 
     return (
@@ -18,5 +19,11 @@ const FamilyRegister = () => {
         </ScrollView>
     );
 };
+
+const FamilyRegister = () => (
+    <FamilyContextProvider>
+        <Content />
+    </FamilyContextProvider>
+);
 
 export default FamilyRegister;
