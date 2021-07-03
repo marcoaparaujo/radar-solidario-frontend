@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => (
     <Tab.Navigator initialRouteName={ROUTE_NAMES.HOME}>
-        {TAB_ROUTES.map(({ name, Component, options }, index) => (
+        {TAB_ROUTES.map(({ name, options, Component }, index) => (
             <Tab.Screen
                 key={index}
                 name={name}
@@ -19,7 +19,7 @@ const TabNavigator = () => (
                 options={{
                     ...options,
                     tabBarIcon: ({ color, size }) => (
-                        <Icon solid size={size} color={color} type='font-awesome-5' name={options.tabBarIcon} />
+                        <Icon solid size={size} color={color} name={options.tabBarIcon} type='font-awesome-5' />
                     )
                 }}
             />

@@ -30,7 +30,7 @@ export const STACK_ROUTES = [
     {
         Component: FamilyRegister,
         name: ROUTE_NAMES.FAMILY.REGISTER,
-        options: { title: 'Cadastrar Família' }
+        options: { title: 'Cadastrar Família', headerShown: true }
     }
 ];
 

@@ -20,8 +20,8 @@ const StackNavigator = () => {
         >
             <Stack.Screen name={ROUTE_NAMES.TABS} component={TabNavigator} />
 
-            {STACK_ROUTES.map(({ name, Component }, index) => (
-                <Stack.Screen key={index} name={name} component={Component} />
+            {STACK_ROUTES.map(({ name, options, Component }, index) => (
+                <Stack.Screen key={index} name={name} options={options} component={Component} />
             ))}
         </Stack.Navigator>
     );
