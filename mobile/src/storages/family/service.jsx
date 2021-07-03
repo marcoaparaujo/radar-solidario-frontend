@@ -2,12 +2,15 @@
 
 import { useCallback, useEffect } from 'react';
 import useRequestState from 'utils/hooks/useRequestState';
-import { getFamily } from './services/get-data';
-import { postFamily } from './services/send-data';
+import useGetData from './services/useGetData';
+import useSendData from './services/useSendData';
 
 //#endregion
 
 const useFamilyService = ({ setIsLoading, setFamily }) => {
+    const { getFamily } = useGetData();
+    const { postFamily } = useSendData();
+
     const { run, requestState } = useRequestState();
 
     useEffect(() => {
@@ -20,7 +23,7 @@ const useFamilyService = ({ setIsLoading, setFamily }) => {
 
         setFamily(data, errors);
         return response;
-    }, [run, setFamily]);
+    }, [run, getFamily, setFamily]);
 
     const includeFamily = useCallback(
         async (form) => {
@@ -30,7 +33,7 @@ const useFamilyService = ({ setIsLoading, setFamily }) => {
             setFamily(data, errors);
             return response;
         },
-        [run, setFamily]
+        [run, postFamily, setFamily]
     );
 
     return {

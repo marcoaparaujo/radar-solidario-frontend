@@ -1,12 +1,27 @@
 //#region Imports
 
 import axios from 'axios';
+import useSystemContext from 'storages/system/context';
 import ENDPOINT from './endpoint';
 
 //#endregion
 
-const api = axios.create({
-    baseURL: ENDPOINT.BASE
-});
+const useApi = () => {
+    const { token } = useSystemContext();
 
-export default api;
+    const api = axios.create({
+        baseURL: ENDPOINT.BASE
+    });
+
+    api.interceptors.request.use((config) => {
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+
+        return config;
+    });
+
+    return api;
+};
+
+export default useApi;

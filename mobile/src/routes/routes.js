@@ -1,10 +1,10 @@
 //#region Imports
 
 import Authentication from 'views/authentication';
+import FamilyRegister from 'views/family/register';
+import FamilySearch from 'views/family/search';
 import Historical from 'views/historical';
 import Profile from 'views/profile';
-import Search from 'views/search';
-import FamilyRegister from 'views/search/register';
 import Stock from 'views/stock';
 
 //#endregion
@@ -36,7 +36,7 @@ export const STACK_ROUTES = [
 
 export const TAB_ROUTES = [
     {
-        Component: Search,
+        Component: FamilySearch,
         name: ROUTE_NAMES.FAMILY.SEARCH,
         options: { title: 'Pesquisa', tabBarIcon: 'search' }
     },

@@ -7,12 +7,12 @@ import React from 'react';
 import { View } from 'react-native';
 import { Image, SearchBar } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
-import { FormContextProvider } from './../../storages/form/context';
+import { FormContextProvider } from 'storages/form/context';
 import useStyles from './styles';
 
 //#endregion
 
-const SearchContent = () => {
+const Content = () => {
     const styles = useStyles();
 
     return (
@@ -26,15 +26,15 @@ const SearchContent = () => {
     );
 };
 
-const Search = () => {
+const Family = () => {
     const { navigate } = useNavigation();
 
     return (
         <FormContextProvider>
-            <SearchContent />
+            <Content />
             <Button onPress={() => navigate(ROUTE_NAMES.FAMILY.REGISTER)}>Cadastrar manualmente</Button>
         </FormContextProvider>
     );
 };
 
-export default Search;
+export default Family;
