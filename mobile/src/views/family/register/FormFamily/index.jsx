@@ -24,7 +24,6 @@ const Content = () => {
         data = formatSendAddress(data);
 
         const { errors } = await includeFamily(data);
-        console.log('errors', errors);
         !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.FAMILY.SEARCH });
     }, []);
 
