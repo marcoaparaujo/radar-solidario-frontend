@@ -3,7 +3,7 @@
 import { useNavigation } from '@react-navigation/native';
 import Logo from 'assets/images/logo.gif';
 import Button from 'components/Button';
-import React, { Fragment } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { Image, SearchBar } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
@@ -11,12 +11,6 @@ import { FormContextProvider } from './../../storages/form/context';
 import useStyles from './styles';
 
 //#endregion
-
-const Search = () => (
-    <FormContextProvider>
-        <SearchContent />
-    </FormContextProvider>
-);
 
 const SearchContent = () => {
     const styles = useStyles();
@@ -36,9 +30,10 @@ const Search = () => {
     const { navigate } = useNavigation();
 
     return (
-        <Fragment>
+        <FormContextProvider>
+            <SearchContent />
             <Button onPress={() => navigate(ROUTE_NAMES.FAMILY.REGISTER)}>Cadastrar manualmente</Button>
-        </Fragment>
+        </FormContextProvider>
     );
 };
 

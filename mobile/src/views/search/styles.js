@@ -1,5 +1,7 @@
 import ALIGN from 'assets/styles/align';
 import { StyleSheet } from 'react-native';
+import COLOR from 'assets/styles/color';
+import FONT from 'assets/styles/font';
 
 const useStyles = () =>
     StyleSheet.create({
@@ -16,11 +18,13 @@ const useStyles = () =>
         },
         search: {
             height: 50,
-            paddingLeft: 30,
-            paddingRight: 30,
+            paddingLeft: 50,
+            paddingRight: 50,
             ...ALIGN.CENTER,
             flexDirection: 'column',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            borderWidth: 1,
+            borderRadius: 5,
 
         },
 

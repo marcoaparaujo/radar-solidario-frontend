@@ -1,4 +1,5 @@
 const FAMILY_LABELS = {
+    HEAD: 'Responsável',
     CPF: 'CPF',
     NIS: 'NIS'
 };

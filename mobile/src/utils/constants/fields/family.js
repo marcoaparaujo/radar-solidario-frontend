@@ -1,7 +1,8 @@
 const FAMILY_FIELDS = {
     THIS: 'family',
     CPF: 'cpf',
-    NIS: 'nis'
+    NIS: 'nis',
+    HEAD: 'head'
 };
 
 export default FAMILY_FIELDS;

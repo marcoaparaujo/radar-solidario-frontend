@@ -1,4 +1,5 @@
-const ADDRESS_FIELDS = {
+const ADDRESS_LABELS = {
+    THIS: 'Endereço',
     CEP: 'CEP',
     NUMBER: 'Número',
     PHONE: 'Telefone',
@@ -7,4 +8,4 @@ const ADDRESS_FIELDS = {
     COMPLEMENT: 'Complemento'
 };
 
-export default ADDRESS_FIELDS;
+export default ADDRESS_LABELS;
