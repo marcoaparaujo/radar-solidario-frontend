@@ -19,14 +19,14 @@ const Content = () => {
 
     const onSubmit = useCallback(async (data) => {
         const { errors } = await fetchLogin(data);
-        !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.SEARCH });
+        !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.FAMILY.SEARCH });
     }, []);
 
     return (
         <Fragment>
             <FieldsAuthentication />
             <Button onPress={handleSubmit(onSubmit)}>Entrar</Button>
-            <Button onPress={() => navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.SEARCH })}>Avançar</Button>
+            <Button onPress={() => navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.FAMILY.SEARCH })}>Avançar</Button>
         </Fragment>
     );
 };

@@ -27,26 +27,20 @@ export const FamilyContextProvider = ({ children, defaultValues }) => {
         [setState]
     );
 
-    const setErrors = useCallback((errors = null) => setState((prevState) => ({ ...prevState, errors })), [setState]);
-
     const setFamily = useCallback(
         (authentication, errors = null) => setState((prevState) => ({ ...prevState, authentication, errors })),
         [setState]
     );
 
-    return (
-        <FamilyContext.Provider value={{ state, setIsLoading, setErrors, setFamily }}>
-            {children}
-        </FamilyContext.Provider>
-    );
+    return <FamilyContext.Provider value={{ state, setIsLoading, setFamily }}>{children}</FamilyContext.Provider>;
 };
 
 const useFamilyContext = () => {
     const context = useContext(FamilyContext);
     const service = useFamilyService(context);
 
-    const { state, setIsLoading, setErrors, setFamily } = context;
-    return { setIsLoading, setErrors, setFamily, ...state, ...service };
+    const { state, setIsLoading, setFamily } = context;
+    return { setIsLoading, setFamily, ...state, ...service };
 };
 
 export default useFamilyContext;

@@ -13,14 +13,16 @@ import maxLength from 'utils/validations/masks/maxLength';
 
 const FieldsFamily = () => (
     <Fragment>
-        <FieldInput name={FAMILY_FIELDS.CPF} label={FAMILY_LABELS.CPF} mask={cpf} />
-        <FieldInput name={FAMILY_FIELDS.NIS} label={FAMILY_LABELS.NIS} mask={(value) => maxLength(value, 11)} />
+        <FieldInput name={'head'} label={'Resposável'} mask={(value) => maxLength(value, 255)} />
 
         <FieldInput
             name={AUTHENTICATION_FIELDS.EMAIL}
             label={AUTHENTICATION_LABELS.EMAIL}
             mask={(value) => maxLength(value, 80)}
         />
+
+        <FieldInput name={FAMILY_FIELDS.CPF} label={FAMILY_LABELS.CPF} mask={cpf} />
+        <FieldInput name={FAMILY_FIELDS.NIS} label={FAMILY_LABELS.NIS} mask={(value) => maxLength(value, 11)} />
     </Fragment>
 );
 

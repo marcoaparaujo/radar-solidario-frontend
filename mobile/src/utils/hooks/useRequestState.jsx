@@ -1,6 +1,7 @@
 //#region Imports
 
 import { useCallback, useState } from 'react';
+import useSystemContext from 'storages/system/context';
 import sleep from 'utils/functions/sleep';
 import useRequestError from './useRequestError';
 
@@ -15,11 +16,13 @@ const initalState = {
 const initialOptions = {
     sleep: false,
     autoClear: false,
-    sleepTimeout: null
+    sleepTimeout: null,
+    showSnackbar: true
 };
 
 const useRequestState = () => {
     const { getError } = useRequestError();
+    const { setSnackbar } = useSystemContext();
     const [requestState, setRequestState] = useState(initalState);
 
     const clear = useCallback((timeout = 100) => setTimeout(() => setRequestState(initalState), timeout), []);
@@ -33,25 +36,19 @@ const useRequestState = () => {
             waitResults(options);
 
             let response = null;
-            try {
-                const { data } = await callback();
+            await callback()
+                .then(({ data }) => {
+                    response = { ...initalState, ...data };
+                })
+                .catch(({ response: error }) => {
+                    const fltError = getError(error);
+                    clearRequestState(options);
 
-                response = {
-                    ...initalState,
-                    data: data.data || data,
-                    errors: data.errors || initalState.errors
-                };
-            } catch (error) {
-                const fltError = getError(error);
-                clearRequestState(options);
+                    options.showSnackbar && setSnackbar(true, fltError);
+                    response = { ...initalState, errors: fltError };
+                })
+                .finally(() => setRequestState(response));
 
-                response = {
-                    ...initalState,
-                    errors: fltError
-                };
-            }
-
-            setRequestState(response);
             return response;
         },
         [clear]

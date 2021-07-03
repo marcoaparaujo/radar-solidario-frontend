@@ -5,4 +5,4 @@ import ENDPOINT from 'services/endpoint';
 
 //#endregion
 
-export const postLogin = (data) => api.post(ENDPOINT.SECURITY.LOGIN, data);
+export const postFamily = (data) => api.post(ENDPOINT.FAMILY.INCLUDE, data);

@@ -23,6 +23,12 @@ const FieldsAddress = () => (
         />
 
         <FieldInput
+            name={ADDRESS_FIELDS.NEIGHBORHOOD}
+            label={ADDRESS_LABELS.NEIGHBORHOOD}
+            mask={(value) => maxLength(value, 255)}
+        />
+
+        <FieldInput
             name={ADDRESS_FIELDS.NUMBER}
             label={ADDRESS_LABELS.NUMBER}
             mask={(value) => {
@@ -32,14 +38,9 @@ const FieldsAddress = () => (
         />
 
         <FieldInput
+            isRequired={false}
             name={ADDRESS_FIELDS.COMPLEMENT}
             label={ADDRESS_LABELS.COMPLEMENT}
-            mask={(value) => maxLength(value, 255)}
-        />
-
-        <FieldInput
-            name={ADDRESS_FIELDS.NEIGHBORHOOD}
-            label={ADDRESS_LABELS.NEIGHBORHOOD}
             mask={(value) => maxLength(value, 255)}
         />
     </Fragment>

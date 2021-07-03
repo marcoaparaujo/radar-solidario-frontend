@@ -5,7 +5,10 @@ import Button from 'components/Button';
 import FieldsAddress from 'form-fields/FieldsAddress';
 import FieldsFamily from 'form-fields/FieldsFamily';
 import React, { Fragment, useCallback, useMemo } from 'react';
+import { ROUTE_NAMES } from 'routes/routes';
+import useFamilyContext from 'storages/family/context';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
+import formatSendAddress from 'utils/validations/format/send';
 import addressSchema from 'utils/validations/yup/schemas/address';
 import familySchema from 'utils/validations/yup/schemas/family';
 
@@ -13,10 +16,18 @@ import familySchema from 'utils/validations/yup/schemas/family';
 
 const Content = () => {
     const { navigate } = useNavigation();
+
     const { handleSubmit } = useFormContext();
+    const { includeFamily } = useFamilyContext();
 
     const onSubmit = useCallback(async (data) => {
-        console.log(data);
+        data = formatSendAddress(data);
+
+        data.cpf = null;
+        data.nis = null;
+        const { errors } = await includeFamily(data);
+        console.log('errors', errors);
+        !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.FAMILY.SEARCH });
     }, []);
 
     return (
