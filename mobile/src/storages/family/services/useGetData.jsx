@@ -9,7 +9,7 @@ import ENDPOINT from 'services/endpoint';
 const useGetData = () => {
     const api = useApi();
 
-    const getFamily = useCallback(() => api.get(ENDPOINT.FAMILY.GET), [api]);
+    const getFamily = useCallback((nisCpf) => api.get(ENDPOINT.FAMILY.GET(nisCpf)), [api]);
 
     return {
         getFamily

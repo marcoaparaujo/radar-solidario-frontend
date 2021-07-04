@@ -5,9 +5,10 @@ import Logo from 'assets/images/logo.gif';
 import Button from 'components/Button';
 import React from 'react';
 import { View } from 'react-native';
-import { Image, SearchBar } from 'react-native-elements';
+import { Image } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
-import { FormContextProvider } from 'storages/form/context';
+import { FamilyContextProvider } from 'storages/family/context';
+import FormSearchFamily from './FormSearchFamily';
 import useStyles from './styles';
 
 //#endregion
@@ -19,9 +20,7 @@ const Content = () => {
         <View style={styles.container}>
             <Image source={Logo} style={styles.image} resizeMode='contain' />
 
-            <View>
-                <SearchBar style={styles.search} placeholder='Pesquisar NIS/CPF' />
-            </View>
+            <FormSearchFamily />
         </View>
     );
 };
@@ -30,10 +29,10 @@ const Family = () => {
     const { navigate } = useNavigation();
 
     return (
-        <FormContextProvider>
+        <FamilyContextProvider>
             <Content />
             <Button onPress={() => navigate(ROUTE_NAMES.FAMILY.REGISTER)}>Cadastrar manualmente</Button>
-        </FormContextProvider>
+        </FamilyContextProvider>
     );
 };
 

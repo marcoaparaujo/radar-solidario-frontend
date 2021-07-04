@@ -1,7 +1,8 @@
 const FAMILY_LABELS = {
     HEAD: 'Responsável',
     CPF: 'CPF',
-    NIS: 'NIS'
+    NIS: 'NIS',
+    SEARCH: 'NIS/CPF'
 };
 
 export default FAMILY_LABELS;

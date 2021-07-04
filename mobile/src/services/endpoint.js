@@ -1,6 +1,7 @@
 //#region Imports
 
 import { API_URL } from '@env';
+import buildQueryParams from 'utils/functions/buildQueryParams';
 
 //#endregion
 
@@ -10,8 +11,8 @@ const ENDPOINT = {
         LOGIN: 'security/login'
     },
     FAMILY: {
-        GET: 'family',
-        INCLUDE: 'family'
+        INCLUDE: 'family',
+        GET: (nisCpf) => `family?${buildQueryParams({ nisCpf })}`
     }
 };
 

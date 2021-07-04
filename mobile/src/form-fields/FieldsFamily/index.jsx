@@ -8,12 +8,13 @@ import AUTHENTICATION_LABELS from 'utils/constants/labels/authentication';
 import FAMILY_LABELS from 'utils/constants/labels/family';
 import cpf from 'utils/validations/masks/cpf';
 import maxLength from 'utils/validations/masks/maxLength';
+import nis from 'utils/validations/masks/nis';
 
 //#endregion
 
 const FieldsFamily = () => (
     <Fragment>
-        <FieldInput name={'head'} label={'Resposável'} mask={(value) => maxLength(value, 255)} />
+        <FieldInput name={FAMILY_FIELDS.HEAD} label={FAMILY_LABELS.HEAD} mask={(value) => maxLength(value, 255)} />
 
         <FieldInput
             name={AUTHENTICATION_FIELDS.EMAIL}
@@ -22,7 +23,7 @@ const FieldsFamily = () => (
         />
 
         <FieldInput name={FAMILY_FIELDS.CPF} label={FAMILY_LABELS.CPF} mask={cpf} />
-        <FieldInput name={FAMILY_FIELDS.NIS} label={FAMILY_LABELS.NIS} mask={(value) => maxLength(value, 11)} />
+        <FieldInput name={FAMILY_FIELDS.NIS} label={FAMILY_LABELS.NIS} mask={nis} />
     </Fragment>
 );
 

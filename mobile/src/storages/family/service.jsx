@@ -17,13 +17,16 @@ const useFamilyService = ({ setIsLoading, setFamily }) => {
         setIsLoading(requestState.isLoading);
     }, [requestState]);
 
-    const fetchFamily = useCallback(async () => {
-        const response = await run(() => getFamily());
-        const { data, errors } = response;
+    const fetchFamily = useCallback(
+        async (nisCpf) => {
+            const response = await run(() => getFamily(nisCpf));
+            const { data, errors } = response;
 
-        setFamily(data, errors);
-        return response;
-    }, [run, getFamily, setFamily]);
+            setFamily(data, errors);
+            return response;
+        },
+        [run, getFamily, setFamily]
+    );
 
     const includeFamily = useCallback(
         async (form) => {
