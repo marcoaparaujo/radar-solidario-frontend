@@ -15,7 +15,7 @@
     "resolveJsonModule": true,
     "baseUrl": "./src",
     "paths": {
-      "FosterPet/*": [
+      "RadarSolidario/*": [
         "src/*"
       ]
     }
