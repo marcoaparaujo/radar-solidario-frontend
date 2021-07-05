@@ -3,11 +3,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import StackNavigator from 'routes/navigators/StackNavigator';
+import NAVIGATION_THEME from 'utils/constants/theme/navigation-theme';
 
 //#endregion
 
 const Router = () => (
-    <NavigationContainer>
+    <NavigationContainer theme={NAVIGATION_THEME}>
         <StackNavigator />
     </NavigationContainer>
 );

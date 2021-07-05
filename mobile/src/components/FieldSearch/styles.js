@@ -20,11 +20,13 @@ const useStyles = () => {
             backgroundColor: theme.colors.light.dark
         },
         container: {
+            padding: 0,
             width: '100%',
             border: 'none',
             backgroundColor: 'transparent'
         },
         searchIcon: {
+            fontSize: 18,
             marginLeft: 5
         },
         error: {

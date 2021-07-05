@@ -60,6 +60,7 @@ const THEME = {
             light: LIGHT.LIGHT,
             medium: LIGHT.MEDIUM
         },
+        grey: GREY,
         black: BLACK,
         white: LIGHT.LIGHT,
         divider: LIGHT.DARK,

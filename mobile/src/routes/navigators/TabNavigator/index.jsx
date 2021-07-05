@@ -10,7 +10,7 @@ import { ROUTE_NAMES, TAB_ROUTES } from 'routes/routes';
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => (
-    <Tab.Navigator initialRouteName={ROUTE_NAMES.HOME}>
+    <Tab.Navigator initialRouteName={ROUTE_NAMES.FAMILY.SEARCH} tabBarOptions={{ labelStyle: { fontSize: 12 } }}>
         {TAB_ROUTES.map(({ name, options, Component }, index) => (
             <Tab.Screen
                 key={index}
@@ -18,8 +18,8 @@ const TabNavigator = () => (
                 component={Component}
                 options={{
                     ...options,
-                    tabBarIcon: ({ color, size }) => (
-                        <Icon solid size={size} color={color} name={options.tabBarIcon} type='font-awesome-5' />
+                    tabBarIcon: ({ color }) => (
+                        <Icon solid size={22} color={color} name={options.tabBarIcon} type='font-awesome-5' />
                     )
                 }}
             />

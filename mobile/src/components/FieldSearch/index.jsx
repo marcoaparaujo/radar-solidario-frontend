@@ -2,7 +2,7 @@
 
 import React, { useCallback, useMemo } from 'react';
 import { useController } from 'react-hook-form';
-import { SearchBar, useTheme } from 'react-native-elements';
+import { Icon, SearchBar, useTheme } from 'react-native-elements';
 import useFormContext from 'storages/form/context';
 import extractErrors from 'utils/functions/extractErrors';
 import useStyles from './styles';
@@ -55,14 +55,16 @@ const FieldSearch = ({ mask, name, placeholder, onPress }) => {
             inputContainerStyle={styles.inputContainer}
             loadingProps={{ color: theme.colors.black }}
             onChangeText={(value) => handleChange(value)}
-            searchIcon={{
-                size: 18,
-                solid: true,
-                name: 'search',
-                type: 'font-awesome-5',
-                style: styles.searchIcon,
-                onPress: onPress && onPress()
-            }}
+            searchIcon={
+                <Icon
+                    solid
+                    name='search'
+                    type='font-awesome-5'
+                    style={styles.searchIcon}
+                    color={theme.colors.grey}
+                    onPress={() => onPress && onPress()}
+                />
+            }
         />
     );
 };

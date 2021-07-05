@@ -43,7 +43,7 @@ export const TAB_ROUTES = [
     {
         Component: Stock,
         name: ROUTE_NAMES.STOCK,
-        options: { title: 'Estoque', tabBarIcon: 'box' }
+        options: { title: 'Estoque', tabBarIcon: 'archive' }
     },
     {
         Component: Historical,

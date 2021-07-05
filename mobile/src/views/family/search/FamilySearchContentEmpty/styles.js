@@ -1,14 +1,16 @@
 //#region Imports
 
+import FONT from 'assets/styles/font';
 import { StyleSheet } from 'react-native';
 
 //#endregion
 
 const useStyles = () =>
     StyleSheet.create({
-        container: {
-            width: '100%',
-            paddingHorizontal: 20
+        text: {
+            fontSize: 16,
+            marginBottom: 10,
+            ...FONT.MEDIUM
         }
     });
 
