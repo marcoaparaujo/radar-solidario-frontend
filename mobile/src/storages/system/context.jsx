@@ -5,15 +5,14 @@ import SYSTEM_FIELDS from 'utils/constants/fields/system';
 
 //#endregion
 
-const { TOKEN, NAME, ROLE } = SYSTEM_FIELDS;
-
 const SystemContext = createContext();
 
 const initialState = {
-    [ROLE]: null,
-    [NAME]: null,
-    [TOKEN]: null,
-    snackbar: {
+    [SYSTEM_FIELDS.ROLE]: null,
+    [SYSTEM_FIELDS.NAME]: null,
+    [SYSTEM_FIELDS.TOKEN]: null,
+    [SYSTEM_FIELDS.THEME]: 'light',
+    [SYSTEM_FIELDS.SNACKBAR]: {
         time: 3000,
         errors: [],
         action: null,
@@ -33,18 +32,22 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
         [setState]
     );
 
+    const setTheme = useCallback((theme = 'light') => setState((prevState) => ({ ...prevState, theme })), [setState]);
+
     const setLogin = useCallback(
         ({ roles, name, token }) => setState((prevState) => ({ ...prevState, roles, name, token })),
         [setState]
     );
 
-    return <SystemContext.Provider value={{ state, setLogin, setSnackbar }}>{children}</SystemContext.Provider>;
+    return (
+        <SystemContext.Provider value={{ state, setLogin, setTheme, setSnackbar }}>{children}</SystemContext.Provider>
+    );
 };
 
 const useSystemContext = () => {
-    const { state, setLogin, setSnackbar } = useContext(SystemContext);
+    const { state, setLogin, setTheme, setSnackbar } = useContext(SystemContext);
 
-    return { setLogin, setSnackbar, ...state };
+    return { setLogin, setTheme, setSnackbar, ...state };
 };
 
 export default useSystemContext;

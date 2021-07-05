@@ -1,24 +1,33 @@
 //#region Imports
 
 import SplashLoader from 'containers/SplashLoader';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import useSystemContext, { SystemContextProvider } from 'storages/system/context';
 import THEME from 'utils/constants/theme/theme';
 import Router from './routes';
-import { SystemContextProvider } from './storages/system/context';
 
 //#endregion
 
+const Content = () => {
+    const { theme } = useSystemContext();
+    const activeTheme = useMemo(() => theme === 'light' && THEME, [theme]);
+
+    return (
+        <ThemeProvider theme={activeTheme}>
+            <SplashLoader>
+                <Router />
+            </SplashLoader>
+        </ThemeProvider>
+    );
+};
+
 const App = () => (
     <SafeAreaProvider>
-        <ThemeProvider theme={THEME}>
-            <SystemContextProvider>
-                <SplashLoader>
-                    <Router />
-                </SplashLoader>
-            </SystemContextProvider>
-        </ThemeProvider>
+        <SystemContextProvider>
+            <Content />
+        </SystemContextProvider>
     </SafeAreaProvider>
 );
 
