@@ -5,8 +5,8 @@ import React, { Fragment } from 'react';
 import { View } from 'react-native';
 import { Image } from 'react-native-elements';
 import { FamilyContextProvider } from 'storages/family/context';
+import UserData from '../userData';
 import FamilySearchContent from './FamilySearchContent';
-import FamilySearchContentEmpty from './FamilySearchContentEmpty';
 import useStyles from './styles';
 
 //#endregion
@@ -15,7 +15,6 @@ const Content = () => {
     return (
         <Fragment>
             <FamilySearchContent />
-            <FamilySearchContentEmpty />
         </Fragment>
     );
 };
@@ -29,6 +28,7 @@ const FamilySearch = () => {
                 <Image source={Logo} style={styles.image} resizeMode='contain' />
 
                 <Content />
+                <UserData />
             </View>
         </FamilyContextProvider>
     );
