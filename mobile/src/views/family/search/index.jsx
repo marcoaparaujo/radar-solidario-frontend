@@ -4,7 +4,7 @@ import Logo from 'assets/images/logo.gif';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { Image } from 'react-native-elements';
-import { FamilyContextProvider } from 'storages/family/context';
+import useFamilyContext, { FamilyContextProvider } from 'storages/family/context';
 import FamilySearchContent from './components/FamilySearchContent';
 import FamilySearchContentEmpty from './components/FamilySearchContentEmpty';
 import FormSearchFamily from './FormSearchFamily';
@@ -14,6 +14,7 @@ import useStyles from './styles';
 
 const Content = () => {
     const styles = useStyles();
+    const { family, errors } = useFamilyContext();
 
     return (
         <View style={styles.container}>
@@ -21,8 +22,7 @@ const Content = () => {
             <FormSearchFamily />
 
             <View style={styles.content}>
-                <FamilySearchContent />
-                <FamilySearchContentEmpty />
+                {family ? <FamilySearchContent data={family} /> : errors && <FamilySearchContentEmpty />}
             </View>
         </View>
     );

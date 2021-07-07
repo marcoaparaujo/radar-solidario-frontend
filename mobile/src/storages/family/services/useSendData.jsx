@@ -9,7 +9,7 @@ import ENDPOINT from 'services/endpoint';
 const useSendData = () => {
     const api = useApi();
 
-    const postFamily = useCallback((data) => api.post(ENDPOINT.FAMILY.INCLUDE, data), [api]);
+    const postFamily = useCallback((data) => api.post(ENDPOINT.FAMILY.THIS, data), [api]);
 
     return {
         postFamily

@@ -28,7 +28,7 @@ export const FamilyContextProvider = ({ children, defaultValues }) => {
     );
 
     const setFamily = useCallback(
-        (authentication, errors = null) => setState((prevState) => ({ ...prevState, authentication, errors })),
+        (family, errors = null) => setState((prevState) => ({ ...prevState, family, errors })),
         [setState]
     );
 

@@ -11,8 +11,8 @@ const ENDPOINT = {
         LOGIN: 'security/login'
     },
     FAMILY: {
-        INCLUDE: 'family',
-        GET: (nisCpf) => `family?${buildQueryParams({ nisCpf })}`
+        THIS: 'family',
+        GET_BY_NIS_OR_CPF: (nisCpf) => `family?${buildQueryParams({ nisCpf })}`
     }
 };
 

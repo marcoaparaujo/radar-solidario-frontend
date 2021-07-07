@@ -8,7 +8,7 @@ import useSendData from './services/useSendData';
 //#endregion
 
 const useFamilyService = ({ setIsLoading, setFamily }) => {
-    const { getFamily } = useGetData();
+    const { getFamilyByNisOrCpf } = useGetData();
     const { postFamily } = useSendData();
 
     const { run, requestState } = useRequestState();
@@ -16,17 +16,6 @@ const useFamilyService = ({ setIsLoading, setFamily }) => {
     useEffect(() => {
         setIsLoading(requestState.isLoading);
     }, [requestState]);
-
-    const fetchFamily = useCallback(
-        async (nisCpf) => {
-            const response = await run(() => getFamily(nisCpf));
-            const { data, errors } = response;
-
-            setFamily(data, errors);
-            return response;
-        },
-        [run, getFamily, setFamily]
-    );
 
     const includeFamily = useCallback(
         async (form) => {
@@ -39,9 +28,20 @@ const useFamilyService = ({ setIsLoading, setFamily }) => {
         [run, postFamily, setFamily]
     );
 
+    const fetchFamilyByNisOrCpf = useCallback(
+        async (nisCpf, options) => {
+            const response = await run(() => getFamilyByNisOrCpf(nisCpf), options);
+            const { data, errors } = response;
+
+            setFamily(data, errors);
+            return response;
+        },
+        [run, getFamilyByNisOrCpf, setFamily]
+    );
+
     return {
-        fetchFamily,
-        includeFamily
+        includeFamily,
+        fetchFamilyByNisOrCpf
     };
 };
 

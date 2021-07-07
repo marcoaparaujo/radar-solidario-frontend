@@ -32,6 +32,8 @@ const useRequestState = () => {
 
     const run = useCallback(
         async (callback, options = initialOptions) => {
+            options = { ...initialOptions, ...options };
+
             setRequestState({ ...initalState, isLoading: true });
             waitResults(options);
 

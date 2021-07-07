@@ -9,10 +9,10 @@ import { StyleSheet } from 'react-native';
 const useStyles = () =>
     StyleSheet.create({
         container: {
+            marginTop: 5,
             ...ALIGN.LEFT
         },
         label: {
-            marginTop: 5,
             marginRight: 3,
             ...FONT.BOLD
         },
