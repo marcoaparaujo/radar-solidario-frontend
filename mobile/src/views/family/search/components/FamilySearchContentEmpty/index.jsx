@@ -2,7 +2,8 @@
 
 import { useNavigation } from '@react-navigation/native';
 import Button from 'components/Button';
-import React, { Fragment } from 'react';
+import React from 'react';
+import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
 import useStyles from './styles';
@@ -14,10 +15,10 @@ const FamilySearchContentEmpty = () => {
     const { navigate } = useNavigation();
 
     return (
-        <Fragment>
+        <View style={styles.container}>
             <Text style={styles.text}>Resultado não encontrado</Text>
             <Button onPress={() => navigate(ROUTE_NAMES.FAMILY.REGISTER)}>Cadastrar manualmente</Button>
-        </Fragment>
+        </View>
     );
 };
 

@@ -1,37 +1,39 @@
 //#region Imports
 
 import Logo from 'assets/images/logo.gif';
-import React, { Fragment } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { ScrollView, View } from 'react-native';
 import { Image } from 'react-native-elements';
 import { FamilyContextProvider } from 'storages/family/context';
-import UserData from '../userData';
-import FamilySearchContent from './FamilySearchContent';
+import FamilySearchContent from './components/FamilySearchContent';
+import FamilySearchContentEmpty from './components/FamilySearchContentEmpty';
+import FormSearchFamily from './FormSearchFamily';
 import useStyles from './styles';
 
 //#endregion
 
 const Content = () => {
-    return (
-        <Fragment>
-            <FamilySearchContent />
-        </Fragment>
-    );
-};
-
-const FamilySearch = () => {
     const styles = useStyles();
 
     return (
-        <FamilyContextProvider>
-            <View style={styles.container}>
-                <Image source={Logo} style={styles.image} resizeMode='contain' />
+        <View style={styles.container}>
+            <Image source={Logo} style={styles.image} resizeMode='contain' />
+            <FormSearchFamily />
 
-                <Content />
-                <UserData />
+            <View style={styles.content}>
+                <FamilySearchContent />
+                <FamilySearchContentEmpty />
             </View>
-        </FamilyContextProvider>
+        </View>
     );
 };
+
+const FamilySearch = () => (
+    <ScrollView>
+        <FamilyContextProvider>
+            <Content />
+        </FamilyContextProvider>
+    </ScrollView>
+);
 
 export default FamilySearch;

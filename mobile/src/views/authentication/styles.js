@@ -20,19 +20,19 @@ const useStyles = () =>
             height: 200
         },
         form: {
-            height: 260,
             width: '100%',
             ...ALIGN.CENTER,
             ...MARGIN.H_FORM,
             flexDirection: 'column',
             justifyContent: 'space-between'
         },
-        text: {
-            fontSize: 13,
-            ...FONT.MEDIUM
-        },
         forgotPassword: {
             marginTop: 10
+        },
+        text: {
+            fontSize: 13,
+            marginTop: 10,
+            ...FONT.MEDIUM
         }
     });
 

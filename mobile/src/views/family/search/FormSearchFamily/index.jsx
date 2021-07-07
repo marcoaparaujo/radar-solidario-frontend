@@ -1,7 +1,7 @@
 //#region Imports
 
 import FieldSearch from 'components/FieldSearch';
-import React, { Fragment, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import useFamilyContext from 'storages/family/context';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
@@ -19,13 +19,11 @@ const Content = () => {
     }, []);
 
     return (
-        <Fragment>
-            <FieldSearch
-                name={FAMILY_FIELDS.SEARCH}
-                onPress={() => handleSubmit(onSubmit)}
-                placeholder={FAMILY_PLACEHOLDERS.SEARCH}
-            />
-        </Fragment>
+        <FieldSearch
+            name={FAMILY_FIELDS.SEARCH}
+            onPress={() => handleSubmit(onSubmit)}
+            placeholder={FAMILY_PLACEHOLDERS.SEARCH}
+        />
     );
 };
 
