@@ -1,6 +1,6 @@
 //#region Imports
 
-import useApi from 'services/api';
+import useApi from 'services/useApi';
 import ENDPOINT from 'services/endpoint';
 import { useCallback } from 'react';
 

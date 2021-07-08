@@ -1,7 +1,7 @@
 //#region Imports
 
 import { useCallback } from 'react';
-import useApi from 'services/api';
+import useApi from 'services/useApi';
 import ENDPOINT from 'services/endpoint';
 
 //#endregion
