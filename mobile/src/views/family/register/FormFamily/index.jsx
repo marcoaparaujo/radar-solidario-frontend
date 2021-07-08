@@ -18,7 +18,7 @@ const Content = () => {
     const { navigate } = useNavigation();
 
     const { handleSubmit } = useFormContext();
-    const { includeFamily } = useFamilyContext();
+    const { includeFamily, requestState } = useFamilyContext();
 
     const onSubmit = useCallback(async (data) => {
         data = formatSendAddress(data);
@@ -32,7 +32,9 @@ const Content = () => {
             <FieldsFamily />
             <FieldsAddress />
 
-            <Button onPress={handleSubmit(onSubmit)}>Concluir</Button>
+            <Button onPress={handleSubmit(onSubmit)} isLoading={requestState.isLoading}>
+                Concluir
+            </Button>
         </Fragment>
     );
 };

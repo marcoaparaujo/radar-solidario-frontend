@@ -7,7 +7,7 @@ import FONT from 'assets/styles/font';
 
 const { LIGHT, PRIMARY, POSITIVE, NEGATIVE, SECONDARY, GREY, BLACK } = COLOR;
 
-const THEME = {
+export const ELEMENTS_THEME_LIGHT = {
     Text: {
         style: {
             color: GREY,
@@ -31,6 +31,10 @@ const THEME = {
         },
         buttonStyle: {
             height: 55,
+            backgroundColor: PRIMARY.MEDIUM
+        },
+        disabledStyle: {
+            opacity: 0.7,
             backgroundColor: PRIMARY.MEDIUM
         }
     },
@@ -69,5 +73,3 @@ const THEME = {
         warning: NEGATIVE.MEDIUM
     }
 };
-
-export default THEME;

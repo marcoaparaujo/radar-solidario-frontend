@@ -7,7 +7,7 @@ import COLOR from 'assets/styles/color';
 
 const { LIGHT, GREY } = COLOR;
 
-const NAVIGATION_THEME = {
+export const NAVIGATION_THEME_LIGHT = {
     dark: false,
     colors: {
         ...DefaultTheme.colors,
@@ -18,5 +18,3 @@ const NAVIGATION_THEME = {
         background: LIGHT.MEDIUM
     }
 };
-
-export default NAVIGATION_THEME;

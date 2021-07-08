@@ -2,6 +2,7 @@
 
 import React, { useCallback, useMemo } from 'react';
 import { useController } from 'react-hook-form';
+import { ActivityIndicator } from 'react-native';
 import { Icon, SearchBar, useTheme } from 'react-native-elements';
 import useFormContext from 'storages/form/context';
 import extractErrors from 'utils/functions/extractErrors';
@@ -9,7 +10,7 @@ import useStyles from './styles';
 
 //#endregion
 
-const FieldSearch = ({ mask, name, placeholder, onPress }) => {
+const FieldSearch = ({ mask, name, placeholder, onPress, isLoading = false, isDisabled = false }) => {
     const styles = useStyles();
     const { theme } = useTheme();
 
@@ -43,15 +44,15 @@ const FieldSearch = ({ mask, name, placeholder, onPress }) => {
             autoFocus
             lightTheme
             blurOnSubmit
-            disabled={false}
             selectTextOnFocus
-            showLoading={false}
             value={field.value}
             errorMessage={error}
+            showLoading={isLoading}
             errorStyle={styles.error}
             inputStyle={styles.input}
             placeholder={placeholder}
             containerStyle={styles.container}
+            disabled={isDisabled || isLoading}
             inputContainerStyle={styles.inputContainer}
             loadingProps={{ color: theme.colors.black }}
             onChangeText={(value) => handleChange(value)}
@@ -62,6 +63,7 @@ const FieldSearch = ({ mask, name, placeholder, onPress }) => {
                     type='font-awesome-5'
                     style={styles.searchIcon}
                     color={theme.colors.grey}
+                    disabled={isDisabled || isLoading}
                     onPress={() => onPress && onPress()}
                 />
             }

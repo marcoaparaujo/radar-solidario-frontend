@@ -13,7 +13,7 @@ import { familySearchSchema } from 'utils/validations/yup/schemas/family';
 
 const Content = () => {
     const { handleSubmit } = useFormContext();
-    const { fetchFamilyByNisOrCpf } = useFamilyContext();
+    const { fetchFamilyByNisOrCpf, requestState } = useFamilyContext();
 
     const onSubmit = useCallback(async ({ search }) => {
         await fetchFamilyByNisOrCpf(search, { showSnackbar: false });
@@ -23,6 +23,7 @@ const Content = () => {
         <FieldSearch
             name={FAMILY_FIELDS.SEARCH}
             onPress={handleSubmit(onSubmit)}
+            isLoading={requestState.isLoading}
             mask={(value) => maxLength(value, 14)}
             placeholder={FAMILY_PLACEHOLDERS.SEARCH}
         />

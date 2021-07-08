@@ -5,14 +5,14 @@ import React, { useMemo } from 'react';
 import { ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import useSystemContext, { SystemContextProvider } from 'storages/system/context';
-import THEME from 'utils/constants/theme/theme';
+import { ELEMENTS_THEME_LIGHT } from 'utils/constants/theme/elements-theme';
 import Router from './routes';
 
 //#endregion
 
 const Content = () => {
     const { theme } = useSystemContext();
-    const activeTheme = useMemo(() => theme === 'light' && THEME, [theme]);
+    const activeTheme = useMemo(() => theme === 'light' && ELEMENTS_THEME_LIGHT, [theme]);
 
     return (
         <ThemeProvider theme={activeTheme}>
