@@ -9,7 +9,7 @@ import yup from '../yup';
 //#endregion
 
 export const familySearchSchema = yup.object().shape({
-    [FAMILY_FIELDS.SEARCH]: yup.string().required().min(14).max(14).label(FAMILY_LABELS.SEARCH)
+    [FAMILY_FIELDS.SEARCH]: yup.string().required().min(11).max(14).label(FAMILY_LABELS.SEARCH)
 });
 
 const familySchema = yup.object().shape({

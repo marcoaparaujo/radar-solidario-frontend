@@ -6,7 +6,7 @@ import useFamilyContext from 'storages/family/context';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
 import FAMILY_PLACEHOLDERS from 'utils/constants/placeholder/family';
-import maxLength from 'utils/validations/masks/maxLength';
+import nisCpf from 'utils/validations/masks/nisCpf';
 import { familySearchSchema } from 'utils/validations/yup/schemas/family';
 
 //#endregion
@@ -21,10 +21,10 @@ const Content = () => {
 
     return (
         <FieldSearch
+            mask={nisCpf}
             name={FAMILY_FIELDS.SEARCH}
             onPress={handleSubmit(onSubmit)}
             isLoading={requestState.isLoading}
-            mask={(value) => maxLength(value, 14)}
             placeholder={FAMILY_PLACEHOLDERS.SEARCH}
         />
     );
