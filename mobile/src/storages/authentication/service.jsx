@@ -1,30 +1,27 @@
 //#region Imports
 
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import useSystemContext from 'storages/system/context';
 import useRequestState from 'utils/hooks/useRequestState';
 import useSendData from './services/useSendData';
 
 //#endregion
 
-const useAuthenticationService = ({ setIsLoading, setErrors }) => {
-    const { postLogin } = useSendData();
-    const { setLogin } = useSystemContext();
+const useAuthenticationService = () => {
     const { run, requestState } = useRequestState();
 
-    useEffect(() => {
-        setIsLoading(requestState.isLoading);
-    }, [requestState]);
+    const { postLogin } = useSendData();
+    const { setLogin } = useSystemContext();
 
     const fetchLogin = useCallback(
         async (form) => {
             const response = await run(() => postLogin(form));
             const { data, errors } = response;
 
-            errors.length ? setErrors(errors) : setLogin(data);
+            !errors.length && setLogin(data);
             return response;
         },
-        [run, postLogin, setErrors, setLogin]
+        [run, postLogin, setLogin]
     );
 
     return {

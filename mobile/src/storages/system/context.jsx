@@ -23,6 +23,13 @@ const initialState = {
 export const SystemContextProvider = ({ children, defaultValues }) => {
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
+    const setTheme = useCallback((theme = 'light') => setState((prevState) => ({ ...prevState, theme })), [setState]);
+
+    const setLogin = useCallback(
+        ({ roles, name, token }) => setState((prevState) => ({ ...prevState, roles, name, token })),
+        [setState]
+    );
+
     const setSnackbar = useCallback(
         (visible = false, errors = [], action = null, time = 3000) =>
             setState((prevState) => ({
@@ -32,22 +39,17 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
         [setState]
     );
 
-    const setTheme = useCallback((theme = 'light') => setState((prevState) => ({ ...prevState, theme })), [setState]);
-
-    const setLogin = useCallback(
-        ({ roles, name, token }) => setState((prevState) => ({ ...prevState, roles, name, token })),
-        [setState]
-    );
-
     return (
-        <SystemContext.Provider value={{ state, setLogin, setTheme, setSnackbar }}>{children}</SystemContext.Provider>
+        <SystemContext.Provider value={{ ...state, setTheme, setLogin, setSnackbar }}>
+            {children}
+        </SystemContext.Provider>
     );
 };
 
 const useSystemContext = () => {
-    const { state, setLogin, setTheme, setSnackbar } = useContext(SystemContext);
+    const context = useContext(SystemContext);
 
-    return { setLogin, setTheme, setSnackbar, ...state };
+    return { ...context };
 };
 
 export default useSystemContext;

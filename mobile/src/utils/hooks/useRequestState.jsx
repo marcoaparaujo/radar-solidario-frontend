@@ -10,12 +10,11 @@ import useRequestError from './useRequestError';
 const initalState = {
     data: null,
     errors: null,
+    status: null,
     isLoading: false
 };
 
 const initialOptions = {
-    sleep: false,
-    autoClear: false,
     sleepTimeout: null,
     showSnackbar: true
 };
@@ -23,31 +22,29 @@ const initialOptions = {
 const useRequestState = () => {
     const { getError } = useRequestError();
     const { setSnackbar } = useSystemContext();
+
     const [requestState, setRequestState] = useState(initalState);
 
-    const clear = useCallback((timeout = 100) => setTimeout(() => setRequestState(initalState), timeout), []);
-
-    const clearRequestState = useCallback((options) => options.autoClear && clear(5000), []);
-    const waitResults = useCallback((options) => options.sleep && sleep(options.sleepTimeout || 3000), []);
+    const clear = useCallback(() => setRequestState(initalState), []);
+    const waitResults = useCallback(({ sleepTimeout }) => sleep(sleepTimeout || 3000), []);
 
     const run = useCallback(
-        async (callback, options = initialOptions) => {
+        async (callback, options) => {
             options = { ...initialOptions, ...options };
 
             setRequestState({ ...initalState, isLoading: true });
-            waitResults(options);
+            options.sleepTimeout && waitResults(options);
 
             let response = null;
             await callback()
-                .then(({ data }) => {
-                    response = { ...initalState, ...data };
+                .then(({ data, status }) => {
+                    response = { ...initalState, ...data, status };
                 })
                 .catch(({ response: error }) => {
                     const fltError = getError(error);
-                    clearRequestState(options);
 
                     options.showSnackbar && setSnackbar(true, fltError);
-                    response = { ...initalState, errors: fltError };
+                    response = { ...initalState, errors: fltError, status: error.status };
                 })
                 .finally(() => setRequestState(response));
 

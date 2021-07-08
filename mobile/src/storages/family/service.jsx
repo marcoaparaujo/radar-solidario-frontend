@@ -1,28 +1,23 @@
 //#region Imports
 
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import useRequestState from 'utils/hooks/useRequestState';
 import useGetData from './services/useGetData';
 import useSendData from './services/useSendData';
 
 //#endregion
 
-const useFamilyService = ({ setIsLoading, setFamily }) => {
-    const { getFamilyByNisOrCpf } = useGetData();
-    const { postFamily } = useSendData();
-
+const useFamilyService = ({ setFamily }) => {
     const { run, requestState } = useRequestState();
 
-    useEffect(() => {
-        setIsLoading(requestState.isLoading);
-    }, [requestState]);
+    const { postFamily } = useSendData();
+    const { getFamilyByNisOrCpf } = useGetData();
 
     const includeFamily = useCallback(
         async (form) => {
             const response = await run(() => postFamily(form));
-            const { data, errors } = response;
+            setFamily(response.data);
 
-            setFamily(data, errors);
             return response;
         },
         [run, postFamily, setFamily]
@@ -31,15 +26,15 @@ const useFamilyService = ({ setIsLoading, setFamily }) => {
     const fetchFamilyByNisOrCpf = useCallback(
         async (nisCpf, options) => {
             const response = await run(() => getFamilyByNisOrCpf(nisCpf), options);
-            const { data, errors } = response;
+            setFamily(response.data);
 
-            setFamily(data, errors);
             return response;
         },
         [run, getFamilyByNisOrCpf, setFamily]
     );
 
     return {
+        requestState,
         includeFamily,
         fetchFamilyByNisOrCpf
     };

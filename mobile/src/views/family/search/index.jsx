@@ -14,7 +14,7 @@ import useStyles from './styles';
 
 const Content = () => {
     const styles = useStyles();
-    const { family, errors } = useFamilyContext();
+    const { family } = useFamilyContext();
 
     return (
         <View style={styles.container}>
@@ -22,7 +22,7 @@ const Content = () => {
             <FormSearchFamily />
 
             <View style={styles.content}>
-                {family ? <FamilySearchContent data={family} /> : errors && <FamilySearchContentEmpty />}
+                {family ? <FamilySearchContent data={family} /> : <FamilySearchContentEmpty />}
             </View>
         </View>
     );

@@ -5,10 +5,7 @@ import PAGEABLE_FIELDS from 'utils/constants/fields/pageable';
 //#endregion
 
 const CONTEXT_INITIAL_STATE = {
-    error: null,
     selected: {},
-    isLoading: false,
-    hasSelected: false,
     [PAGEABLE_FIELDS.THIS]: {
         [PAGEABLE_FIELDS.PAGED]: 0,
         [PAGEABLE_FIELDS.OFFSET]: 0,
