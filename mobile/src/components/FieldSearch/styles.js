@@ -22,7 +22,8 @@ const useStyles = () => {
         container: {
             padding: 0,
             width: '100%',
-            border: 'none',
+            borderTopWidth: 0,
+            borderBottomWidth: 0,
             backgroundColor: 'transparent'
         },
         searchIcon: {
