@@ -44,7 +44,7 @@ const useRequestState = () => {
                     const fltError = getError(error);
 
                     options.showSnackbar && setSnackbar(true, fltError);
-                    response = { ...initalState, errors: fltError, status: error.status };
+                    response = { ...initalState, errors: fltError, status: error && error.status };
                 })
                 .finally(() => setRequestState(response));
 
