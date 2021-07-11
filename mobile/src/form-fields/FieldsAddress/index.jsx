@@ -13,18 +13,12 @@ import phone from 'utils/validations/masks/phone';
 
 const FieldsAddress = () => (
     <Fragment>
-        <FieldInput name={ADDRESS_FIELDS.CEP} label={ADDRESS_LABELS.CEP} mask={cep} />
         <FieldInput name={ADDRESS_FIELDS.PHONE} label={ADDRESS_LABELS.PHONE} mask={phone} />
+        <FieldInput name={ADDRESS_FIELDS.CEP} label={ADDRESS_LABELS.CEP} mask={cep} />
 
         <FieldInput
             name={ADDRESS_FIELDS.STREET}
             label={ADDRESS_LABELS.STREET}
-            mask={(value) => maxLength(value, 255)}
-        />
-
-        <FieldInput
-            name={ADDRESS_FIELDS.NEIGHBORHOOD}
-            label={ADDRESS_LABELS.NEIGHBORHOOD}
             mask={(value) => maxLength(value, 255)}
         />
 
@@ -41,6 +35,12 @@ const FieldsAddress = () => (
             isRequired={false}
             name={ADDRESS_FIELDS.COMPLEMENT}
             label={ADDRESS_LABELS.COMPLEMENT}
+            mask={(value) => maxLength(value, 255)}
+        />
+
+        <FieldInput
+            name={ADDRESS_FIELDS.NEIGHBORHOOD}
+            label={ADDRESS_LABELS.NEIGHBORHOOD}
             mask={(value) => maxLength(value, 255)}
         />
     </Fragment>
