@@ -7,24 +7,18 @@ const useStyles = () =>{
     const { theme } = useTheme()
 
     return StyleSheet.create({
-
         container: {
             width: '100%',
-            alignItems: 'center',
-            padding: 10,
+            backgroundColor: 'rgba(255, 255, 255)'
+
+
         },
 
         text: {
-            fontSize: 20,
-            ...FONT.REGULAR,
-            justifyContent: 'center',
-            color: theme.colors.secondary.dark,
-            padding:5,
+            ...FONT.BOLD,
+            fontSize: 16,
+            paddingLeft: 7,
         },
-        button: {
-            paddingTop: 20,
-
-        }
 
     })
 

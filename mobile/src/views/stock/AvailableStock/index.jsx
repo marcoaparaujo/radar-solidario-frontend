@@ -14,9 +14,9 @@ const AvailableStock = () => {
 
     return (
         <ListItemComponent label='Estoque disponível'>
-            <View style={styles.secondcontainer}>
-                <Text style={styles.textdois}>14 Cestas de 04Kg</Text>
-                <Text style={styles.textdois}>04 Cestas de 1000Kg</Text>
+            <View style={styles.container}>
+                <Text style={styles.text}>14 Cestas de 04Kg</Text>
+                <Text style={styles.text}>04 Cestas de 1000Kg</Text>
                 <Button style={styles.button}>Doar cesta</Button>
                 <Button style={styles.button}>Cadastrar Cesta</Button>
             </View>

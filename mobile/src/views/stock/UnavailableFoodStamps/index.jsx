@@ -14,9 +14,9 @@ const UnavailableFoodStamps = () => {
 
     return (
         <ListItemComponent label='Cestas indisponíveis'>
-            <View style={styles.secondcontainer}>
-                <Text style={styles.textdois}>14 Cestas de 04Kg</Text>
-                <Text style={styles.textdois}>04 Cestas de 1000Kg</Text>
+            <View style={styles.container}>
+                <Text style={styles.text}>14 Cestas de 04Kg</Text>
+                <Text style={styles.text}>04 Cestas de 1000Kg</Text>
                 <Button style={styles.button}>Alterar Disponibilidade</Button>
             </View>
         </ListItemComponent>

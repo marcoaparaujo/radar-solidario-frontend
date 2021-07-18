@@ -16,7 +16,7 @@ const ListItemComponent = ({ label, children }) => {
             content={
                 <>
                     <ListItem.Content>
-                        <Text style={styles.textmeme}>{label}</Text>
+                        <Text style={styles.text}>{label}</Text>
                     </ListItem.Content>
                 </>
             }

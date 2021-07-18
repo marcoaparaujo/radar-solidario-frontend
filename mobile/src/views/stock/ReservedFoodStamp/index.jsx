@@ -14,9 +14,9 @@ const ReservedFoodStamps = () => {
 
     return (
         <ListItemComponent label='Cestas reservadas'>
-            <View style={styles.secondcontainer}>
-                <Text style={styles.textdois}>02 Cestas de 04Kg</Text>
-                <Text style={styles.textdois}>01 Cestas de 08Kg</Text>
+            <View style={styles.container}>
+                <Text style={styles.text}>02 Cestas de 04Kg</Text>
+                <Text style={styles.text}>01 Cestas de 08Kg</Text>
                 <Button style={styles.button}>Reservar Cestas</Button>
             </View>
         </ListItemComponent>

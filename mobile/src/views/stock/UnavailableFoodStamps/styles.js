@@ -7,23 +7,14 @@ const useStyles = () =>{
     const { theme } = useTheme()
 
     return StyleSheet.create({
+
         container: {
-            width: '100%',
-            backgroundColor: 'rgba(255, 255, 255)'
-
-
-        },
-        secondcontainer: {
             width: '100%',
             alignItems: 'center',
             padding: 10,
         },
-        textmeme: {
-            ...FONT.BOLD,
-            fontSize: 16,
-            paddingLeft: 7,
-        },
-        textdois: {
+
+        text: {
             fontSize: 20,
             ...FONT.REGULAR,
             justifyContent: 'center',
