@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react';
 import { ListItem, Text } from 'react-native-elements';
-import useStyles from '../AvailableStock/styles';
+import useStyles from './styles';
 
 //#endregion
 
 const ListItemComponent = ({ label, children }) => {
-    const styles = useStyles();
     const [expanded, setExpanded] = useState(false);
+    const styles = useStyles();
 
     return (
         <ListItem.Accordion
