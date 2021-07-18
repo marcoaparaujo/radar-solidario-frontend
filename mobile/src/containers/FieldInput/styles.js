@@ -15,6 +15,7 @@ const useStyles = () => {
             width: '100%'
         },
         input: {
+            minWidth: 0,
             fontSize: 16,
             minHeight: 56,
             marginLeft: 15
