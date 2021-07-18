@@ -1,27 +1,25 @@
-import React, { Fragment } from 'react';
-import { ListItem, Text } from 'react-native-elements';
+//#region Imports
+
+import React from 'react';
 import { View } from 'react-native';
-import useStyles from './styles';
+import { Text } from 'react-native-elements';
 import Button from '../../../components/Button/index';
 import ListItemComponent from '../ListItemComponent';
+import useStyles from './styles';
+
+//#endregion
 
 const UnavailableFoodStamps = () => {
     const styles = useStyles();
 
     return (
-        <Fragment>
-            <ListItemComponent>
-                <ListItem>
-                    <ListItem.Content>
-                        <View style={styles.secondcontainer}>
-                            <Text style={styles.textdois}>14 Cestas de 04Kg</Text>
-                            <Text style={styles.textdois}>04 Cestas de 1000Kg</Text>
-                            <Button style={styles.button}>Alterar Disponibilidade</Button>
-                        </View>
-                    </ListItem.Content>
-                </ListItem>
-            </ListItemComponent>
-        </Fragment>
+        <ListItemComponent label='Cestas indisponíveis'>
+            <View style={styles.secondcontainer}>
+                <Text style={styles.textdois}>14 Cestas de 04Kg</Text>
+                <Text style={styles.textdois}>04 Cestas de 1000Kg</Text>
+                <Button style={styles.button}>Alterar Disponibilidade</Button>
+            </View>
+        </ListItemComponent>
     );
 };
 

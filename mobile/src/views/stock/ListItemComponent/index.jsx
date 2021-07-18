@@ -1,14 +1,14 @@
 //#region Imports
 
-import React from 'react';
-import useStyles from '../AvailableStock/styles';
+import React, { useState } from 'react';
 import { ListItem, Text } from 'react-native-elements';
+import useStyles from '../AvailableStock/styles';
 
 //#endregion
 
-const ListItemComponent = ({ children }) => {
+const ListItemComponent = ({ label, children }) => {
     const styles = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = useState(false);
 
     return (
         <ListItem.Accordion
@@ -16,7 +16,7 @@ const ListItemComponent = ({ children }) => {
             content={
                 <>
                     <ListItem.Content>
-                        <Text style={styles.textmeme}>Estoque Disponível</Text>
+                        <Text style={styles.textmeme}>{label}</Text>
                     </ListItem.Content>
                 </>
             }
@@ -25,7 +25,9 @@ const ListItemComponent = ({ children }) => {
                 setExpanded(!expanded);
             }}
         >
-            {children}
+            <ListItem>
+                <ListItem.Content>{children}</ListItem.Content>
+            </ListItem>
         </ListItem.Accordion>
     );
 };
