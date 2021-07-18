@@ -5,7 +5,7 @@ import FamilyRegister from 'views/family/register';
 import FamilySearch from 'views/family/search';
 import Historical from 'views/historical';
 import Profile from 'views/profile';
-import Stock from 'views/stock';
+import Stock from 'views/stock/main';
 
 //#endregion
 
