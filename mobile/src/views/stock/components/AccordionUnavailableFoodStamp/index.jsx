@@ -1,27 +1,26 @@
 //#region Imports
 
 import Button from 'components/Button';
+import Accordion from 'containers/Accordion';
 import React from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import ListItemComponent from '../ListItemComponent';
 import useStyles from './styles';
 
 //#endregion
 
-const AvailableStock = () => {
+const AccordionUnavailableFoodStamp = () => {
     const styles = useStyles();
 
     return (
-        <ListItemComponent label='Estoque disponível'>
+        <Accordion label='Cestas indisponíveis'>
             <View style={styles.container}>
                 <Text style={styles.text}>14 Cestas de 04Kg</Text>
                 <Text style={styles.text}>04 Cestas de 1000Kg</Text>
-                <Button style={styles.button}>Doar cesta</Button>
-                <Button style={styles.button}>Cadastrar Cesta</Button>
+                <Button style={styles.button}>Alterar Disponibilidade</Button>
             </View>
-        </ListItemComponent>
+        </Accordion>
     );
 };
 
-export default AvailableStock;
+export default AccordionUnavailableFoodStamp;

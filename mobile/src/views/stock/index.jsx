@@ -3,15 +3,16 @@
 import React, { Fragment } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import useStyles from './styles';
-import AvailableStock from '../AvailableStock/index';
-import ReservedFoodStamps from '../ReservedFoodStamp/index';
+import AvailableStock from '../AvailableStock';
+import ReservedFoodStamps from '../ReservedFoodStamp';
 import UnavailableFoodStamps from '../UnavailableFoodStamps';
+import useStyles from './styles';
 
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
+
     return (
         <Fragment>
             <View style={styles.container}>
@@ -19,6 +20,7 @@ const Content = () => {
                 <Text style={styles.text1}>Nome da Instituição/</Text>
                 <Text style={styles.text1}>Entidade</Text>
             </View>
+
             <AvailableStock />
             <ReservedFoodStamps />
             <UnavailableFoodStamps />
