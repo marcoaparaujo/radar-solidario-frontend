@@ -3,10 +3,11 @@
 import React, { Fragment } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import AvailableStock from '../AvailableStock';
-import ReservedFoodStamps from '../ReservedFoodStamp';
-import UnavailableFoodStamps from '../UnavailableFoodStamps';
+
 import useStyles from './styles';
+import AccordionAvailableStock from './components/AccordionAvailableStock/index';
+import AccordionReservedFoodStamps from './components/AccordionReservedFoodStamp/index';
+import AccordionUnavailableFoodStamp from './components/AccordionUnavailableFoodStamp/index';
 
 //#endregion
 
@@ -21,9 +22,9 @@ const Content = () => {
                 <Text style={styles.text1}>Entidade</Text>
             </View>
 
-            <AvailableStock />
-            <ReservedFoodStamps />
-            <UnavailableFoodStamps />
+            <AccordionAvailableStock />
+            <AccordionReservedFoodStamps />
+            <AccordionUnavailableFoodStamp />
         </Fragment>
     );
 };

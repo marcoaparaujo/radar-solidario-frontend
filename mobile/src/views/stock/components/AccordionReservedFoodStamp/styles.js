@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native'
-import COLOR from '../../../assets/styles/color';
-import FONT from '../../../assets/styles/font';
+import { StyleSheet } from 'react-native';
 import { useTheme } from 'react-native-elements';
+import  FONT  from 'assets/styles/font';
 
 const useStyles = () =>{
     const { theme } = useTheme()
