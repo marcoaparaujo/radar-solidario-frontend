@@ -1,15 +1,26 @@
 //#region Imports
 
-import { StyleSheet } from 'react-native';
 import FONT from 'assets/styles/font';
+import { StyleSheet } from 'react-native';
+import { useTheme } from 'react-native-elements';
 
 //#endregion
 
-const useStyles = () =>
-    StyleSheet.create({
+const useStyles = () => {
+    const { theme } = useTheme();
+
+    return StyleSheet.create({
         accordion: {
             width: '100%',
-            backgroundColor: 'rgba(255, 255, 255)'
+            borderWidth: 2,
+            marginBottom: 20,
+            borderLeftColor: 'transparent',
+            borderRightColor: 'transparent',
+            borderTopColor: theme.colors.light.dark,
+            borderBottomColor: theme.colors.light.dark
+        },
+        container: {
+            backgroundColor: 'transparent'
         },
         title: {
             fontSize: 16,
@@ -17,5 +28,6 @@ const useStyles = () =>
             ...FONT.BOLD
         }
     });
+};
 
 export default useStyles;

@@ -14,6 +14,7 @@ const Accordion = ({ label, children }) => {
         <ListItem.Accordion
             isExpanded={expanded}
             style={styles.accordion}
+            containerStyle={styles.container}
             onPress={() => setExpanded((prevState) => !prevState)}
             content={
                 <ListItem.Content>

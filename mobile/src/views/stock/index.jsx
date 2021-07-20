@@ -3,11 +3,10 @@
 import React, { Fragment } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-
+import AccordionAvailableStock from './components/AccordionAvailableStock';
+import AccordionReservedFoodStamps from './components/AccordionReservedFoodStamp';
+import AccordionUnavailableFoodStamp from './components/AccordionUnavailableFoodStamp';
 import useStyles from './styles';
-import AccordionAvailableStock from './components/AccordionAvailableStock/index';
-import AccordionReservedFoodStamps from './components/AccordionReservedFoodStamp/index';
-import AccordionUnavailableFoodStamp from './components/AccordionUnavailableFoodStamp/index';
 
 //#endregion
 
