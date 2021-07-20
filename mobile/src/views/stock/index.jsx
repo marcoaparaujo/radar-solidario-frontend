@@ -1,7 +1,7 @@
 //#region Imports
 
-import React, { Fragment } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { ScrollView, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import AccordionAvailableStock from './components/AccordionAvailableStock';
 import AccordionReservedFoodStamps from './components/AccordionReservedFoodStamp';
@@ -14,7 +14,7 @@ const Content = () => {
     const styles = useStyles();
 
     return (
-        <Fragment>
+        <ScrollView>
             <View style={styles.container}>
                 <Text style={styles.text}>Instituição/Entidade:</Text>
                 <Text style={styles.text1}>Nome da Instituição/</Text>
@@ -24,14 +24,10 @@ const Content = () => {
             <AccordionAvailableStock />
             <AccordionReservedFoodStamps />
             <AccordionUnavailableFoodStamp />
-        </Fragment>
+        </ScrollView>
     );
 };
 
-const Stock = () => (
-    <Fragment>
-        <Content />
-    </Fragment>
-);
+const Stock = () => <Content />;
 
 export default Stock;

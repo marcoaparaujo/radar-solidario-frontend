@@ -1,6 +1,6 @@
 //#region Imports
 
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { ListItem, Text } from 'react-native-elements';
 import useStyles from './styles';
 
@@ -22,9 +22,13 @@ const Accordion = ({ label, children }) => {
                 </ListItem.Content>
             }
         >
-            <ListItem>
-                <ListItem.Content>{children}</ListItem.Content>
-            </ListItem>
+            <Fragment>
+                {expanded && (
+                    <ListItem containerStyle={styles.container}>
+                        <ListItem.Content>{children}</ListItem.Content>
+                    </ListItem>
+                )}
+            </Fragment>
         </ListItem.Accordion>
     );
 };
