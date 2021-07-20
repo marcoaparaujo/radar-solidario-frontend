@@ -17,7 +17,7 @@ const useStyles = () =>
             fontSize: 16,
             paddingBottom: 20,
         },
-        text1: {
+        belowText: {
             fontSize: 23
         }
     });

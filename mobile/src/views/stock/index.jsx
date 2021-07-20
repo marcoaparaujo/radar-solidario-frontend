@@ -17,8 +17,8 @@ const Content = () => {
         <ScrollView>
             <View style={styles.container}>
                 <Text style={styles.text}>Instituição/Entidade:</Text>
-                <Text style={styles.text1}>Nome da Instituição/</Text>
-                <Text style={styles.text1}>Entidade</Text>
+                <Text style={styles.belowText}>Nome da Instituição/</Text>
+                <Text style={styles.belowText}>Entidade</Text>
             </View>
 
             <AccordionAvailableStock />
