@@ -11,10 +11,10 @@ const useStyles = () => {
     return StyleSheet.create({
         text: {
             padding: 5,
-            fontSize: 20,
             justifyContent: 'center',
+            fontSize: 20,
             color: theme.colors.secondary.dark,
-            ...FONT.REGULAR
+            ...FONT.REGULAR,
         },
         button: {
             paddingTop: 20

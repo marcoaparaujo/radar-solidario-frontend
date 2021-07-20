@@ -20,7 +20,7 @@ const useStyles = () => {
             borderBottomColor: theme.colors.light.dark
         },
         container: {
-            backgroundColor: 'transparent'
+            backgroundColor: theme.colors.light.medium
         },
         title: {
             fontSize: 16,
