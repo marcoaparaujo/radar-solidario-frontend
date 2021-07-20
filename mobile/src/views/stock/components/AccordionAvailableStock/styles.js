@@ -1,7 +1,10 @@
+//#region Imports
+
 import FONT from 'assets/styles/font';
 import { StyleSheet } from 'react-native';
 import { useTheme } from 'react-native-elements';
 
+//#endregion
 const useStyles = () => {
     const { theme } = useTheme();
 

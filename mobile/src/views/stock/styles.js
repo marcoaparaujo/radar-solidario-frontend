@@ -7,10 +7,10 @@ const useStyles = () =>
     StyleSheet.create({
         container: {
             width: '100%',
-            ...ALIGN.CENTER,
-            ...MARGIN.F_FORM,
             flexDirection: 'column',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            ...MARGIN.F_FORM,
+            ...ALIGN.CENTER,
         },
         text: {
             fontSize: 16,
