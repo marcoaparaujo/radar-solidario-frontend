@@ -3,6 +3,7 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { Text } from 'react-native-elements';
+import { FoodStampContextProvider } from 'storages/food-stamp/context';
 import AccordionAvailableStock from './components/AccordionAvailableStock';
 import AccordionReservedFoodStamps from './components/AccordionReservedFoodStamp';
 import AccordionUnavailableFoodStamp from './components/AccordionUnavailableFoodStamp';
@@ -28,6 +29,10 @@ const Content = () => {
     );
 };
 
-const Stock = () => <Content />;
+const Stock = () => (
+    <FoodStampContextProvider>
+        <Content />
+    </FoodStampContextProvider>
+);
 
 export default Stock;
