@@ -1,17 +1,21 @@
+//#region Imports
+
 import FONT from 'assets/styles/font';
 import { StyleSheet } from 'react-native';
 import { useTheme } from 'react-native-elements';
+
+//#endregion
 
 const useStyles = () => {
     const { theme } = useTheme();
 
     return StyleSheet.create({
         text: {
-            fontSize: 20,
+            padding: 5,
             ...FONT.REGULAR,
             justifyContent: 'center',
+            fontSize: 20,
             color: theme.colors.secondary.dark,
-            padding: 5
         },
         button: {
             paddingTop: 20
