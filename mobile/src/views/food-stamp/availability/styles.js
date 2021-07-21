@@ -1,7 +1,6 @@
 //#region Imports
 
 import ALIGN from 'assets/styles/align';
-import FONT from 'assets/styles/font';
 import MARGIN from 'assets/styles/margin';
 import { StyleSheet } from 'react-native';
 
@@ -12,17 +11,16 @@ const useStyles = () =>
         container: {
             flex: 1,
             ...MARGIN.F_FORM,
+            ...ALIGN.BETWEEN,
+            flexDirection: 'column'
         },
-        viewFooter: {
-            marginBottom: 52,
-            marginTop: 201,
+        info: {
+            marginBottom: 32
         },
-        footer: {
-
+        text: {
             fontSize: 16,
             ...ALIGN.CENTER
-        },
-
+        }
     });
 
 export default useStyles;

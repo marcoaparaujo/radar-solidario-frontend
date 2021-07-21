@@ -1,26 +1,22 @@
-
 //#region Imports
 
-import ALIGN from 'assets/styles/align';
 import FONT from 'assets/styles/font';
-import MARGIN from 'assets/styles/margin';
 import { StyleSheet } from 'react-native';
 
 //#endregion
 
 const useStyles = () =>
     StyleSheet.create({
-        indisponivel: {
+        info: {
+            fontSize: 16,
             marginBottom: 12,
-            fontSize: 16,
-            ...FONT.BOLD,
-
+            ...FONT.BOLD
         },
-        subTitle: {
+        text: {
+            fontSize: 16,
             marginTop: 10,
-            fontSize: 16,
-            ...FONT.REGULAR,
-        },
+            ...FONT.REGULAR
+        }
     });
 
 export default useStyles;

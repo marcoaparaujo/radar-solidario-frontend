@@ -18,10 +18,10 @@ const AccordionUnavailableFoodStamp = () => {
         <AccordionStock label='Cestas indisponíveis'>
             <Text style={styles.text}>14 Cestas de 04Kg</Text>
             <Text style={styles.text}>04 Cestas de 1000Kg</Text>
-            <Button
-                onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.UNUAVAILABILITY)}
-                style={styles.button}
-            >Alterar Disponibilidade</Button>
+
+            <Button style={styles.button} onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.AVAILABILITY)}>
+                Alterar disponibilidade
+            </Button>
         </AccordionStock>
     );
 };
