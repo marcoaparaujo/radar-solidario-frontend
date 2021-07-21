@@ -1,16 +1,14 @@
 
 //#region Imports
 
-import ALIGN from 'assets/styles/align';
 import FONT from 'assets/styles/font';
-import MARGIN from 'assets/styles/margin';
 import { StyleSheet } from 'react-native';
 
 //#endregion
 
 const useStyles = () =>
     StyleSheet.create({
-        view2: {
+        view: {
             flexDirection: 'row',
         },
         disponivel: {

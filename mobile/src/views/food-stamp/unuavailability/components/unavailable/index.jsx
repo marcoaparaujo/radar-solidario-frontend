@@ -7,11 +7,11 @@ import useStyles from './styles';
 
 //#endregion
 
-const Indisponivel = () => {
+const Unavailable = () => {
     const styles = useStyles();
 
     return (
-        <View >
+        <View>
             <Text style={styles.indisponivel}>Cestas indisponíveis </Text>
             <Text style={styles.subTitle}> 01 cestas de 04kg</Text>
             <Text style={styles.subTitle}> 01 cestas de 08kg</Text>
@@ -19,4 +19,4 @@ const Indisponivel = () => {
     );
 };
 
-export default Indisponivel;
+export default Unavailable;
