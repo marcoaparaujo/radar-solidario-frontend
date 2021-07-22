@@ -1,9 +1,8 @@
 //#region Imports
 
+import FieldCheckBox from 'containers/FieldCheckbox';
 import React, { Fragment } from 'react';
-import { View } from 'react-native';
-import { CheckBox, Text } from 'react-native-elements';
-import slsx from 'slsx';
+import { Text } from 'react-native-elements';
 import { FormContextProvider } from 'storages/form/context';
 import useStyles from './styles';
 
@@ -12,28 +11,12 @@ import useStyles from './styles';
 const Content = () => {
     const styles = useStyles();
 
-    const textLeftStyle = slsx(styles.text, styles.textBold, styles.textLeft);
-    const textRightStyle = slsx(styles.text, styles.textBold, styles.textRight);
-
     return (
         <Fragment>
             <Text style={styles.info}>Cestas disponíveis</Text>
 
-            <View style={styles.row}>
-                <CheckBox containerStyle={styles.checkboxContainer} />
-
-                <Text style={textLeftStyle}>14</Text>
-                <Text style={styles.text}>cestas de</Text>
-                <Text style={textRightStyle}>04kg</Text>
-            </View>
-
-            <View style={styles.row}>
-                <CheckBox containerStyle={styles.checkboxContainer} />
-
-                <Text style={textLeftStyle}>04</Text>
-                <Text style={styles.text}>cestas de</Text>
-                <Text style={textRightStyle}>08kg</Text>
-            </View>
+            <FieldCheckBox label='14 cestas de 04kg' name={'B'} />
+            <FieldCheckBox label='04 cestas de 08kg' name={'V'} />
         </Fragment>
     );
 };

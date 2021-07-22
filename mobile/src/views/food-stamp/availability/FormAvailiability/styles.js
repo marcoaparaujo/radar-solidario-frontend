@@ -18,19 +18,9 @@ const useStyles = () =>
         },
         checkboxContainer: {
             marginLeft: 0,
-            paddingLeft: 0
-        },
-        text: {
-            fontSize: 16
-        },
-        textBold: {
-            ...FONT.BOLD
-        },
-        textLeft: {
-            marginRight: 5
-        },
-        textRight: {
-            marginLeft: 5
+            paddingLeft: 0,
+            backgroundColor: 'white',
+            borderColor: 'transparent'
         }
     });
 
