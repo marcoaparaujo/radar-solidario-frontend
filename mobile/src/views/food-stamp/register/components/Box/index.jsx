@@ -7,18 +7,18 @@ import useStyles from './styles';
 
 //#endregion
 
-const Box = () => {
+const FoodStampTutorialBox = () => {
     const styles = useStyles();
 
     return (
-        <View style={styles.box}>
-            <Text style={styles.textBox}>Devem ser feitos cadastros individuais </Text>
-            <Text style={styles.textBox}>para cada pesagem de cesta.</Text>
-            <Text style={styles.textBox}>Exemplo:</Text>
-            <Text style={styles.textBox}>Cadastrar 3 cestas de 4kg e confirmar</Text>
-            <Text style={styles.textBox}>Cadastrar 2 cestas de 8kg e confirmar</Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>Devem ser feitos cadastros individuais </Text>
+            <Text style={styles.text}>para cada pesagem de cesta.</Text>
+            <Text style={styles.text}>Exemplo:</Text>
+            <Text style={styles.text}>Cadastrar 3 cestas de 4kg e confirmar</Text>
+            <Text style={styles.text}>Cadastrar 2 cestas de 8kg e confirmar</Text>
         </View>
     );
 };
 
-export default Box;
+export default FoodStampTutorialBox;

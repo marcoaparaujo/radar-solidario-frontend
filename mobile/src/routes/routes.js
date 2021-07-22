@@ -3,7 +3,7 @@
 import Authentication from 'views/authentication';
 import FamilyRegister from 'views/family/register';
 import FamilySearch from 'views/family/search';
-import RegisterFoodStamp from 'views/food-stamp/register';
+import FoodStampRegister from 'views/food-stamp/register';
 import FoodStampAvailability from 'views/food-stamp/availability';
 import Historical from 'views/historical';
 import Profile from 'views/profile';
@@ -36,17 +36,17 @@ export const STACK_ROUTES = [
     {
         Component: FamilyRegister,
         name: ROUTE_NAMES.FAMILY.REGISTER,
-        options: { title: 'Cadastrar Família', headerShown: true }
+        options: { title: 'Cadastro de família', headerShown: true }
     },
     {
-        Component: RegisterFoodStamp,
+        Component: FoodStampRegister,
         name: ROUTE_NAMES.FOOD_STAMP.REGISTER,
-        options: { title: 'Cadastrar Cesta', headerShown: true }
+        options: { title: 'Cadastro de cesta', headerShown: true }
     },
     {
         Component: FoodStampAvailability,
         name: ROUTE_NAMES.FOOD_STAMP.AVAILABILITY,
-        options: { title: 'Disponibilizar Cesta', headerShown: true }
+        options: { title: 'Disponibilidade de cestas', headerShown: true }
     }
 ];
 
