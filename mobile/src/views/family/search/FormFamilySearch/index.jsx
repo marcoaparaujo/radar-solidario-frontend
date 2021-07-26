@@ -30,10 +30,10 @@ const Content = () => {
     );
 };
 
-const FormSearchFamily = () => (
+const FormFamilySearch = () => (
     <FormContextProvider schema={familySearchSchema}>
         <Content />
     </FormContextProvider>
 );
 
-export default FormSearchFamily;
+export default FormFamilySearch;

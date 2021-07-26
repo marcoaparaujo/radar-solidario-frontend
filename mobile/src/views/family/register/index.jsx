@@ -4,7 +4,7 @@ import Snackbar from 'components/Snackbar';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { FamilyContextProvider } from 'storages/family/context';
-import FormFamily from './FormFamily';
+import FormFamilyRegister from './FormFamilyRegister';
 import useStyles from './styles';
 
 //#endregion
@@ -15,7 +15,7 @@ const Content = () => {
     return (
         <ScrollView>
             <View style={styles.form}>
-                <FormFamily />
+                <FormFamilyRegister />
             </View>
             <Snackbar />
         </ScrollView>

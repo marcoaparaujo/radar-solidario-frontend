@@ -7,7 +7,7 @@ import { Image } from 'react-native-elements';
 import useFamilyContext, { FamilyContextProvider } from 'storages/family/context';
 import FamilySearchContent from './components/FamilySearchContent';
 import FamilySearchContentEmpty from './components/FamilySearchContentEmpty';
-import FormSearchFamily from './FormSearchFamily';
+import FormSearchFamily from './FormFamilySearch';
 import useStyles from './styles';
 
 //#endregion

@@ -39,7 +39,7 @@ const Content = () => {
     );
 };
 
-const FormFamily = () => {
+const FormFamilyRegister = () => {
     const schema = useMemo(() => familySchema.concat(addressSchema), [familySchema, addressSchema]);
 
     return (
@@ -49,4 +49,4 @@ const FormFamily = () => {
     );
 };
 
-export default FormFamily;
+export default FormFamilyRegister;
