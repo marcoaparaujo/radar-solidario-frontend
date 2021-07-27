@@ -17,7 +17,7 @@ const AccordionUnavailableFoodStamp = () => {
     return (
         <AccordionStock label='Cestas indisponíveis'>
             <Text style={styles.text}>14 Cestas de 04Kg</Text>
-            <Text style={styles.text}>04 Cestas de 1000Kg</Text>
+            <Text style={styles.text}>04 Cestas de 02Kg</Text>
 
             <Button style={styles.button} onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.AVAILABILITY)}>
                 Alterar disponibilidade
