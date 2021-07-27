@@ -10,31 +10,28 @@ import { StyleSheet } from 'react-native';
 const useStyles = () =>
     StyleSheet.create({
         container: {
-            width: '100%',
-
+            height: '100%',
             ...MARGIN.F_FORM,
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'space-around'
+        },
+        header: {
+            marginBottom: 'auto'
         },
         viewPeso: {
             flexDirection: 'row',
-            marginTop: 25,
+            marginTop: 25
         },
         viewQtd: {
-            flexDirection: 'row',
-        },
-        viewFooter: {
-            justifyContent: 'space-between',
-            marginTop: 178,
+            flexDirection: 'row'
         },
         footer: {
             fontSize: 16,
             ...ALIGN.CENTER
         },
         button: {
-            paddingTop: 20,
+            paddingTop: 20
         }
-
     });
 
 export default useStyles;
