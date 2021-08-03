@@ -1,15 +1,15 @@
 //#region Imports
 
-import useStyles from './styles';
-import { View } from 'react-native';
-import React, { Fragment } from 'react';
-import { Text } from 'react-native-elements';
 import KeyButton from 'components/ButtonGroup';
 import FieldInput from 'containers/FieldInput/index';
+import React from 'react';
+import { View } from 'react-native';
+import { Text } from 'react-native-elements';
+import { FormContextProvider } from 'storages/form/context';
 import USER_FIELDS from 'utils/constants/fields/user';
 import USER_LABELS from 'utils/constants/labels/user';
-import { FormContextProvider } from 'storages/form/context';
 import userSchema from 'utils/validations/yup/schemas/user';
+import useStyles from './styles';
 
 //#endregion
 
@@ -35,15 +35,10 @@ const Content = () => {
     );
 };
 
-const UserRegister = () => {
-    const schema = userSchema;
-    return (
-        <Fragment>
-            <FormContextProvider schema={schema}>
-                <Content />
-            </FormContextProvider>
-        </Fragment>
-    );
-};
+const UserRegister = () => (
+    <FormContextProvider schema={userSchema}>
+        <Content />
+    </FormContextProvider>
+);
 
 export default UserRegister;
