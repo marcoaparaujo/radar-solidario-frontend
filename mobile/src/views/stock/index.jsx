@@ -8,11 +8,15 @@ import AccordionAvailableStock from './components/AccordionAvailableStock';
 import AccordionReservedFoodStamps from './components/AccordionReservedFoodStamp';
 import AccordionUnavailableFoodStamp from './components/AccordionUnavailableFoodStamp';
 import useStyles from './styles';
+import Button from 'components/Button';
+import { ROUTE_NAMES } from 'routes/routes';
+import { useNavigation } from '@react-navigation/native';
 
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
+    const { navigate } = useNavigation();
 
     return (
         <ScrollView>
@@ -25,6 +29,9 @@ const Content = () => {
             <AccordionAvailableStock />
             <AccordionReservedFoodStamps />
             <AccordionUnavailableFoodStamp />
+            <Button style={styles.button} onPress={() => navigate(ROUTE_NAMES.USER)}>
+                Avançar
+            </Button>
         </ScrollView>
     );
 };

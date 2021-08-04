@@ -8,11 +8,13 @@ import FoodStampAvailability from 'views/food-stamp/availability';
 import Historical from 'views/historical';
 import Profile from 'views/profile';
 import Stock from 'views/stock';
+import UserRegister from 'views/user/index';
 
 //#endregion
 
 export const ROUTE_NAMES = {
     TABS: 'tabs',
+    USER: 'user',
     STOCK: 'stock',
     PROFILE: 'profile',
     HISTORICAL: 'historical',
@@ -47,6 +49,11 @@ export const STACK_ROUTES = [
         Component: FoodStampAvailability,
         name: ROUTE_NAMES.FOOD_STAMP.AVAILABILITY,
         options: { title: 'Disponibilidade de cestas', headerShown: true }
+    },
+    {
+        Component: UserRegister,
+        name: ROUTE_NAMES.USER,
+        options: { title: 'Cadastro de Usuário', headerShown: true }
     }
 ];
 

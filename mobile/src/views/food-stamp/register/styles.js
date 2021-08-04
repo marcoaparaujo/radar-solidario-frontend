@@ -1,7 +1,6 @@
 //#region Imports
 
 import ALIGN from 'assets/styles/align';
-import FONT from 'assets/styles/font';
 import MARGIN from 'assets/styles/margin';
 import { StyleSheet } from 'react-native';
 
@@ -10,17 +9,27 @@ import { StyleSheet } from 'react-native';
 const useStyles = () =>
     StyleSheet.create({
         container: {
-            flex: 1,
+            height: '100%',
             ...MARGIN.F_FORM,
-            ...ALIGN.BETWEEN,
-            flexDirection: 'column'
+            flexDirection: 'column',
+            justifyContent: 'space-around'
         },
-        info: {
-            marginBottom: 32
+        header: {
+            marginBottom: 'auto'
+        },
+        viewPeso: {
+            flexDirection: 'row',
+            marginTop: 25
+        },
+        viewQtd: {
+            flexDirection: 'row'
         },
         text: {
             fontSize: 16,
             ...ALIGN.CENTER
+        },
+        button: {
+            paddingTop: 20
         }
     });
 
