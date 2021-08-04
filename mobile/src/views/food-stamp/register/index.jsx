@@ -16,13 +16,7 @@ const Content = () => {
     return (
         <View style={styles.container}>
             <FoodStampTutorialBox />
-
-            <FormFoodStampRegister>
-                <View style={styles.info}>
-                    <Text style={styles.text}>Você está cadastrando</Text>
-                    <Text style={styles.text}>{/* {quantidade} cestas de {peso}kg */}</Text>
-                </View>
-            </FormFoodStampRegister>
+            <FormFoodStampRegister />
         </View>
     );
 };

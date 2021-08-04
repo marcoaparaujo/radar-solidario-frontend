@@ -24,10 +24,6 @@ const useStyles = () =>
         viewQtd: {
             flexDirection: 'row'
         },
-        text: {
-            fontSize: 16,
-            ...ALIGN.CENTER
-        },
         button: {
             paddingTop: 20
         }
