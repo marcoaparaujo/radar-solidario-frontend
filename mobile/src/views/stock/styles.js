@@ -10,15 +10,18 @@ const useStyles = () =>
             ...ALIGN.CENTER,
             ...MARGIN.F_FORM,
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'center'
         },
         text: {
             ...FONT.MEDIUM,
             fontSize: 16,
-            paddingBottom: 20,
+            paddingBottom: 20
         },
         belowText: {
             fontSize: 23
+        },
+        button: {
+            padding: 20
         }
     });
 

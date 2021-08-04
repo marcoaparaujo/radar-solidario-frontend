@@ -4,6 +4,7 @@ const SYSTEM_FIELDS = {
     ROLE: 'roles',
     TOKEN: 'token',
     THEME: 'theme',
+    CHARITY: 'charity',
     SNACKBAR: 'snackbar'
 };
 

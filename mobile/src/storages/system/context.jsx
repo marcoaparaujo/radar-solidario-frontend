@@ -11,6 +11,7 @@ const initialState = {
     [SYSTEM_FIELDS.ROLE]: null,
     [SYSTEM_FIELDS.NAME]: null,
     [SYSTEM_FIELDS.TOKEN]: null,
+    [SYSTEM_FIELDS.CHARITY]: null,
     [SYSTEM_FIELDS.THEME]: 'light',
     [SYSTEM_FIELDS.SNACKBAR]: {
         time: 3000,
@@ -26,7 +27,7 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
     const setTheme = useCallback((theme = 'light') => setState((prevState) => ({ ...prevState, theme })), [setState]);
 
     const setLogin = useCallback(
-        ({ roles, name, token }) => setState((prevState) => ({ ...prevState, roles, name, token })),
+        ({ roles, name, token, charity }) => setState((prevState) => ({ ...prevState, roles, name, token, charity })),
         [setState]
     );
 

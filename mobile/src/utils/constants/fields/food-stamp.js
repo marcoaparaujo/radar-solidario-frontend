@@ -1,7 +1,7 @@
 const FOOD_STAMP_FIELDS = {
     THIS: 'food-stamp',
-    SIZE: 'size',
-    AMOUNT: 'amount'
+    LENGHT: 'lenght',
+    WEIGHT: 'weight'
 };
 
 export default FOOD_STAMP_FIELDS;

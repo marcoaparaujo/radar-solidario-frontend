@@ -8,7 +8,7 @@ import React, { Fragment, useCallback, useMemo } from 'react';
 import { ROUTE_NAMES } from 'routes/routes';
 import useFamilyContext from 'storages/family/context';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
-import formatSendAddress from 'utils/validations/format/send';
+import formatSendAddress from 'utils/validations/format/formatSendAddress';
 import addressSchema from 'utils/validations/yup/schemas/address';
 import familySchema from 'utils/validations/yup/schemas/family';
 
