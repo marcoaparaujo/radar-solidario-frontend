@@ -1,6 +1,8 @@
 //#region Imports
 
-import React from 'react';
+import Button from 'components/Button';
+import FieldValue from 'components/FieldValue';
+import React, { Fragment } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { FoodStampContextProvider } from 'storages/food-stamp/context';
@@ -14,16 +16,49 @@ const Content = () => {
     const styles = useStyles();
 
     return (
-        <View style={styles.container}>
-            <FoodStampTutorialBox />
+        <Fragment>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <FoodStampTutorialBox />
+                    <View style={styles.viewPeso}>
+                        <FormContextProvider>
+                            <FieldValue
+                                label='Peso'
+                                name='Peso'
+                                unit='Kg'
+                                onChangeText={(number) => setPeso(number)}
+                                value={peso}
+                            />
+                        </FormContextProvider>
+                    </View>
 
-            <FormFoodStampRegister>
-                <View style={styles.info}>
-                    <Text style={styles.text}>Você está cadastrando</Text>
-                    <Text style={styles.text}>{/* {quantidade} cestas de {peso}kg */}</Text>
+                    <View style={styles.viewQtd}>
+                        <FormContextProvider>
+                            <FieldValue
+                                label='Quantidade'
+                                name='Quantidade'
+                                onChangeText={(number) => setQuantidade(number)}
+                                value={quantidade}
+                            />
+                        </FormContextProvider>
+                    </View>
                 </View>
-            </FormFoodStampRegister>
-        </View>
+
+                <View style={styles.viewFooter}>
+                    <View>
+                        <Text style={styles.footer}>Você está cadastrando</Text>
+                        <Text style={styles.footer}>
+                            {quantidade} cestas de {peso}kg
+                        </Text>
+                    </View>
+                    <View style={styles.button}>
+                        <Button title='Confirmar Cadastro' />
+                    </View>
+                </View>
+            </View>
+
+            <FormFoodStampRegister />
+        </Fragment>
     );
 };
 
