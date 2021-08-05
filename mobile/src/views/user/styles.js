@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
-import ALIGN from 'assets/styles/align';
-import MARGIN from 'assets/styles/margin';
 const useStyles = () =>
     StyleSheet.create({
         container: {
-            justifyContent: 'center'
+            justifyContent: 'space-around'
         },
         text: {
             alignItems: 'center'
+        },
+        button: {
+            padding: 20
         }
     });
 

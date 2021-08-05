@@ -2,9 +2,10 @@
 
 import KeyButton from 'components/ButtonGroup';
 import FieldInput from 'containers/FieldInput/index';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
+import Button from 'components/Button';
 import { FormContextProvider } from 'storages/form/context';
 import USER_FIELDS from 'utils/constants/fields/user';
 import USER_LABELS from 'utils/constants/labels/user';
@@ -18,19 +19,25 @@ const Content = () => {
     return (
         <View style={styles.container}>
             <View>
-                <FieldInput name={USER_FIELDS.THIS} label={USER_LABELS.NAME}></FieldInput>
+                <View>
+                    <FieldInput name={USER_FIELDS.THIS} label={USER_LABELS.NAME}></FieldInput>
 
-                <FieldInput name={USER_FIELDS.BIRTH} label={USER_LABELS.BIRTH}></FieldInput>
+                    <FieldInput name={USER_FIELDS.BIRTH} label={USER_LABELS.BIRTH}></FieldInput>
 
-                <FieldInput name={USER_FIELDS.CPF} label={USER_LABELS.CPF}></FieldInput>
+                    <FieldInput name={USER_FIELDS.CPF} label={USER_LABELS.CPF}></FieldInput>
 
-                <FieldInput name={USER_FIELDS.PHONE} label={USER_LABELS.PHONE}></FieldInput>
+                    <FieldInput name={USER_FIELDS.PHONE} label={USER_LABELS.PHONE}></FieldInput>
+                </View>
             </View>
-
-            <View style={styles.text}>
-                <Text>Selecione o Gênero</Text>
+            <View>
+                <View style={styles.text}>
+                    <Text>Selecione o Gênero</Text>
+                </View>
+                <KeyButton />
             </View>
-            <KeyButton />
+            <View>
+                <Button style={styles.button}>Cadastrar</Button>
+            </View>
         </View>
     );
 };
