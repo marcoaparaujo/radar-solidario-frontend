@@ -9,7 +9,14 @@ import ENDPOINT from 'services/endpoint';
 const useGetData = () => {
     const api = useApi();
 
-    return {};
+    const getFindAllByCharityName = useCallback(
+        (data) => api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_BY_CHARITY_NAME(data)),
+        [api]
+    );
+
+    return {
+        getFindAllByCharityName
+    };
 };
 
 export default useGetData;

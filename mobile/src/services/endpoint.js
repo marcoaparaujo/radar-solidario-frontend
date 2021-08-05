@@ -15,7 +15,8 @@ const ENDPOINT = {
         GET_BY_NIS_OR_CPF: (nisCpf) => `family?${buildQueryParams({ nisCpf })}`
     },
     FOOD_STAMP: {
-        THIS: 'food-stamp'
+        THIS: 'food-stamp',
+        FIND_ALL_BY_CHARITY_NAME: (name) => `food-stamp?${buildQueryParams({ name })}`
     }
 };
 
