@@ -11,18 +11,21 @@ const FoodStampContext = createContext();
 
 const initialState = {
     [FOOD_STAMP_FIELDS.THIS]: null,
+    [FOOD_STAMP_FIELDS.FOOD_STAMPS]: [],
     ...CONTEXT_INITIAL_STATE
 };
 
 export const FoodStampContextProvider = ({ children, defaultValues }) => {
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
-    const setFoodStamp = useCallback(
-        (foodStamp) => setState((prevState) => ({ ...prevState, [FOOD_STAMP_FIELDS.THIS]: foodStamp })),
+    const setFoodStamp = useCallback((foodStamp) => setState((prevState) => ({ ...prevState, foodStamp })), [setState]);
+
+    const setFoodStamps = useCallback(
+        (foodStamps) => setState((prevState) => ({ ...prevState, foodStamps })),
         [setState]
     );
 
-    const service = useFoodStampService({ setFoodStamp });
+    const service = useFoodStampService({ setFoodStamp, setFoodStamps });
     return <FoodStampContext.Provider value={{ ...service, ...state }}>{children}</FoodStampContext.Provider>;
 };
 
