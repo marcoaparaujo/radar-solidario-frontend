@@ -1,6 +1,7 @@
 //#region Imports
 
 import { Picker } from '@react-native-picker/picker';
+import FieldError from 'components/FieldError';
 import FieldLabel from 'components/FieldLabel';
 import React, { useCallback } from 'react';
 import { useController } from 'react-hook-form';
@@ -22,7 +23,11 @@ const FieldPicker = ({
 }) => {
     const styles = useStyles();
 
-    const { control } = useFormContext();
+    const {
+        control,
+        formState: { errors }
+    } = useFormContext();
+
     const { field } = useController({ name, control });
 
     const handleChange = useCallback(
@@ -53,6 +58,8 @@ const FieldPicker = ({
 
                 {isLoading && <ActivityIndicator size='small' style={styles.loader} />}
             </View>
+
+            <FieldError name={name} errors={errors} />
         </View>
     );
 };

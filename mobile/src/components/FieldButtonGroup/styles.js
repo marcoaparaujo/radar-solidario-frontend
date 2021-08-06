@@ -11,8 +11,8 @@ const useStyles = () => {
     return StyleSheet.create({
         container: {
             height: 50,
-            marginLeft: 0,
-            marginRight: 0
+            marginVertical: 0,
+            marginHorizontal: 0
         },
         text: {
             color: theme.colors.grey

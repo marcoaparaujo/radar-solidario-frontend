@@ -3,12 +3,13 @@
 import { useNavigation } from '@react-navigation/native';
 import Button from 'components/Button';
 import FieldsUser from 'form-fields/FieldsUser';
-import React, { Fragment, useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
+import { View } from 'react-native';
 import { ROUTE_NAMES } from 'routes/routes';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
 import useUserContext from 'storages/user/context';
+import { charitySelectSchema } from 'utils/validations/yup/schemas/charity';
 import userSchema from 'utils/validations/yup/schemas/user';
-import { View } from 'react-native';
 import useStyles from './styles';
 
 //#endregion
@@ -38,10 +39,14 @@ const Content = () => {
     );
 };
 
-const FormUserRegister = () => (
-    <FormContextProvider schema={userSchema}>
-        <Content />
-    </FormContextProvider>
-);
+const FormUserRegister = () => {
+    const schema = useMemo(() => userSchema.concat(charitySelectSchema), []);
+
+    return (
+        <FormContextProvider schema={schema}>
+            <Content />
+        </FormContextProvider>
+    );
+};
 
 export default FormUserRegister;

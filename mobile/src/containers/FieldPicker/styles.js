@@ -19,7 +19,6 @@ const useStyles = () => {
             borderWidth: 2,
             borderRadius: 5,
             borderColor: theme.colors.light.light,
-            backgroundColor: theme.colors.light.light,
             ...ALIGN.BETWEEN
         },
         picker: {
@@ -28,7 +27,7 @@ const useStyles = () => {
             width: '100%',
             borderColor: 'transparent',
             backgroundColor: theme.colors.light.light,
-            ...ALIGN.REGULAR
+            ...ALIGN.CENTER
         },
         item: {
             color: theme.colors.primary.dark

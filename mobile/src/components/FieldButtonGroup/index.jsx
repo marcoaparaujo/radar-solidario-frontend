@@ -1,5 +1,6 @@
 //#region Imports
 
+import FieldError from 'components/FieldError';
 import FieldLabel from 'components/FieldLabel';
 import React, { Fragment } from 'react';
 import { useController } from 'react-hook-form';
@@ -12,7 +13,11 @@ import useStyles from './styles';
 const FieldButtonGroup = ({ name, label, options }) => {
     const styles = useStyles();
 
-    const { control } = useFormContext();
+    const {
+        control,
+        formState: { errors }
+    } = useFormContext();
+
     const { field } = useController({ name, control, defaultValue: '' });
 
     return (
@@ -29,6 +34,8 @@ const FieldButtonGroup = ({ name, label, options }) => {
                 selectedButtonStyle={styles.selectedButton}
                 onPress={(selectedIndex) => field.onChange(selectedIndex)}
             />
+
+            <FieldError name={name} errors={errors} />
         </Fragment>
     );
 };

@@ -1,9 +1,9 @@
 //#region Imports
 
 import FieldLabel from 'components/FieldLabel';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useController } from 'react-hook-form';
-import { View } from 'react-native-animatable';
+import { View } from 'react-native';
 import { Icon, Input } from 'react-native-elements';
 import useFormContext from 'storages/form/context';
 import extractErrors from 'utils/functions/extractErrors';
@@ -26,8 +26,6 @@ const FieldInput = ({
     ...rest
 }) => {
     const styles = useStyles();
-
-    const inputRef = useRef(null);
     const [visible, setVisible] = useState(isPassword);
 
     const {
@@ -40,7 +38,6 @@ const FieldInput = ({
     const error = useMemo(() => {
         const value = extractErrors(name, errors);
         if (value) {
-            inputRef.current.shake();
             return value.message;
         }
 
@@ -56,7 +53,7 @@ const FieldInput = ({
     );
 
     return (
-        <View ref={inputRef} style={styles.view}>
+        <View style={styles.view}>
             <Input
                 value={field.value}
                 errorMessage={error}
