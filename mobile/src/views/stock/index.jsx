@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import Button from 'components/Button';
 import React, { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
+import { Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import useSystemContext from 'storages/system/context';

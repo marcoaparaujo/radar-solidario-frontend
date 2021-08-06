@@ -1,9 +1,10 @@
 const USER_FIELDS = {
     THIS: 'user',
-    BIRTH: 'birth',
     CPF: 'cpf',
-    PHONE: 'cell',
-    SEARCH: 'search'
+    BIRTH: 'birth',
+    SEARCH: 'search',
+    GENDER: 'gender',
+    CELL_PHONE: 'cell'
 };
 
 export default USER_FIELDS;

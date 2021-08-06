@@ -30,7 +30,7 @@ const AccordionAvailableStock = () => {
 
             <Button style={styles.button}>Doar cesta</Button>
             <Button style={styles.button} onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.REGISTER)}>
-                Cadastrar Cesta
+                Cadastrar cesta
             </Button>
         </AccordionStock>
     );

@@ -25,7 +25,6 @@ const FieldDatePicker = ({ name, label, format = 'DD-MM-YYYY', display = 'defaul
                 label={label}
                 errors={errors}
                 control={control}
-                icon='calendar-alt'
                 onTouchStart={() => setVisible(true)}
                 {...rest}
             />

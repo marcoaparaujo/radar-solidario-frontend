@@ -6,14 +6,14 @@ import ENDPOINT from 'services/endpoint';
 
 //#endregion
 
-const useGetData = () => {
+const useSendData = () => {
     const api = useApi();
 
-    const getFamilyByNisOrCpf = useCallback((nisCpf) => api.get(ENDPOINT.FAMILY.FIND_BY_NIS_OR_CPF(nisCpf)), [api]);
+    const postIncludeVoluntary = useCallback((data) => api.post(ENDPOINT.USER.INCLUDE_VOLUNTARY, data), [api]);
 
     return {
-        getFamilyByNisOrCpf
+        postIncludeVoluntary
     };
 };
 
-export default useGetData;
+export default useSendData;
