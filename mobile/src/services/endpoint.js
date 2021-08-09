@@ -6,8 +6,8 @@ import buildQueryParams from 'utils/functions/buildQueryParams';
 //#endregion
 
 const ENDPOINT = {
-    BASE: 'http://192.168.0.105:8877',
-    // BASE: API_URL,
+    // BASE: 'http://{{SEU_IP_AQUI}}:8877',
+    BASE: API_URL,
     SECURITY: {
         LOGIN: 'security/login'
     },
