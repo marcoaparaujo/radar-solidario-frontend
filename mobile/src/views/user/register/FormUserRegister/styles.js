@@ -1,13 +1,19 @@
+//#region Imports
+
 import { StyleSheet } from 'react-native';
-import COLOR from './../../assets/styles/color';
+
+//#endregion
 
 const useStyles = () =>
     StyleSheet.create({
-        selectedIndex: {
-            color: COLOR.GREY
+        container: {
+            justifyContent: 'space-around'
         },
         text: {
             alignItems: 'center'
+        },
+        button: {
+            padding: 20
         }
     });
 

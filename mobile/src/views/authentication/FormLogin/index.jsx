@@ -25,11 +25,10 @@ const Content = () => {
     return (
         <Fragment>
             <FieldsAuthentication />
+
             <Button onPress={handleSubmit(onSubmit)} isLoading={requestState.isLoading}>
                 Entrar
             </Button>
-
-            <Button onPress={() => navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.FAMILY.SEARCH })}>Avançar</Button>
         </Fragment>
     );
 };

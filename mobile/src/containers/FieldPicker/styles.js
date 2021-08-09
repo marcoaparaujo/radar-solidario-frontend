@@ -1,22 +1,15 @@
 //#region Imports
 
 import ALIGN from 'assets/styles/align';
-import COLOR from 'assets/styles/color';
-import FONT from 'assets/styles/font';
 import { StyleSheet } from 'react-native';
+import { useTheme } from 'react-native-elements';
 
 //#endregion
 
-const { REGULAR } = FONT;
-const { BETWEEN, CENTER, LEFT, RIGHT } = ALIGN;
+const useStyles = () => {
+    const { theme } = useTheme();
 
-const {
-    LIGHT: { LIGHT },
-    PRIMARY: { DARK }
-} = COLOR;
-
-const useStyles = () =>
-    StyleSheet.create({
+    return StyleSheet.create({
         container: {
             marginTop: 5,
             marginBottom: 5
@@ -25,36 +18,27 @@ const useStyles = () =>
             width: '100%',
             borderWidth: 2,
             borderRadius: 5,
-            borderColor: MEDIUM,
-            backgroundColor: LIGHT,
-            ...BETWEEN
-        },
-        containerPicker: {
-            width: '100%',
-            borderRadius: 4,
-            ...CENTER
-        },
-        icon: {
-            marginLeft: 8,
-            ...LEFT
+            borderColor: theme.colors.light.light,
+            ...ALIGN.BETWEEN
         },
         picker: {
             height: 50,
             fontSize: 18,
             width: '100%',
-            backgroundColor: LIGHT,
             borderColor: 'transparent',
-            ...REGULAR
+            backgroundColor: theme.colors.light.light,
+            ...ALIGN.CENTER
         },
         item: {
-            color: DARK
+            color: theme.colors.primary.dark
         },
         loader: {
-            color: DARK,
             marginLeft: 8,
             marginRight: 8,
-            ...RIGHT
+            color: theme.colors.primary.dark,
+            ...ALIGN.RIGHT
         }
     });
+};
 
 export default useStyles;

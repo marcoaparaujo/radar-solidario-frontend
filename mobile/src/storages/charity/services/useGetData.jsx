@@ -9,10 +9,10 @@ import ENDPOINT from 'services/endpoint';
 const useGetData = () => {
     const api = useApi();
 
-    const getFamilyByNisOrCpf = useCallback((nisCpf) => api.get(ENDPOINT.FAMILY.FIND_BY_NIS_OR_CPF(nisCpf)), [api]);
+    const getFindOptions = useCallback((nisCpf) => api.get(ENDPOINT.CHARITY.FIND_OPTIONS), [api]);
 
     return {
-        getFamilyByNisOrCpf
+        getFindOptions
     };
 };
 

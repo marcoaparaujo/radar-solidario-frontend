@@ -33,6 +33,9 @@ const useStyles = () =>
             fontSize: 13,
             marginTop: 10,
             ...FONT.MEDIUM
+        },
+        register: {
+            marginLeft: 5
         }
     });
 

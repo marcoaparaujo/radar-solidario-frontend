@@ -6,13 +6,22 @@ import buildQueryParams from 'utils/functions/buildQueryParams';
 //#endregion
 
 const ENDPOINT = {
-    BASE: API_URL,
+    BASE: 'http://192.168.0.105:8877',
+    // BASE: API_URL,
     SECURITY: {
         LOGIN: 'security/login'
     },
+    USER: {
+        THIS: 'user',
+        INCLUDE_VOLUNTARY: 'user/voluntary'
+    },
+    CHARITY: {
+        THIS: 'charity',
+        FIND_OPTIONS: 'charity/options'
+    },
     FAMILY: {
         THIS: 'family',
-        GET_BY_NIS_OR_CPF: (nisCpf) => `family?${buildQueryParams({ nisCpf })}`
+        FIND_BY_NIS_OR_CPF: (nisCpf) => `family?${buildQueryParams({ nisCpf })}`
     },
     FOOD_STAMP: {
         THIS: 'food-stamp',
