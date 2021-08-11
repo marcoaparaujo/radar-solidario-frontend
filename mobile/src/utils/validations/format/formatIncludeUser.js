@@ -2,8 +2,6 @@
 
 import AUTHENTICATION_FIELDS from 'utils/constants/fields/authentication';
 import CHARITY_FIELDS from 'utils/constants/fields/charity';
-import USER_FIELDS from 'utils/constants/fields/user';
-import { GENDER_VALUES } from 'utils/constants/types/gender-options';
 
 //#endregion
 
@@ -19,7 +17,6 @@ const formatIncludeUser = (data) => {
     return {
         ...data,
         authentication,
-        [USER_FIELDS.GENDER]: GENDER_VALUES[Number(data[USER_FIELDS.GENDER])],
         [CHARITY_FIELDS.THIS]: {
             id: data[CHARITY_FIELDS.THIS]
         }

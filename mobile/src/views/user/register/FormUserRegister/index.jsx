@@ -2,6 +2,7 @@
 
 import { useNavigation } from '@react-navigation/native';
 import Button from 'components/Button';
+import FieldsAuthentication from 'form-fields/FieldsAuthentication';
 import FieldsUser from 'form-fields/FieldsUser';
 import React, { useCallback, useMemo } from 'react';
 import { View } from 'react-native';
@@ -9,11 +10,10 @@ import { ROUTE_NAMES } from 'routes/routes';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
 import useUserContext from 'storages/user/context';
 import formatIncludeUser from 'utils/validations/format/formatIncludeUser';
+import authenticationSchema from 'utils/validations/yup/schemas/authentication';
 import { charitySelectSchema } from 'utils/validations/yup/schemas/charity';
 import userSchema from 'utils/validations/yup/schemas/user';
 import useStyles from './styles';
-import authenticationSchema from 'utils/validations/yup/schemas/authentication';
-import FieldsAuthentication from 'form-fields/FieldsAuthentication';
 
 //#endregion
 

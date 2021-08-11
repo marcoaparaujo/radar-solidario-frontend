@@ -4,7 +4,6 @@ const USER_FIELDS = {
     NAME: 'name',
     BIRTH: 'birth',
     SEARCH: 'search',
-    GENDER: 'gender',
     CELL_PHONE: 'cell'
 };
 
