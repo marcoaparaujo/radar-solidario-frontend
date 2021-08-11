@@ -9,7 +9,7 @@ import CHARITY_LABELS from 'utils/constants/labels/charity';
 //#endregion
 
 const FieldCharity = () => {
-    const { options, fetchOptions } = useCharityContext();
+    const { options, fetchOptions, requestState } = useCharityContext();
 
     useEffect(() => {
         (async () => {
@@ -17,7 +17,14 @@ const FieldCharity = () => {
         })();
     }, []);
 
-    return <FieldPicker name={CHARITY_FIELDS.THIS} label={CHARITY_LABELS.THIS} options={options} />;
+    return (
+        <FieldPicker
+            options={options}
+            name={CHARITY_FIELDS.THIS}
+            label={CHARITY_LABELS.THIS}
+            isLoading={requestState.isLoading}
+        />
+    );
 };
 
 export default FieldCharity;

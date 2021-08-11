@@ -46,14 +46,14 @@ const FieldPicker = ({
                 <Picker
                     mode='dialog'
                     style={styles.picker}
-                    itemStyle={styles.item}
                     selectedValue={field.value}
                     enabled={!(isDisabled || isLoading)}
                     onValueChange={(itemValue) => handleChange(itemValue)}
                     {...rest}
                 >
                     <Picker.Item label={label} value={undefined} />
-                    {options && options.map(({ text, value }) => <Picker.Item label={text} value={value} />)}
+                    {options &&
+                        options.map(({ text, value }, index) => <Picker.Item key={index} label={text} value={value} />)}
                 </Picker>
 
                 {isLoading && <ActivityIndicator size='small' style={styles.loader} />}

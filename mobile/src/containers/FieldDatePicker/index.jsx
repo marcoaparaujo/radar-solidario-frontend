@@ -25,7 +25,7 @@ const FieldDatePicker = ({ name, label, format = 'DD-MM-YYYY', display = 'defaul
                 label={label}
                 errors={errors}
                 control={control}
-                onTouchStart={() => setVisible(true)}
+                onFocus={() => setVisible(true)}
                 {...rest}
             />
 

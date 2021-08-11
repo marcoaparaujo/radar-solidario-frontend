@@ -35,7 +35,8 @@ const useStyles = () =>
             ...FONT.MEDIUM
         },
         register: {
-            marginLeft: 5
+            marginLeft: 5,
+            ...FONT.BOLD
         }
     });
 

@@ -26,11 +26,8 @@ const useStyles = () => {
             fontSize: 18,
             width: '100%',
             borderColor: 'transparent',
-            backgroundColor: theme.colors.light.light,
+            backgroundColor: theme.colors.light.dark,
             ...ALIGN.CENTER
-        },
-        item: {
-            color: theme.colors.primary.dark
         },
         loader: {
             marginLeft: 8,

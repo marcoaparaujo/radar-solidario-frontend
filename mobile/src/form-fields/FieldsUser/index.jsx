@@ -16,7 +16,7 @@ import FieldCharity from './FieldCharity';
 
 const FieldsUser = () => (
     <Fragment>
-        <FieldInput name={USER_FIELDS.THIS} label={USER_LABELS.NAME} mask={(value) => maxLength(value, 200)} />
+        <FieldInput name={USER_FIELDS.NAME} label={USER_LABELS.NAME} mask={(value) => maxLength(value, 200)} />
         <FieldInput name={USER_FIELDS.CPF} label={USER_LABELS.CPF} mask={cpf} />
 
         <FieldInput name={USER_FIELDS.CELL_PHONE} label={USER_LABELS.CELL_PHONE} mask={cell} />
