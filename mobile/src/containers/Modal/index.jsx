@@ -2,7 +2,6 @@
 
 import React, { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
 import { View } from 'react-native';
-import { Button } from 'react-native-elements';
 import NativeModal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import slsx from 'slsx';
@@ -62,11 +61,7 @@ const Modal = (
         >
             <View style={containerStyle}>
                 <View style={headerStyle}>
-                    <Button
-                        type='clear'
-                        onPress={() => setIsVisible(false)}
-                        icon={<Icon name={icon} style={styles.backIcon} />}
-                    />
+                    <Icon name={icon} style={styles.backIcon} onPress={() => setIsVisible(false)} />
                 </View>
                 {children}
             </View>

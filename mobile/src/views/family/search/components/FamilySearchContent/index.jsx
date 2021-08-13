@@ -1,7 +1,7 @@
 //#region Imports
 
 import Button from 'components/Button';
-import React from 'react';
+import React, { useRef } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import ADDRESS_FIELDS from 'utils/constants/fields/address';
@@ -11,10 +11,12 @@ import FAMILY_LABELS from 'utils/constants/labels/family';
 import FamilyDataViewer from './FamilyDataViewer';
 import FoodStampDataViewer from './FoodStampDataViewer';
 import useStyles from './styles';
+import Modal from 'containers/Modal';
 
 //#endregion
 
 const FamilySearchContent = ({ data }) => {
+    const ref = useRef(null);
     const styles = useStyles();
 
     return (
@@ -38,9 +40,23 @@ const FamilySearchContent = ({ data }) => {
                     <FoodStampDataViewer label='Próximo recebimento a partir de: ' data='25/04/2021' />
                 </View>
 
-                <Button onPress={() => {}}>Doar</Button>
+                <Button onPress={() => ref.current && ref.current.show()}>Doar</Button>
                 <Text style={styles.info}>Histórico de doações recebidas</Text>
             </View>
+            <Modal style={styles.modal} ref={ref}>
+                <View style={styles.mainView}>
+                    <View style={styles.aboveView}>
+                        <Text style={styles.aboveTextOne}>O prazo para o recebimento da</Text>
+                        <Text style={styles.underTextOne}>cesta não foi cumprido</Text>
+                    </View>
+                    <View style={styles.underView}>
+                        <Text style={styles.aboveTextTwo}>Tem certeza que deseja</Text>
+                        <Text style={styles.underTextTwo}>prosseguir?</Text>
+                    </View>
+                </View>
+
+                <Button style={styles.button}>Tenho certeza</Button>
+            </Modal>
         </View>
     );
 };

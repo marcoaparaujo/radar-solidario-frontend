@@ -3,6 +3,7 @@
 import ALIGN from 'assets/styles/align';
 import COLOR from 'assets/styles/color';
 import { StyleSheet } from 'react-native';
+import { ELEMENTS_THEME_LIGHT } from './../../utils/constants/theme/elements-theme';
 
 //#endregion
 
@@ -18,7 +19,6 @@ const useStyles = () =>
             margin: 0
         },
         container: {
-            flex: 1,
             margin: 0,
             borderRadius: 2,
             backgroundColor: LIGHT
@@ -36,6 +36,16 @@ const useStyles = () =>
         },
         alignRight: {
             ...RIGHT
+        },
+        containerStyle: {
+            backgroundColor: ELEMENTS_THEME_LIGHT.colors.light.dark,
+            margin: 20,
+            padding: 20,
+            borderRadius: 20,
+            elevation: 10
+        },
+        backIcon: {
+            fontSize: 20
         }
     });
 
