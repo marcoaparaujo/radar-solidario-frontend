@@ -38,11 +38,11 @@ const Content = ({ children }) => {
         <Fragment>
             <View style={styles.container}>
                 <View style={styles.content}>
-                    <FieldValue name={FOOD_STAMP_FIELDS.LENGHT} label={FOOD_STAMP_LABELS.LENGHT} unit='Kg' />
+                    <FieldValue name={FOOD_STAMP_FIELDS.WEIGHT} label={FOOD_STAMP_LABELS.WEIGHT} unit='Kg' />
                 </View>
 
                 <View style={styles.content}>
-                    <FieldValue name={FOOD_STAMP_FIELDS.WEIGHT} label={FOOD_STAMP_LABELS.WEIGHT} />
+                    <FieldValue name={FOOD_STAMP_FIELDS.LENGHT} label={FOOD_STAMP_LABELS.LENGHT} />
                 </View>
 
                 {children}
