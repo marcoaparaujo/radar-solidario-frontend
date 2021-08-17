@@ -12,12 +12,15 @@ import FamilyDataViewer from './FamilyDataViewer';
 import FoodStampDataViewer from './FoodStampDataViewer';
 import useStyles from './styles';
 import Modal from 'containers/Modal';
+import { useNavigation } from '@react-navigation/native';
+import { ROUTE_NAMES } from 'routes/routes';
 
 //#endregion
 
 const FamilySearchContent = ({ data }) => {
-    const ref = useRef(null);
+    // const ref = useRef(null);
     const styles = useStyles();
+    const { navigate } = useNavigation();
 
     return (
         <View style={styles.container}>
@@ -40,10 +43,10 @@ const FamilySearchContent = ({ data }) => {
                     <FoodStampDataViewer label='Próximo recebimento a partir de: ' data='25/04/2021' />
                 </View>
 
-                <Button onPress={() => ref.current && ref.current.show()}>Doar</Button>
+                <Button onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.DONATION)}>Doar</Button>
                 <Text style={styles.info}>Histórico de doações recebidas</Text>
             </View>
-            <Modal style={styles.modal} ref={ref}>
+            {/* <Modal style={styles.modal} ref={ref}>
                 <View style={styles.mainView}>
                     <View style={styles.aboveView}>
                         <Text style={styles.aboveTextOne}>O prazo para o recebimento da</Text>
@@ -56,7 +59,7 @@ const FamilySearchContent = ({ data }) => {
                 </View>
 
                 <Button style={styles.button}>Tenho certeza</Button>
-            </Modal>
+            </Modal> */}
         </View>
     );
 };

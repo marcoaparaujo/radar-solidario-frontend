@@ -5,6 +5,7 @@ import FamilyRegister from 'views/family/register';
 import FamilySearch from 'views/family/search';
 import FoodStampAvailability from 'views/food-stamp/availability';
 import FoodStampRegister from 'views/food-stamp/register';
+import FoodStampDonationContent from 'views/food-stamp/register/components/FamilyDonationContent';
 import Historical from 'views/historical';
 import Profile from 'views/profile';
 import Stock from 'views/stock';
@@ -27,7 +28,8 @@ export const ROUTE_NAMES = {
     },
     FOOD_STAMP: {
         REGISTER: 'food-stamp-register',
-        AVAILABILITY: ' food-stamp-availability'
+        AVAILABILITY: ' food-stamp-availability',
+        DONATION: 'food-stamp-donation'
     }
 };
 
@@ -56,6 +58,11 @@ export const STACK_ROUTES = [
         Component: FoodStampAvailability,
         name: ROUTE_NAMES.FOOD_STAMP.AVAILABILITY,
         options: { title: 'Disponibilidade de cestas', headerShown: true }
+    },
+    {
+        Component: FoodStampDonationContent,
+        name: ROUTE_NAMES.FOOD_STAMP.DONATION,
+        options: { title: 'Doação de Cestas', headerShown: true }
     }
 ];
 
