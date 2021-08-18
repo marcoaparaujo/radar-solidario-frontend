@@ -9,13 +9,15 @@ import FOOD_STAMP_LABELS from 'utils/constants/labels/food-stamp';
 import useStyles from './styles';
 import Button from './../../../../../components/Button/index';
 import { ROUTE_NAMES } from 'routes/routes';
+import { Text } from 'react-native-elements';
+
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
 
     return (
-        <Fragment>
+        <View style={styles.containerMain}>
             <View style={styles.container}>
                 <View style={styles.content}>
                     <FieldValue name={FOOD_STAMP_FIELDS.WEIGHT} label={FOOD_STAMP_LABELS.WEIGHT} unit='Kg' />
@@ -26,9 +28,11 @@ const Content = () => {
                 </View>
             </View>
             <View>
-                <Button>Confirmar cadastro</Button>
+                <Text style={styles.text}>Você está cadastrando</Text>
+                <Text style={styles.text}>{/* {quantidade} cestas de {peso}kg */}</Text>
+                <Button>Confirmar doação</Button>
             </View>
-        </Fragment>
+        </View>
     );
 };
 

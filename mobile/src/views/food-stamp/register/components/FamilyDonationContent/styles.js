@@ -1,7 +1,16 @@
-import { StyleSheet } from 'react-native';
 
+//#region Imports
+
+import { StyleSheet } from 'react-native';
+import  ALIGN  from 'assets/styles/align';
+
+//#endregion
 const useStyles = () =>
     StyleSheet.create({
+        containerMain:{
+            height: '100%',
+            justifyContent: 'space-around',
+        },
         container: {
             width: '100%',
             paddingBottom: 100
@@ -11,6 +20,10 @@ const useStyles = () =>
         },
         button: {
             padding: 20
+        },
+        text: {
+            fontSize: 16,
+            ...ALIGN.CENTER
         }
     });
 
