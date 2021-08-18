@@ -46,7 +46,7 @@ const FamilySearchContent = ({ data }) => {
                 <Button onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.DONATION)}>Doar</Button>
                 <Text style={styles.info}>Histórico de doações recebidas</Text>
             </View>
-            {/* <Modal style={styles.modal} ref={ref}>
+            {/* <Modal  ref={ref}>
                 <View style={styles.mainView}>
                     <View style={styles.aboveView}>
                         <Text style={styles.aboveTextOne}>O prazo para o recebimento da</Text>

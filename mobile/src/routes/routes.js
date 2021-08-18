@@ -5,7 +5,7 @@ import FamilyRegister from 'views/family/register';
 import FamilySearch from 'views/family/search';
 import FoodStampAvailability from 'views/food-stamp/availability';
 import FoodStampRegister from 'views/food-stamp/register';
-import FoodStampDonationContent from 'views/food-stamp/register/components/FamilyDonationContent';
+import FoodStampDonationContent from 'views/food-stamp/register/components/FoodStampDonationContent';
 import Historical from 'views/historical';
 import Profile from 'views/profile';
 import Stock from 'views/stock';

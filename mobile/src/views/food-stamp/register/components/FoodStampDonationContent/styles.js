@@ -19,11 +19,24 @@ const useStyles = () =>
             flexDirection: 'row'
         },
         button: {
-            padding: 20
+            padding: 20,
+
         },
         text: {
             fontSize: 16,
             ...ALIGN.CENTER
+        },
+        mainView: {
+            justifyContent: 'center',
+            margin: 10
+        },
+        aboveView: {
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 10
+        },
+        modalText: {
+            fontSize: 20
         }
     });
 
