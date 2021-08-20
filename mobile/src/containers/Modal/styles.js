@@ -7,8 +7,6 @@ import { ELEMENTS_THEME_LIGHT } from './../../utils/constants/theme/elements-the
 
 //#endregion
 
-const { LEFT, RIGHT } = ALIGN;
-
 const {
     LIGHT: { LIGHT }
 } = COLOR;
@@ -32,10 +30,10 @@ const useStyles = () =>
             flexDirection: 'row'
         },
         alignLeft: {
-            ...LEFT
+            ...ALIGN.LEFT
         },
         alignRight: {
-            ...RIGHT
+            ...ALIGN.RIGHT
         },
         containerStyle: {
             backgroundColor: ELEMENTS_THEME_LIGHT.colors.light.dark,

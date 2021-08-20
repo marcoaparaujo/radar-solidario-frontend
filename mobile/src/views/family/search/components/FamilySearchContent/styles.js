@@ -23,37 +23,6 @@ const useStyles = () =>
         },
         info: {
             marginVertical: 10
-        },
-        button: {
-            margin: 10,
-            padding: 10,
-            paddingBottom: 40,
-            borderRadius: 8
-        },
-        mainView: {
-            justifyContent: 'center',
-            margin: 10
-        },
-        aboveView: {
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 10
-        },
-        underView: {
-            alignItems: 'center',
-            justifyContent: 'center'
-        },
-        aboveTextOne: {
-            fontSize: 20
-        },
-        underTextOne: {
-            fontSize: 20
-        },
-        aboveTextTwo: {
-            fontSize: 16
-        },
-        underTextTwo: {
-            fontSize: 16
         }
     });
 

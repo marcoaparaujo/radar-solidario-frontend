@@ -1,24 +1,25 @@
 //#region Imports
 
+import { useNavigation } from '@react-navigation/native';
 import Button from 'components/Button';
 import React, { useRef } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
+import { ROUTE_NAMES } from 'routes/routes';
 import ADDRESS_FIELDS from 'utils/constants/fields/address';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
 import ADDRESS_LABELS from 'utils/constants/labels/address';
 import FAMILY_LABELS from 'utils/constants/labels/family';
 import FamilyDataViewer from './FamilyDataViewer';
 import FoodStampDataViewer from './FoodStampDataViewer';
+import ModalDonateWarning from './ModalDonateWarning';
 import useStyles from './styles';
-import Modal from 'containers/Modal';
-import { useNavigation } from '@react-navigation/native';
-import { ROUTE_NAMES } from 'routes/routes';
 
 //#endregion
 
 const FamilySearchContent = ({ data }) => {
-    // const ref = useRef(null);
+    const modalRef = useRef(null);
+
     const styles = useStyles();
     const { navigate } = useNavigation();
 
@@ -46,20 +47,8 @@ const FamilySearchContent = ({ data }) => {
                 <Button onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.DONATION)}>Doar</Button>
                 <Text style={styles.info}>Histórico de doações recebidas</Text>
             </View>
-            {/* <Modal  ref={ref}>
-                <View style={styles.mainView}>
-                    <View style={styles.aboveView}>
-                        <Text style={styles.aboveTextOne}>O prazo para o recebimento da</Text>
-                        <Text style={styles.underTextOne}>cesta não foi cumprido</Text>
-                    </View>
-                    <View style={styles.underView}>
-                        <Text style={styles.aboveTextTwo}>Tem certeza que deseja</Text>
-                        <Text style={styles.underTextTwo}>prosseguir?</Text>
-                    </View>
-                </View>
 
-                <Button style={styles.button}>Tenho certeza</Button>
-            </Modal> */}
+            <ModalDonateWarning modalRef={modalRef} />
         </View>
     );
 };

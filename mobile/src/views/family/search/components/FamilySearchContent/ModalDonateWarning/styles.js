@@ -10,13 +10,26 @@ const useStyles = () =>
             margin: 10,
             justifyContent: 'center'
         },
-        content: {
+        topContent: {
             padding: 10,
             alignItems: 'center',
             justifyContent: 'center'
         },
-        text: {
+        bottomContent: {
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
+        title: {
             fontSize: 20
+        },
+        text: {
+            fontSize: 16
+        },
+        button: {
+            margin: 10,
+            padding: 10,
+            borderRadius: 8,
+            paddingBottom: 40
         }
     });
 
