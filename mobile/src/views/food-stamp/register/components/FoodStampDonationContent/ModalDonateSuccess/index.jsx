@@ -15,8 +15,7 @@ const ModalDonateSuccess = ({ modalRef }) => {
         <Modal ref={modalRef}>
             <View style={styles.container}>
                 <View style={styles.content}>
-                    <Text style={styles.text}>A seguinte doação foi registrada</Text>
-                    <Text style={styles.text}>com sucesso</Text>
+                    <Text style={styles.text}>A seguinte doação foi registrada com sucesso</Text>
                 </View>
             </View>
         </Modal>

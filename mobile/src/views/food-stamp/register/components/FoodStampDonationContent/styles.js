@@ -1,23 +1,42 @@
 //#region Imports
 
 import { StyleSheet } from 'react-native';
-
+import  ALIGN  from 'assets/styles/align';
 //#endregion
 
 const useStyles = () =>
     StyleSheet.create({
+        containerMain:{
+            height: '100%',
+            justifyContent: 'space-around',
+        },
         container: {
-            margin: 10,
-            justifyContent: 'center'
+            width: '100%',
+            paddingBottom: 100
+
         },
         content: {
-            padding: 10,
-            alignItems: 'center',
-            justifyContent: 'center'
+            flexDirection: 'row'
+        },
+        button: {
+            padding: 20,
+
         },
         text: {
-            fontSize: 20
-        }
+            fontSize: 16,
+            ...ALIGN.CENTER
+        },
+        mainView: {
+            justifyContent: 'center',
+            margin: 10
+        },
+
+        aboveView: {
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 10
+
+        },
     });
 
 export default useStyles;

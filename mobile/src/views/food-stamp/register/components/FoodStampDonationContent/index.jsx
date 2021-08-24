@@ -32,7 +32,7 @@ const Content = () => {
             <View>
                 <Text style={styles.text}>Você está doando</Text>
                 <Text style={styles.text}>{/* {quantidade} cestas de {peso}kg */}</Text>
-                <Button onPress={() => ref.current && ref.current.show()} style={styles.button}>
+                <Button onPress={() => modalRef.current && modalRef.current.show()} style={styles.button}>
                     Confirmar doação
                 </Button>
             </View>

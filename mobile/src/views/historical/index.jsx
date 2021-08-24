@@ -5,6 +5,6 @@ import FamilySearchContent from './../family/search/components/FamilySearchConte
 
 //#endregion
 
-const Historical = () => {};
+const Historical = () => <Fragment></Fragment>;
 
 export default Historical;
