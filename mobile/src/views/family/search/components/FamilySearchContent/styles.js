@@ -12,17 +12,6 @@ const useStyles = () =>
             ...ALIGN.CENTER,
             flexDirection: 'column',
             alignItems: 'flex-start'
-        },
-        critical: {
-            width: '100%',
-            ...ALIGN.CENTER,
-            flexDirection: 'column'
-        },
-        foodStamp: {
-            marginBottom: 20
-        },
-        info: {
-            marginVertical: 10
         }
     });
 

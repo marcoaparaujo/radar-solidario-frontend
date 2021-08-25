@@ -1,19 +1,30 @@
 //#region Imports
 
+import { useNavigation } from '@react-navigation/native';
 import Button from 'components/Button';
 import Modal from 'containers/Modal';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
+import { ROUTE_NAMES } from 'routes/routes';
+import useDonateContext from 'storages/donate/context';
 import useStyles from './styles';
 
 //#endregion
 
-const ModalDonateWarning = ({ modalRef }) => {
+const ModalDonateWarning = () => {
     const styles = useStyles();
 
+    const { navigate } = useNavigation();
+    const { modalConfirmDonateRef } = useDonateContext();
+
+    const beforeNavigate = useCallback(() => {
+        modalConfirmDonateRef.current.hide();
+        navigate(ROUTE_NAMES.FOOD_STAMP.DONATION);
+    }, [modalConfirmDonateRef]);
+
     return (
-        <Modal ref={modalRef}>
+        <Modal ref={modalConfirmDonateRef}>
             <View style={styles.container}>
                 <View style={styles.topContent}>
                     <Text style={styles.title}>O prazo para o recebimento da</Text>
@@ -26,7 +37,9 @@ const ModalDonateWarning = ({ modalRef }) => {
                 </View>
             </View>
 
-            <Button style={styles.button}>Tenho certeza</Button>
+            <Button style={styles.button} onPress={() => beforeNavigate()}>
+                Tenho certeza
+            </Button>
         </Modal>
     );
 };
