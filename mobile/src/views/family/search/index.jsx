@@ -1,6 +1,6 @@
 //#region Imports
 
-import Logo from 'assets/images/logo.gif';
+import Logo from 'assets/images/logo.png';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { Image } from 'react-native-elements';
