@@ -6,6 +6,7 @@ import useStyles from './styles';
 import { Text } from 'react-native-elements';
 import FormHistoricSearch from './FormHistoricSearch';
 import { FormContextProvider } from 'storages/form/context';
+import HistoricalDonateBoards from './components/HistoricalDonateBoards';
 
 //#endregion
 
@@ -17,6 +18,7 @@ const Content = () => {
                 <Text style={styles.text}>Histórico</Text>
             </View>
             <FormHistoricSearch />
+            <HistoricalDonateBoards />
         </View>
     );
 };
