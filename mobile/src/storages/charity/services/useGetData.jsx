@@ -9,7 +9,7 @@ import ENDPOINT from 'services/endpoint';
 const useGetData = () => {
     const api = useApi();
 
-    const getFindOptions = useCallback((nisCpf) => api.get(ENDPOINT.CHARITY.FIND_OPTIONS), [api]);
+    const getFindOptions = useCallback(() => api.get(ENDPOINT.CHARITY.FIND_OPTIONS), [api]);
 
     return {
         getFindOptions

@@ -24,7 +24,7 @@ const AccordionAvailableStock = () => {
                 .filter((foodStamp) => foodStamp[FOOD_STAMP_FIELDS.IS_ABLE])
                 .map((foodStamp, index) => (
                     <Text key={index} style={styles.text}>
-                        {foodStamp[FOOD_STAMP_FIELDS.LENGHT]} Cestas de {foodStamp[FOOD_STAMP_FIELDS.WEIGHT]}Kg
+                        {foodStamp[FOOD_STAMP_FIELDS.LENGTH]} Cestas de {foodStamp[FOOD_STAMP_FIELDS.WEIGHT]}Kg
                     </Text>
                 ))}
 

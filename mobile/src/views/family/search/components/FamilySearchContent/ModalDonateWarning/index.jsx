@@ -7,7 +7,7 @@ import React, { useCallback } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
-import useDonateContext from 'storages/donate/context';
+import useFoodStampContext from 'storages/food-stamp/context';
 import useStyles from './styles';
 
 //#endregion
@@ -16,10 +16,10 @@ const ModalDonateWarning = () => {
     const styles = useStyles();
 
     const { navigate } = useNavigation();
-    const { modalConfirmDonateRef } = useDonateContext();
+    const { modalConfirmDonateRef } = useFoodStampContext();
 
     const beforeNavigate = useCallback(() => {
-        modalConfirmDonateRef.current.hide();
+        modalConfirmDonateRef.current && modalConfirmDonateRef.current.hide();
         navigate(ROUTE_NAMES.FOOD_STAMP.DONATION);
     }, [modalConfirmDonateRef]);
 

@@ -2,7 +2,6 @@
 
 import React, { useMemo } from 'react';
 import { View } from 'react-native';
-import { DonateContextProvider } from 'storages/donate/context';
 import ADDRESS_FIELDS from 'utils/constants/fields/address';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
 import ADDRESS_LABELS from 'utils/constants/labels/address';
@@ -14,7 +13,7 @@ import useStyles from './styles';
 
 //#endregion
 
-const Content = ({ data }) => {
+const FamilySearchContent = ({ data }) => {
     const styles = useStyles();
 
     const address = useMemo(
@@ -40,11 +39,5 @@ const Content = ({ data }) => {
         </View>
     );
 };
-
-const FamilySearchContent = ({ data }) => (
-    <DonateContextProvider>
-        <Content data={data} />
-    </DonateContextProvider>
-);
 
 export default FamilySearchContent;

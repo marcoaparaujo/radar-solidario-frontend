@@ -1,16 +1,12 @@
 //#region Imports
 
 import ALIGN from 'assets/styles/align';
-import FONT from 'assets/styles/font';
 import { StyleSheet } from 'react-native';
-import { useTheme } from 'react-native-elements';
 
 //#endregion
 
-const useStyles = () => {
-    const { theme } = useTheme();
-
-    return StyleSheet.create({
+const useStyles = () =>
+    StyleSheet.create({
         container: {
             width: '100%',
             ...ALIGN.CENTER,
@@ -23,6 +19,5 @@ const useStyles = () => {
             marginVertical: 10
         }
     });
-};
 
 export default useStyles;

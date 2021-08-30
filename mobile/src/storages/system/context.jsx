@@ -47,10 +47,6 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
     );
 };
 
-const useSystemContext = () => {
-    const context = useContext(SystemContext);
-
-    return { ...context };
-};
+const useSystemContext = () => ({ ...useContext(SystemContext) });
 
 export default useSystemContext;

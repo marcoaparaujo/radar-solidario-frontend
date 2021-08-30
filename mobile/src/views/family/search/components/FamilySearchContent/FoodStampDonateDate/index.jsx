@@ -6,7 +6,8 @@ import moment from 'moment';
 import React, { useCallback, useMemo } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import useDonateContext from 'storages/donate/context';
+import { ROUTE_NAMES } from 'routes/routes';
+import useFoodStampContext from 'storages/food-stamp/context';
 import DONATE_FIELDS from 'utils/constants/fields/donate';
 import FoodStampDataViewer from '../FoodStampDataViewer';
 import FoodStampDonateDateViewer from './FoodStampDonateDateViewer';
@@ -18,9 +19,13 @@ const FoodStampDonateDate = ({ data }) => {
     const styles = useStyles();
 
     const { navigate } = useNavigation();
-    const { modalConfirmDonateRef } = useDonateContext();
+    const { modalConfirmDonateRef } = useFoodStampContext();
 
     const isValidDonateDataRange = useMemo(() => {
+        if (!data[DONATE_FIELDS.DONATE_PREVISION][DONATE_FIELDS.LAST_DONATE_DATE]) {
+            return true;
+        }
+
         const last = moment(data[DONATE_FIELDS.DONATE_PREVISION][DONATE_FIELDS.LAST_DONATE_DATE], 'dd/MM/yyyy').add(
             1,
             'month'
@@ -32,9 +37,9 @@ const FoodStampDonateDate = ({ data }) => {
 
     const beforeNavigate = useCallback(() => {
         if (isValidDonateDataRange) {
-            modalConfirmDonateRef.current.show();
-        } else {
             navigate(ROUTE_NAMES.FOOD_STAMP.DONATION);
+        } else {
+            modalConfirmDonateRef.current && modalConfirmDonateRef.current.show();
         }
     }, [modalConfirmDonateRef, isValidDonateDataRange]);
 

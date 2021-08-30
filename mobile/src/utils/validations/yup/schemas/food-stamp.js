@@ -7,7 +7,7 @@ import yup from '../yup';
 //#endregion
 
 const foodStampSchema = yup.object().shape({
-    [FOOD_STAMP_FIELDS.LENGHT]: yup.number().required().label(FOOD_STAMP_LABELS.LENGHT),
+    [FOOD_STAMP_FIELDS.LENGTH]: yup.number().required().label(FOOD_STAMP_LABELS.LENGTH),
     [FOOD_STAMP_FIELDS.WEIGHT]: yup.number().required().label(FOOD_STAMP_LABELS.WEIGHT)
 });
 

@@ -1,5 +1,7 @@
 //#region Imports
 
+import ALIGN from 'assets/styles/align';
+import MARGIN from 'assets/styles/margin';
 import { StyleSheet } from 'react-native';
 
 //#endregion
@@ -7,12 +9,13 @@ import { StyleSheet } from 'react-native';
 const useStyles = () =>
     StyleSheet.create({
         container: {
-            margin: 10,
-            justifyContent: 'center'
+            flex: 1,
+            ...MARGIN.F_FORM,
+            ...ALIGN.BETWEEN,
+            flexDirection: 'column'
         },
         content: {
-            padding: 10,
-            alignItems: 'center',
+            margin: 10,
             justifyContent: 'center'
         },
         text: {

@@ -7,11 +7,11 @@ import useSendData from './services/useSendData';
 
 //#endregion
 
-const useFoodStampService = ({ setFoodStamp, setFoodStamps }) => {
+const useFoodStampService = ({ setFoodStamp, setFoodStamps, setOptions }) => {
     const { run, requestState } = useRequestState();
 
-    const { getFindAllByCharityName } = useGetData();
     const { postFoodStamp } = useSendData();
+    const { getFindOptions, getFindById, getFindAllByCharityName } = useGetData();
 
     const includeFoodStamp = useCallback(
         async (form) => {
@@ -31,7 +31,26 @@ const useFoodStampService = ({ setFoodStamp, setFoodStamps }) => {
         [run, getFindAllByCharityName]
     );
 
+    const fetchFindById = useCallback(
+        async (form) => {
+            const response = await run(() => getFindById(form));
+            setFoodStamp(response.data);
+
+            return response;
+        },
+        [run, getFindById]
+    );
+
+    const fetchOptions = useCallback(async () => {
+        const response = await run(() => getFindOptions());
+        setOptions(response.data);
+
+        return response;
+    }, [run, getFindOptions, setOptions]);
+
     return {
+        fetchOptions,
+        fetchFindById,
         includeFoodStamp,
         fetchFindAllByCharityName,
         requestState,
