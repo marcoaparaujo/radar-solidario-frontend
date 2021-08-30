@@ -26,10 +26,6 @@ export const AuthenticationContextProvider = ({ children, defaultValues }) => {
     return <AuthenticationContext.Provider value={{ ...service, ...state }}>{children}</AuthenticationContext.Provider>;
 };
 
-const useAuthenticationContext = () => {
-    const context = useContext(AuthenticationContext);
-
-    return { ...context };
-};
+const useAuthenticationContext = () => ({ ...useContext(AuthenticationContext) });
 
 export default useAuthenticationContext;

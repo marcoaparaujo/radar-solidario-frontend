@@ -5,6 +5,7 @@ import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { Image } from 'react-native-elements';
 import useFamilyContext, { FamilyContextProvider } from 'storages/family/context';
+import { FoodStampContextProvider } from 'storages/food-stamp/context';
 import FamilySearchContent from './components/FamilySearchContent';
 import FamilySearchContentEmpty from './components/FamilySearchContentEmpty';
 import FormSearchFamily from './FormFamilySearch';
@@ -30,9 +31,11 @@ const Content = () => {
 
 const FamilySearch = () => (
     <ScrollView>
-        <FamilyContextProvider>
-            <Content />
-        </FamilyContextProvider>
+        <FoodStampContextProvider>
+            <FamilyContextProvider>
+                <Content />
+            </FamilyContextProvider>
+        </FoodStampContextProvider>
     </ScrollView>
 );
 

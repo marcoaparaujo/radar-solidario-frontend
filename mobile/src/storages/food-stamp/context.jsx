@@ -1,6 +1,6 @@
 //#region Imports
 
-import React, { createContext, useCallback, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
 import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
 import CONTEXT_INITIAL_STATE from 'utils/constants/types/context-initial-state';
 import useFoodStampService from './service';
@@ -16,6 +16,7 @@ const initialState = {
 };
 
 export const FoodStampContextProvider = ({ children, defaultValues }) => {
+    const modalConfirmDonateRef = useRef(null);
     const [state, setState] = useState({ ...initialState, ...defaultValues });
 
     const setFoodStamp = useCallback((foodStamp) => setState((prevState) => ({ ...prevState, foodStamp })), [setState]);
@@ -25,14 +26,16 @@ export const FoodStampContextProvider = ({ children, defaultValues }) => {
         [setState]
     );
 
-    const service = useFoodStampService({ setFoodStamp, setFoodStamps });
-    return <FoodStampContext.Provider value={{ ...service, ...state }}>{children}</FoodStampContext.Provider>;
+    const setOptions = useCallback((options) => setState((prevState) => ({ ...prevState, options })), [setState]);
+
+    const service = useFoodStampService({ setFoodStamp, setFoodStamps, setOptions });
+    return (
+        <FoodStampContext.Provider value={{ ...service, ...state, modalConfirmDonateRef }}>
+            {children}
+        </FoodStampContext.Provider>
+    );
 };
 
-const useFoodStampContext = () => {
-    const context = useContext(FoodStampContext);
-
-    return { ...context };
-};
+const useFoodStampContext = () => ({ ...useContext(FoodStampContext) });
 
 export default useFoodStampContext;

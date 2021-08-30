@@ -13,7 +13,7 @@ const FoodStampDataViewer = ({ label, data }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.label}>{label}</Text>
-            <Text style={styles.text}>{data}</Text>
+            <Text style={styles.text}>{data || 'Nenhnum registro encontrado'}</Text>
         </View>
     );
 };

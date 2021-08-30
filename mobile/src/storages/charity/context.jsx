@@ -25,10 +25,6 @@ export const CharityContextProvider = ({ children, defaultValues }) => {
     return <CharityContext.Provider value={{ ...service, ...state }}>{children}</CharityContext.Provider>;
 };
 
-const useCharityContext = () => {
-    const context = useContext(CharityContext);
-
-    return { ...context };
-};
+const useCharityContext = () => ({ ...useContext(CharityContext) });
 
 export default useCharityContext;

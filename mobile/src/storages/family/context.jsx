@@ -23,10 +23,6 @@ export const FamilyContextProvider = ({ children, defaultValues }) => {
     return <FamilyContext.Provider value={{ ...service, ...state }}>{children}</FamilyContext.Provider>;
 };
 
-const useFamilyContext = () => {
-    const context = useContext(FamilyContext);
-
-    return { ...context };
-};
+const useFamilyContext = () => ({ ...useContext(FamilyContext) });
 
 export default useFamilyContext;
