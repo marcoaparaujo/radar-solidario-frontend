@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from 'react-native-elements';
 import { FoodStampContextProvider } from 'storages/food-stamp/context';
 import FoodStampTutorialBox from './components/FoodStampTutorialBox';
 import FormFoodStampRegister from './FormFoodStampRegister';
