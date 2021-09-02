@@ -19,6 +19,7 @@ const Content = () => {
             </View>
             <FormHistoricSearch />
             <HistoricalDonateBoards />
+            <HistoricalDonateBoards />
         </View>
     );
 };
