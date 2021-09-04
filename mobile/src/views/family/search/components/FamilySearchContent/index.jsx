@@ -1,7 +1,9 @@
 //#region Imports
 
-import React, { useMemo } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useCallback, useMemo } from 'react';
 import { View } from 'react-native';
+import { ROUTE_NAMES } from 'routes/routes';
 import ADDRESS_FIELDS from 'utils/constants/fields/address';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
 import ADDRESS_LABELS from 'utils/constants/labels/address';
@@ -15,6 +17,7 @@ import useStyles from './styles';
 
 const FamilySearchContent = ({ data }) => {
     const styles = useStyles();
+    const { navigate } = useNavigation();
 
     const address = useMemo(
         () =>
@@ -22,6 +25,14 @@ const FamilySearchContent = ({ data }) => {
                 data[ADDRESS_FIELDS.THIS][ADDRESS_FIELDS.NEIGHBORHOOD]
             } - N°${data[ADDRESS_FIELDS.THIS][ADDRESS_FIELDS.NUMBER]}`,
         [data]
+    );
+
+    const navigateToDonationPage = useCallback(
+        () =>
+            navigate(ROUTE_NAMES.FOOD_STAMP.DONATION, {
+                family: data
+            }),
+        [navigate, data]
     );
 
     return (
@@ -33,9 +44,8 @@ const FamilySearchContent = ({ data }) => {
             <FamilyDataViewer label={ADDRESS_LABELS.THIS} field={address} />
             <FamilyDataViewer label={ADDRESS_LABELS.PHONE} field={data[ADDRESS_FIELDS.THIS][ADDRESS_FIELDS.PHONE]} />
 
-            <FoodStampDonateDate data={data} />
-
-            <ModalDonateWarning />
+            <FoodStampDonateDate data={data} navigate={navigateToDonationPage} />
+            <ModalDonateWarning navigate={navigateToDonationPage} />
         </View>
     );
 };

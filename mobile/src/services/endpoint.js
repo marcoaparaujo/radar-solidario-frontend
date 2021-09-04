@@ -6,8 +6,8 @@ import buildQueryParams from 'utils/functions/buildQueryParams';
 //#endregion
 
 const ENDPOINT = {
-    // BASE: 'http://{{SEU_IP_AQUI}}:8877',
-    BASE: API_URL,
+    BASE: 'http://192.168.0.107:8877',
+    // BASE: API_URL,
     SECURITY: {
         LOGIN: 'security/login'
     },
@@ -25,6 +25,8 @@ const ENDPOINT = {
     },
     FOOD_STAMP: {
         THIS: 'food-stamp',
+        FIND_OPTIONS: 'food-stamp/options',
+        FIND_BY_ID: (id) => `food-stamp?${buildQueryParams({ id })}`,
         FIND_ALL_BY_CHARITY_NAME: (name) => `food-stamp?${buildQueryParams({ name })}`
     }
 };

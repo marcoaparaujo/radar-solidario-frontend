@@ -29,12 +29,12 @@ const Content = () => {
                 <Text style={forgotPasswordStyle}>Esqueci a senha</Text>
             </View>
 
-            <Text style={styles.text}>
-                Não está cadastrado?
-                <Text style={styles.register} onPress={() => navigate(ROUTE_NAMES.USER.REGISTER)}>
+            <View style={styles.register}>
+                <Text style={styles.text}>Não está cadastrado?</Text>
+                <Text style={styles.registerText} onPress={() => navigate(ROUTE_NAMES.USER.REGISTER)}>
                     Cadastre-se
                 </Text>
-            </Text>
+            </View>
 
             <Snackbar />
         </View>

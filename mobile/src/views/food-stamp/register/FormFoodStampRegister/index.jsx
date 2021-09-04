@@ -5,7 +5,6 @@ import Button from 'components/Button';
 import FieldsFoodStamp from 'form-fields/FieldsFoodStamp';
 import React, { Fragment, useCallback } from 'react';
 import { View } from 'react-native';
-import { Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
 import useFoodStampContext from 'storages/food-stamp/context';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
@@ -39,14 +38,9 @@ const Content = ({ children }) => {
                 {children}
             </View>
 
-            <View>
-                <Text style={styles.text}>Você está cadastrando</Text>
-                <Text style={styles.text}>{/* {quantidade} cestas de {peso}kg */}</Text>
-
-                <Button onPress={handleSubmit(onSubmit)} isLoading={requestState.isLoading}>
-                    Confirmar cadastro
-                </Button>
-            </View>
+            <Button onPress={handleSubmit(onSubmit)} isLoading={requestState.isLoading}>
+                Confirmar cadastro
+            </Button>
         </Fragment>
     );
 };

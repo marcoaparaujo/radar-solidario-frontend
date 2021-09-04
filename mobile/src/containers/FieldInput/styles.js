@@ -30,14 +30,15 @@ const useStyles = () => {
             backgroundColor: theme.colors.light.dark
         },
         error: {
-            margin: 0,
             height: 18,
             fontSize: 14,
             marginTop: 5,
             width: '100%',
+            marginLeft: 0,
+            marginRight: 0,
             marginBottom: 5,
+            textAlign: 'right',
             color: theme.colors.negative.dark,
-            ...ALIGN.RIGHT,
             ...FONT.MEDIUM
         }
     });

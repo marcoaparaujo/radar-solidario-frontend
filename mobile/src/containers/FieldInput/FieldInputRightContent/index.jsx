@@ -21,8 +21,8 @@ const FieldInputRightContent = ({ isLoading, isPassword, visible, setVisible }) 
             {isPassword && !isLoading && (
                 <Icon
                     name={icon}
-                    style={styles.container}
                     color={theme.colors.black}
+                    containerStyle={styles.container}
                     onPress={() => setVisible((prevState) => !prevState)}
                 />
             )}

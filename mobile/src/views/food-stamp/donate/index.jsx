@@ -2,30 +2,30 @@
 
 import Button from 'components/Button';
 import FieldsDonate from 'form-fields/FieldsDonate';
-import React, { Fragment, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { View } from 'react-native';
-import { Text } from 'react-native-elements';
-import useFamilyContext from 'storages/family/context';
-import { FoodStampContextProvider } from 'storages/food-stamp/context';
+import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import useFormContext, { FormContextProvider } from 'storages/form/context';
+import foodStampSchema from 'utils/validations/yup/schemas/food-stamp';
 import ModalDonateSuccess from './components/ModalDonateSuccess';
 import useStyles from './styles';
 
 //#endregion
 
-const Content = () => {
+const Content = ({ family }) => {
     const styles = useStyles();
 
     const { handleSubmit } = useFormContext();
-    const { modalConfirmDonateRef } = useFamilyContext();
+    const { modalConfirmDonateRef } = useFoodStampContext();
 
     const onSubmit = useCallback(
         async (data) => {
-            console.log('data', data);
             modalConfirmDonateRef.current.show();
         },
         [modalConfirmDonateRef]
     );
+
+    console.log('family', family);
 
     return (
         <View style={styles.container}>
@@ -33,24 +33,19 @@ const Content = () => {
                 <FieldsDonate />
             </View>
 
-            <View>
-                <Text style={styles.text}>Você está doando</Text>
-                <Text style={styles.text}>{/* {quantidade} cestas de {peso}kg */}</Text>
-
-                <Button onPress={handleSubmit(onSubmit)}>Confirmar doação</Button>
-            </View>
+            <Button onPress={handleSubmit(onSubmit)}>Confirmar doação</Button>
 
             <ModalDonateSuccess />
         </View>
     );
 };
 
-const FoodStampDonate = () => (
-    <FoodStampContextProvider>
-        <FormContextProvider>
-            <Content />
-        </FormContextProvider>
-    </FoodStampContextProvider>
+const FoodStampDonate = ({ route }) => (
+    <FormContextProvider schema={foodStampSchema}>
+        <FoodStampContextProvider>
+            <Content family={route} />
+        </FoodStampContextProvider>
+    </FormContextProvider>
 );
 
 export default FoodStampDonate;

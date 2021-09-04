@@ -1,12 +1,10 @@
 //#region Imports
 
-import { useNavigation } from '@react-navigation/native';
 import Button from 'components/Button';
 import moment from 'moment';
-import React, { useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import { ROUTE_NAMES } from 'routes/routes';
 import useFoodStampContext from 'storages/food-stamp/context';
 import DONATE_FIELDS from 'utils/constants/fields/donate';
 import FoodStampDataViewer from '../FoodStampDataViewer';
@@ -15,10 +13,8 @@ import useStyles from './styles';
 
 //#endregion
 
-const FoodStampDonateDate = ({ data }) => {
+const FoodStampDonateDate = ({ data, navigate }) => {
     const styles = useStyles();
-
-    const { navigate } = useNavigation();
     const { modalConfirmDonateRef } = useFoodStampContext();
 
     const isValidDonateDataRange = useMemo(() => {
@@ -35,14 +31,6 @@ const FoodStampDonateDate = ({ data }) => {
         return next.diff(last, 'days') <= 0;
     }, [data]);
 
-    const beforeNavigate = useCallback(() => {
-        if (isValidDonateDataRange) {
-            navigate(ROUTE_NAMES.FOOD_STAMP.DONATION);
-        } else {
-            modalConfirmDonateRef.current && modalConfirmDonateRef.current.show();
-        }
-    }, [modalConfirmDonateRef, isValidDonateDataRange]);
-
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -58,7 +46,9 @@ const FoodStampDonateDate = ({ data }) => {
                 />
             </View>
 
-            <Button onPress={() => beforeNavigate()}>Doar</Button>
+            <Button onPress={() => (isValidDonateDataRange ? navigate() : modalConfirmDonateRef.current.show())}>
+                Doar
+            </Button>
             <Text style={styles.info}>Histórico de doações recebidas</Text>
         </View>
     );

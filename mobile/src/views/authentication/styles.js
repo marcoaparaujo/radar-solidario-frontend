@@ -30,13 +30,17 @@ const useStyles = () =>
         forgotPassword: {
             marginTop: 10
         },
+        register: {
+            ...ALIGN.CENTER,
+            alignItems: 'flex-end'
+        },
         text: {
             fontSize: 13,
             marginTop: 10,
             ...FONT.MEDIUM
         },
-        register: {
-            marginLeft: 5,
+        registerText: {
+            marginLeft: 3,
             ...FONT.BOLD
         }
     });

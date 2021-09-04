@@ -1,7 +1,6 @@
 //#region Imports
 
 import { StyleSheet } from 'react-native';
-import ALIGN from './../../../../assets/styles/align';
 
 //#endregion
 
@@ -13,10 +12,6 @@ const useStyles = () =>
         },
         content: {
             flexDirection: 'row'
-        },
-        text: {
-            fontSize: 16,
-            ...ALIGN.CENTER
         }
     });
 
