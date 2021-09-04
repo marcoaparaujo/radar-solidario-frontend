@@ -8,19 +8,37 @@ import { StyleSheet } from 'react-native';
 
 const useStyles = () =>
     StyleSheet.create({
+        containerMain:{
+            height: '100%',
+            justifyContent: 'space-around',
+        },
         container: {
-            flex: 1,
-            ...MARGIN.F_FORM,
-            ...ALIGN.BETWEEN,
-            flexDirection: 'column'
+            width: '100%',
+            paddingBottom: 100
+
         },
         content: {
-            margin: 10,
-            justifyContent: 'center'
+            flexDirection: 'row'
+        },
+        button: {
+            padding: 20,
+
         },
         text: {
-            fontSize: 20
-        }
+            fontSize: 16,
+            ...ALIGN.CENTER
+        },
+        mainView: {
+            justifyContent: 'center',
+            margin: 10
+        },
+
+        aboveView: {
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 10
+
+        },
     });
 
 export default useStyles;

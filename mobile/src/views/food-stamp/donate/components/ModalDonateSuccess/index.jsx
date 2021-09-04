@@ -18,6 +18,10 @@ const ModalDonateSuccess = () => {
             <View style={styles.container}>
                 <Text style={styles.text}>A seguinte doação foi registrada</Text>
                 <Text style={styles.text}>com sucesso</Text>
+
+                <View style={styles.content}>
+                    <Text style={styles.text}>A seguinte doação foi registrada com sucesso</Text>
+                </View>
             </View>
         </Modal>
     );
