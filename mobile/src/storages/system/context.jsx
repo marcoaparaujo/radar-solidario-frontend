@@ -1,17 +1,19 @@
 //#region Imports
 
 import React, { createContext, useCallback, useContext, useState } from 'react';
+import CHARITY_FIELDS from 'utils/constants/fields/charity';
 import SYSTEM_FIELDS from 'utils/constants/fields/system';
+import USER_FIELDS from 'utils/constants/fields/user';
 
 //#endregion
 
 const SystemContext = createContext();
 
 const initialState = {
+    [USER_FIELDS.THIS]: null,
     [SYSTEM_FIELDS.ROLE]: null,
-    [SYSTEM_FIELDS.NAME]: null,
     [SYSTEM_FIELDS.TOKEN]: null,
-    [SYSTEM_FIELDS.CHARITY]: null,
+    [CHARITY_FIELDS.THIS]: null,
     [SYSTEM_FIELDS.THEME]: 'light',
     [SYSTEM_FIELDS.SNACKBAR]: {
         time: 3000,
@@ -27,7 +29,7 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
     const setTheme = useCallback((theme = 'light') => setState((prevState) => ({ ...prevState, theme })), [setState]);
 
     const setLogin = useCallback(
-        ({ roles, name, token, charity }) => setState((prevState) => ({ ...prevState, roles, name, token, charity })),
+        ({ token, roles, user, charity }) => setState((prevState) => ({ ...prevState, token, roles, user, charity })),
         [setState]
     );
 

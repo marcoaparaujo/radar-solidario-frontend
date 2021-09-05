@@ -6,7 +6,8 @@ import buildQueryParams from 'utils/functions/buildQueryParams';
 //#endregion
 
 const ENDPOINT = {
-    BASE: 'http://192.168.0.107:8877',
+    BASE: 'http://localhost:8877',
+    // BASE: 'http://192.168.0.107:8877',
     // BASE: API_URL,
     SECURITY: {
         LOGIN: 'security/login'
@@ -22,6 +23,9 @@ const ENDPOINT = {
     FAMILY: {
         THIS: 'family',
         FIND_BY_NIS_OR_CPF: (nisCpf) => `family?${buildQueryParams({ nisCpf })}`
+    },
+    DONATE: {
+        THIS: 'donate'
     },
     FOOD_STAMP: {
         THIS: 'food-stamp',
