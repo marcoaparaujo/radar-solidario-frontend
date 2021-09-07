@@ -6,6 +6,8 @@ import useFamilyContext, { FamilyContextProvider } from 'storages/family/context
 import { FormContextProvider } from 'storages/form/context';
 import useStyles from './styles';
 import Modal from 'containers/Modal';
+import IconButton from 'components/IconButton';
+import { Icon } from 'react-native-elements/dist/icons/Icon';
 
 //#endregion
 
@@ -19,11 +21,15 @@ const Content = () => {
             </View>
             <View style={styles.rowDirection}>
                 <Text style={styles.text}>Doada</Text>
-                <Button
-                    style={styles.button}
-                    title='Test Button'
-                    onPress={() => modalRef.current && modalRef.current.show()}
-                />
+                <Text style={styles.secondText}>01 cesta - 04kg</Text>
+                <View style={styles.buttonPadding}>
+                    <Icon
+                        name='ellipsis-h'
+                        type='font-awesome'
+                        style={styles.button}
+                        onPress={() => modalRef.current && modalRef.current.show()}
+                    />
+                </View>
             </View>
             <View></View>
             <Modal style={styles.modal} ref={modalRef}>

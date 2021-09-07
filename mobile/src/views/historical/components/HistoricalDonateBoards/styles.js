@@ -16,21 +16,31 @@ const useStyles = () =>
             borderRadius: 8,
             borderColor: 'grey',
             padding: 10,
-            width: 250
+            width: 300
         },
         rowDirection: {
             flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-around'
+
         },
         text:{
             fontSize: 20,
             marginTop: 10,
             ...FONT.MEDIUM,
             ...ALIGN.CENTER,
+            paddingLeft: 20
 
         },
+        buttonCenter:{
+            justifyContent: 'center'
+        },
         button:{
-            width: 50,
+            width: 35,
+            padding: 3,
             borderRadius: 6,
+            backgroundColor: '#40E0D0',
+            marginTop: 10,
         },
         info:{
             padding: 15,
@@ -41,6 +51,12 @@ const useStyles = () =>
             padding: 4
 
         },
+        secondText: {
+            fontSize: 18,
+            justifyContent: 'center',
+            marginTop: 10,
+            paddingHorizontal: 12
+        }
 
 
     })
