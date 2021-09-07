@@ -1,12 +1,13 @@
 //#region Imports
 
+import FieldButtonGroup from 'components/FieldButtonGroup';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-import useStyles from './styles';
 import { Text } from 'react-native-elements';
-import FormHistoricSearch from './FormHistoricSearch';
 import { FormContextProvider } from 'storages/form/context';
 import HistoricalDonateBoards from './components/HistoricalDonateBoards';
+import useStyles from './styles';
+import HistoricalReservedBoards from './components/HistoricalReservedBoards/index';
 
 //#endregion
 
@@ -17,9 +18,15 @@ const Content = () => {
             <View style={styles.textSpace}>
                 <Text style={styles.text}>Histórico</Text>
             </View>
-            <FormHistoricSearch />
+            <View>
+                <Text>Instituição</Text>
+                <Text>Nome da instituição</Text>
+            </View>
+            <View>
+                <FieldButtonGroup name={'Filter'} label={'Filtro'} options={['Doada', 'Reservada']} />
+            </View>
             <HistoricalDonateBoards />
-            <HistoricalDonateBoards />
+            <HistoricalReservedBoards />
         </View>
     );
 };

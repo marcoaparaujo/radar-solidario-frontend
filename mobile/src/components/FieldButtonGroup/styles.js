@@ -11,6 +11,7 @@ const useStyles = () => {
     return StyleSheet.create({
         container: {
             height: 50,
+            width: 300,
             marginVertical: 0,
             marginHorizontal: 0
         },

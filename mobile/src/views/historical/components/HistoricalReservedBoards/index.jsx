@@ -17,13 +17,9 @@ const Content = () => {
             <View>
                 <Text>20/07/2021 ás 14:32</Text>
             </View>
-            <View style={styles.rowDirection}>
-                <Text style={styles.text}>Doada</Text>
-                <Button
-                    style={styles.button}
-                    title='Test Button'
-                    onPress={() => modalRef.current && modalRef.current.show()}
-                />
+            <View>
+                <Text style={styles.text}>Reservadas</Text>
+                <Button title='Test Button' onPress={() => modalRef.current && modalRef.current.show()} />
             </View>
             <View></View>
             <Modal style={styles.modal} ref={modalRef}>
@@ -43,7 +39,7 @@ const Content = () => {
     );
 };
 
-const HistoricalDonateBoards = ({ children }) => (
+const HistoricalReservedBoards = ({ children }) => (
     <FamilyContextProvider>
         <FormContextProvider>
             <Content>{children}</Content>
@@ -51,4 +47,4 @@ const HistoricalDonateBoards = ({ children }) => (
     </FamilyContextProvider>
 );
 
-export default HistoricalDonateBoards;
+export default HistoricalReservedBoards;

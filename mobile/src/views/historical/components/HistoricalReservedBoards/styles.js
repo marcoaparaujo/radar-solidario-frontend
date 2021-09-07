@@ -15,11 +15,7 @@ const useStyles = () =>
             borderWidth: 1,
             borderRadius: 8,
             borderColor: 'grey',
-            padding: 10,
-            width: 250
-        },
-        rowDirection: {
-            flexDirection: 'row',
+            padding: 10
         },
         text:{
             fontSize: 20,
@@ -27,10 +23,6 @@ const useStyles = () =>
             ...FONT.MEDIUM,
             ...ALIGN.CENTER,
 
-        },
-        button:{
-            width: 50,
-            borderRadius: 6,
         },
         info:{
             padding: 15,
