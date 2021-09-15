@@ -33,7 +33,6 @@ const Content = () => {
             </View>
 
             <HistoricalDonateBoards />
-<<<<<<< HEAD
             <HistoricalReservedBoards />
             <HistoricalDonateBoards />
             <HistoricalReservedBoards />
@@ -41,8 +40,6 @@ const Content = () => {
             <HistoricalReservedBoards />
             <HistoricalDonateBoards />
             <HistoricalReservedBoards />
-=======
->>>>>>> 851718973cc7e014f3f7e65a2977c51345888652
         </View>
     );
 };
