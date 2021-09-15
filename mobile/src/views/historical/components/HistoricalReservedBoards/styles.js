@@ -16,7 +16,8 @@ const useStyles = () =>
             borderRadius: 8,
             borderColor: 'grey',
             padding: 10,
-            width: 300
+            width: 300,
+            margin: 10
         },
         rowDirection: {
             flexDirection: 'row',

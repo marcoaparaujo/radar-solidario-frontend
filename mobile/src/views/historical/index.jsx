@@ -8,6 +8,8 @@ import { FormContextProvider } from 'storages/form/context';
 import HistoricalDonateBoards from './components/HistoricalDonateBoards';
 import useStyles from './styles';
 import HistoricalReservedBoards from './components/HistoricalReservedBoards/index';
+import FieldDatePicker from 'containers/FieldDatePicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 //#endregion
 
@@ -24,7 +26,14 @@ const Content = () => {
             </View>
             <View>
                 <FieldButtonGroup name={'Filter'} label={'Filtro'} options={['Doada', 'Reservada']} />
+                <Date mode='date' />
             </View>
+            <HistoricalDonateBoards />
+            <HistoricalReservedBoards />
+            <HistoricalDonateBoards />
+            <HistoricalReservedBoards />
+            <HistoricalDonateBoards />
+            <HistoricalReservedBoards />
             <HistoricalDonateBoards />
             <HistoricalReservedBoards />
         </View>
