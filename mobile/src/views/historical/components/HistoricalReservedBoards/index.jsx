@@ -1,12 +1,13 @@
 //#region Imports
-import Modal from 'containers/Modal';
 import React, { useRef } from 'react';
 import { View } from 'react-native';
-import { Text } from 'react-native-elements';
-import { Icon } from 'react-native-elements/dist/icons/Icon';
-import { FamilyContextProvider } from 'storages/family/context';
+import { Button, Text } from 'react-native-elements';
+import useFamilyContext, { FamilyContextProvider } from 'storages/family/context';
 import { FormContextProvider } from 'storages/form/context';
 import useStyles from './styles';
+import Modal from 'containers/Modal';
+import IconButton from 'components/IconButton';
+import { Icon } from 'react-native-elements/dist/icons/Icon';
 
 //#endregion
 
@@ -19,7 +20,7 @@ const Content = () => {
                 <Text>20/07/2021 ás 14:32</Text>
             </View>
             <View style={styles.rowDirection}>
-                <Text style={styles.text}>Doada</Text>
+                <Text style={styles.text}>Reservada</Text>
                 <Text style={styles.secondText}>01 cesta - 04kg</Text>
                 <View style={styles.buttonPadding}>
                     <Icon

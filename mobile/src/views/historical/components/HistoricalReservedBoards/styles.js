@@ -22,14 +22,13 @@ const useStyles = () =>
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-around'
-
         },
         text:{
             fontSize: 20,
             marginTop: 10,
             ...FONT.MEDIUM,
             ...ALIGN.CENTER,
-            paddingLeft: 20
+
 
         },
         buttonCenter:{
