@@ -15,20 +15,25 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 const Content = () => {
     const styles = useStyles();
+
     return (
         <View style={styles.container}>
             <View style={styles.textSpace}>
                 <Text style={styles.text}>Histórico</Text>
             </View>
+
             <View>
                 <Text>Instituição</Text>
                 <Text>Nome da instituição</Text>
             </View>
+
             <View>
                 <FieldButtonGroup name={'Filter'} label={'Filtro'} options={['Doada', 'Reservada']} />
                 <Date mode='date' />
             </View>
+
             <HistoricalDonateBoards />
+<<<<<<< HEAD
             <HistoricalReservedBoards />
             <HistoricalDonateBoards />
             <HistoricalReservedBoards />
@@ -36,6 +41,8 @@ const Content = () => {
             <HistoricalReservedBoards />
             <HistoricalDonateBoards />
             <HistoricalReservedBoards />
+=======
+>>>>>>> 851718973cc7e014f3f7e65a2977c51345888652
         </View>
     );
 };
