@@ -7,26 +7,28 @@ import { Text } from 'react-native-elements';
 import { FormContextProvider } from 'storages/form/context';
 import HistoricalDonateBoards from './components/HistoricalDonateBoards';
 import useStyles from './styles';
-import HistoricalReservedBoards from './components/HistoricalReservedBoards/index';
 
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
+
     return (
         <View style={styles.container}>
             <View style={styles.textSpace}>
                 <Text style={styles.text}>Histórico</Text>
             </View>
+
             <View>
                 <Text>Instituição</Text>
                 <Text>Nome da instituição</Text>
             </View>
+
             <View>
                 <FieldButtonGroup name={'Filter'} label={'Filtro'} options={['Doada', 'Reservada']} />
             </View>
+
             <HistoricalDonateBoards />
-            <HistoricalReservedBoards />
         </View>
     );
 };

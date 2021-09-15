@@ -1,11 +1,11 @@
 //#region Imports
+import Modal from 'containers/Modal';
 import React, { useRef } from 'react';
 import { View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
-import useFamilyContext, { FamilyContextProvider } from 'storages/family/context';
+import { FamilyContextProvider } from 'storages/family/context';
 import { FormContextProvider } from 'storages/form/context';
 import useStyles from './styles';
-import Modal from 'containers/Modal';
 
 //#endregion
 
