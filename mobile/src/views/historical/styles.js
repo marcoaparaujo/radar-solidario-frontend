@@ -24,6 +24,18 @@ const useStyles = () =>
         },
         textSpace: {
             padding: 28
+        },
+        buttonContainer:{
+            flexDirection: 'row',
+
+        },
+        buttonView:{
+            margin:10,
+
+        },
+        button:{
+            backgroundColor:'#40E0D0',
+
         }
 
     })

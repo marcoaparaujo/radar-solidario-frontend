@@ -1,15 +1,14 @@
 //#region Imports
 
-import FieldButtonGroup from 'components/FieldButtonGroup';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { FormContextProvider } from 'storages/form/context';
 import HistoricalDonateBoards from './components/HistoricalDonateBoards';
-import useStyles from './styles';
 import HistoricalReservedBoards from './components/HistoricalReservedBoards/index';
+import useStyles from './styles';
+import { Button } from 'react-native-elements';
 import FieldDatePicker from 'containers/FieldDatePicker';
-import DateTimePicker from '@react-native-community/datetimepicker';
 
 //#endregion
 
@@ -26,10 +25,16 @@ const Content = () => {
                 <Text>Instituição</Text>
                 <Text>Nome da instituição</Text>
             </View>
-
-            <View>
-                <FieldButtonGroup name={'Filter'} label={'Filtro'} options={['Doada', 'Reservada']} />
-                <Date mode='date' />
+            <View style={styles.buttonContainer}>
+                <View style={styles.buttonView}>
+                    <Button title={'Doação'} />
+                </View>
+                <View style={styles.buttonView}>
+                    <Button style={styles.button} title={'Reservado'} />
+                </View>
+                <View>
+                    <FieldDatePicker name={'Date Picker'} label={'Selecione a data'} />
+                </View>
             </View>
 
             <HistoricalDonateBoards />
