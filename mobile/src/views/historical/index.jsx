@@ -1,14 +1,13 @@
 //#region Imports
 
+import FieldDatePicker from 'containers/FieldDatePicker';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { Button, Text } from 'react-native-elements';
 import { FormContextProvider } from 'storages/form/context';
 import HistoricalDonateBoards from './components/HistoricalDonateBoards';
-import HistoricalReservedBoards from './components/HistoricalReservedBoards/index';
+import HistoricalReservedBoards from './components/HistoricalReservedBoards';
 import useStyles from './styles';
-import { Button } from 'react-native-elements';
-import FieldDatePicker from 'containers/FieldDatePicker';
 
 //#endregion
 
@@ -27,13 +26,10 @@ const Content = () => {
             </View>
             <View style={styles.buttonContainer}>
                 <View style={styles.buttonView}>
-                    <Button title={'Doação'} />
+                    <Button buttonStyle={styles.donateButton} title={'Doação'} />
                 </View>
                 <View style={styles.buttonView}>
-                    <Button style={styles.button} title={'Reservado'} />
-                </View>
-                <View>
-                    <FieldDatePicker name={'Date Picker'} label={'Selecione a data'} />
+                    <Button buttonStyle={styles.reservedButton} title={'Reservado'} />
                 </View>
             </View>
 

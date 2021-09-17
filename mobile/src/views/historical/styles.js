@@ -33,8 +33,12 @@ const useStyles = () =>
             margin:10,
 
         },
-        button:{
-            backgroundColor:'#40E0D0',
+        donateButton:{
+            backgroundColor:'#2D8FB3',
+
+        },
+        reservedButton:{
+            backgroundColor:'#CC4E4E',
 
         }
 

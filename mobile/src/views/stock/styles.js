@@ -1,28 +1,46 @@
-import ALIGN from 'assets/styles/align';
-import FONT from 'assets/styles/font';
-import MARGIN from 'assets/styles/margin';
+//#region Imports
+
+
 import { StyleSheet } from 'react-native';
+import MARGIN from './../../assets/styles/margin';
+import ALIGN from './../../assets/styles/align';
+import FONT from './../../assets/styles/font';
+
+//#endregion
 
 const useStyles = () =>
     StyleSheet.create({
-        container: {
-            width: '100%',
-            ...ALIGN.CENTER,
-            ...MARGIN.F_FORM,
-            flexDirection: 'column',
-            justifyContent: 'center'
-        },
-        text: {
-            ...FONT.MEDIUM,
-            fontSize: 16,
-            paddingBottom: 20
-        },
-        belowText: {
-            fontSize: 23
-        },
-        button: {
-            padding: 20
-        }
-    });
 
-export default useStyles;
+        container: {
+            ...ALIGN.CENTER,
+            ...MARGIN.H_FORM,
+            flexDirection: 'column',
+            justifyContent: 'space-around'
+        },
+        text:{
+            fontSize: 20,
+            marginTop: 10,
+            ...FONT.MEDIUM
+        },
+        textSpace: {
+            padding: 28
+        },
+        buttonContainer:{
+            flexDirection: 'row',
+
+        },
+        buttonView:{
+            margin:10,
+
+        },
+        firstButton:{
+            backgroundColor:'#2D8FB3',
+
+        },
+        secondButton: {
+            backgroundColor:'#CC4E4E',
+        }
+
+    })
+
+export default useStyles

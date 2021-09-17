@@ -1,15 +1,15 @@
 //#region Imports
 
+import FieldDatePicker from 'containers/FieldDatePicker';
 import React, { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { Button, Text } from 'react-native-elements';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
+import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
-import AccordionAvailableStock from './components/AccordionAvailableStock';
-import AccordionReservedFoodStamps from './components/AccordionReservedFoodStamp';
-import AccordionUnavailableFoodStamp from './components/AccordionUnavailableFoodStamp';
+import StockAvailableBoards from './components/StockAvailableBoards/index';
+import StockUnavailableBoards from './components/StockUnavailableBoards/index';
 import useStyles from './styles';
-
 //#endregion
 
 const Content = () => {
@@ -25,23 +25,43 @@ const Content = () => {
     }, []);
 
     return (
-        <ScrollView>
-            <View style={styles.container}>
+        <View style={styles.container}>
+            <View style={styles.textSpace}>
+                <Text style={styles.text}>Estoque</Text>
+            </View>
+            <View>
                 <Text style={styles.text}>{charity.name}</Text>
                 <Text style={styles.belowText}>{charity.name}</Text>
             </View>
+            <View style={styles.buttonContainer}>
+                <View style={styles.buttonView}>
+                    <Button buttonStyle={styles.firstButton} title={'Disponível'} />
+                </View>
+                <View style={styles.buttonView}>
+                    <Button buttonStyle={styles.secondButton} title={'Indisponível'} />
+                </View>
+            </View>
 
-            <AccordionAvailableStock />
-            <AccordionReservedFoodStamps />
-            <AccordionUnavailableFoodStamp />
-        </ScrollView>
+            <StockAvailableBoards />
+            <StockUnavailableBoards />
+            <StockAvailableBoards />
+            <StockUnavailableBoards />
+            <StockAvailableBoards />
+            <StockUnavailableBoards />
+            <StockAvailableBoards />
+            <StockUnavailableBoards />
+        </View>
     );
 };
 
 const Stock = () => (
-    <FoodStampContextProvider>
-        <Content />
-    </FoodStampContextProvider>
+    <ScrollView>
+        <FormContextProvider>
+            <FoodStampContextProvider>
+                <Content />
+            </FoodStampContextProvider>
+        </FormContextProvider>
+    </ScrollView>
 );
 
 export default Stock;

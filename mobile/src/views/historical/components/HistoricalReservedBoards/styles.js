@@ -16,20 +16,21 @@ const useStyles = () =>
             borderRadius: 8,
             borderColor: 'grey',
             padding: 10,
-            width: 300,
-            margin: 10
+            width: 350,
+            margin: 10,
         },
         rowDirection: {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-around'
+
         },
         text:{
             fontSize: 20,
             marginTop: 10,
             ...FONT.MEDIUM,
             ...ALIGN.CENTER,
-
+            paddingLeft: 20
 
         },
         buttonCenter:{
@@ -39,7 +40,7 @@ const useStyles = () =>
             width: 35,
             padding: 3,
             borderRadius: 6,
-            backgroundColor: '#40E0D0',
+            backgroundColor: '#42AFD7',
             marginTop: 10,
         },
         info:{
