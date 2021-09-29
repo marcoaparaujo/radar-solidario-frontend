@@ -10,12 +10,17 @@ import FONT from './../../assets/styles/font';
 
 const useStyles = () =>
     StyleSheet.create({
-
+        charityName:{
+            fontSize: 20,
+            marginTop: 10,
+            ...FONT.MEDIUM
+        },
         container: {
             ...ALIGN.CENTER,
             ...MARGIN.H_FORM,
             flexDirection: 'column',
-            justifyContent: 'space-around'
+            justifyContent: 'space-around',
+
         },
         text:{
             fontSize: 20,
@@ -31,6 +36,7 @@ const useStyles = () =>
         },
         buttonView:{
             margin:10,
+            width:90
 
         },
         donateButton:{

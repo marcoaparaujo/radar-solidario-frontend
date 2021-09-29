@@ -31,7 +31,7 @@ const Content = () => {
             </View>
             <View>
                 <Text style={styles.text}>{charity.name}</Text>
-                <Text style={styles.belowText}>{charity.name}</Text>
+                <Text>{charity.name}</Text>
             </View>
             <View style={styles.buttonContainer}>
                 <View style={styles.buttonView}>
