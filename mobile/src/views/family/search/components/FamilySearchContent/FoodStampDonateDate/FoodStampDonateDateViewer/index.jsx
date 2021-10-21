@@ -19,7 +19,7 @@ const FoodStampDonateDateViewer = ({ label, data, isValidDonateDataRange }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.label}>{label}</Text>
-            <Text style={textStyle}>{data || 'Nenhnum registro encontrado'}</Text>
+            <Text style={textStyle}>{data || 'Nenhum registro encontrado'}</Text>
         </View>
     );
 };
