@@ -25,13 +25,15 @@ const ENDPOINT = {
         FIND_BY_NIS_OR_CPF: (nisCpf) => `family?${buildQueryParams({ nisCpf })}`
     },
     DONATE: {
-        THIS: 'donate'
+        THIS: 'donate',
+        FIND_ALL_PAGINATED: (page) => `donate?${buildQueryParams({ page })}`
     },
     FOOD_STAMP: {
         THIS: 'food-stamp',
         FIND_OPTIONS: 'food-stamp/options',
         FIND_BY_ID: (id) => `food-stamp?${buildQueryParams({ id })}`,
-        FIND_ALL_BY_CHARITY_NAME: (name) => `food-stamp?${buildQueryParams({ name })}`
+        FIND_ALL_BY_CHARITY_NAME: (name) => `food-stamp?${buildQueryParams({ name })}`,
+        FIND_ALL_BY_IS_ABLE: (page, isAble) => `food-stamp?${buildQueryParams({ page, isAble })}`
     }
 };
 

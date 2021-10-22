@@ -7,11 +7,12 @@ import useSendData from './services/useSendData';
 
 //#endregion
 
-const useFoodStampService = ({ setFoodStamp, setFoodStamps, setOptions }) => {
+const useFoodStampService = ({ setFoodStamp, setFoodStamps, setFoodStampsPaginated, setOptions }) => {
     const { run, requestState } = useRequestState();
 
     const { postFoodStamp, postDonate } = useSendData();
-    const { getFindOptions, getFindById, getFindAllByCharityName } = useGetData();
+    const { getFindOptions, getFindById, getFindAllByCharityName, getFindAllByIsAble, getFindAllPaginated } =
+        useGetData();
 
     const fetchDonate = useCallback(
         async (form) => {
@@ -27,6 +28,26 @@ const useFoodStampService = ({ setFoodStamp, setFoodStamps, setOptions }) => {
             return response;
         },
         [run, postFoodStamp]
+    );
+
+    const fetchFindAllByIsAble = useCallback(
+        async (page, isAble) => {
+            const response = await run(() => getFindAllByIsAble(page, isAble));
+            setFoodStampsPaginated(response.data);
+
+            return response;
+        },
+        [run, getFindAllByIsAble]
+    );
+
+    const fetchFindAllPaginated = useCallback(
+        async (page) => {
+            const response = await run(() => getFindAllPaginated(page));
+            setFoodStampsPaginated(response.data);
+
+            return response;
+        },
+        [run, getFindAllPaginated]
     );
 
     const fetchFindAllByCharityName = useCallback(
@@ -61,6 +82,8 @@ const useFoodStampService = ({ setFoodStamp, setFoodStamps, setOptions }) => {
         fetchOptions,
         fetchFindById,
         includeFoodStamp,
+        fetchFindAllByIsAble,
+        fetchFindAllPaginated,
         fetchFindAllByCharityName,
         requestState,
         setFoodStamp

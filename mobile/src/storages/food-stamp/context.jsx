@@ -12,7 +12,11 @@ const FoodStampContext = createContext();
 const initialState = {
     [FOOD_STAMP_FIELDS.THIS]: null,
     [FOOD_STAMP_FIELDS.FOOD_STAMPS]: [],
-    ...CONTEXT_INITIAL_STATE
+    ...CONTEXT_INITIAL_STATE,
+    pagination: {
+        page: 0,
+        last: false
+    }
 };
 
 export const FoodStampContextProvider = ({ children, defaultValues }) => {
@@ -26,9 +30,15 @@ export const FoodStampContextProvider = ({ children, defaultValues }) => {
         [setState]
     );
 
+    const setFoodStampsPaginated = useCallback(
+        ({ content, last, number }) =>
+            setState((prevState) => ({ ...prevState, foodStamps: content, pagination: { last, page: number } })),
+        [setState]
+    );
+
     const setOptions = useCallback((options) => setState((prevState) => ({ ...prevState, options })), [setState]);
 
-    const service = useFoodStampService({ setFoodStamp, setFoodStamps, setOptions });
+    const service = useFoodStampService({ setFoodStamp, setFoodStamps, setFoodStampsPaginated, setOptions });
     return (
         <FoodStampContext.Provider value={{ ...service, ...state, modalConfirmDonateRef }}>
             {children}

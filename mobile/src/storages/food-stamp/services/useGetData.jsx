@@ -18,9 +18,18 @@ const useGetData = () => {
         [api]
     );
 
+    const getFindAllByIsAble = useCallback(
+        (page, isAble = true) => api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_BY_IS_ABLE(page, isAble)),
+        [api]
+    );
+
+    const getFindAllPaginated = useCallback((page) => api.get(ENDPOINT.DONATE.FIND_ALL_PAGINATED(page)), [api]);
+
     return {
         getFindById,
         getFindOptions,
+        getFindAllByIsAble,
+        getFindAllPaginated,
         getFindAllByCharityName
     };
 };

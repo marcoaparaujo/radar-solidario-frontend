@@ -1,20 +1,35 @@
 //#region Imports
 
-import FieldDatePicker from 'containers/FieldDatePicker';
-import React from 'react';
-import { ScrollView, View } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { FlatList, ScrollView, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
+import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
-import HistoricalDonateBoards from './components/HistoricalDonateBoards';
-import HistoricalReservedBoards from './components/HistoricalReservedBoards';
+import InfoCard from 'views/stock/components/InfoCard';
 import useStyles from './styles';
 
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
+    const modalRef = useRef(null);
+
     const { charity } = useSystemContext();
+    const { foodStamps, pagination, fetchFindAllPaginated } = useFoodStampContext();
+
+    const fetch = async (page = 0) => {
+        if (!pagination.last) {
+            await fetchFindAllPaginated(page);
+        }
+    };
+
+    useEffect(() => {
+        (async () => {
+            await fetch();
+        })();
+    }, []);
+
     return (
         <View style={styles.color}>
             <View style={styles.container}>
@@ -35,14 +50,20 @@ const Content = () => {
                     </View>
                 </View>
 
-                <HistoricalDonateBoards />
-                <HistoricalReservedBoards />
-                <HistoricalDonateBoards />
-                <HistoricalReservedBoards />
-                <HistoricalDonateBoards />
-                <HistoricalReservedBoards />
-                <HistoricalDonateBoards />
-                <HistoricalReservedBoards />
+                <FlatList
+                    data={foodStamps}
+                    onEndReachedThreshold={0.1}
+                    keyExtractor={(item) => item.id}
+                    onEndReached={() => fetch(pagination.page + 1)}
+                    renderItem={({ item, index }) => (
+                        <InfoCard
+                            key={index}
+                            date={item.date}
+                            name={item.weight}
+                            show={modalRef.current && modalRef.current.show()}
+                        />
+                    )}
+                />
             </View>
         </View>
     );
@@ -51,7 +72,9 @@ const Content = () => {
 const Historical = () => (
     <ScrollView>
         <FormContextProvider>
-            <Content />
+            <FoodStampContextProvider>
+                <Content />
+            </FoodStampContextProvider>
         </FormContextProvider>
     </ScrollView>
 );

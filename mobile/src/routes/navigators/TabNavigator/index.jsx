@@ -11,9 +11,8 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => (
     <Tab.Navigator
-        screenOptions={{ headerShown: false }}
         initialRouteName={ROUTE_NAMES.FAMILY.SEARCH}
-        tabBarOptions={{ labelStyle: { fontSize: 12 } }}
+        screenOptions={{ headerShown: false, tabBarLabelStyle: { fontSize: 12 } }}
     >
         {TAB_ROUTES.map(({ name, options, Component }, index) => (
             <Tab.Screen
