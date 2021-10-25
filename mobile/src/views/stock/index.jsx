@@ -51,33 +51,38 @@ const Content = () => {
                     <Button buttonStyle={styles.secondButton} title={'Indisponível'} />
                 </View>
             </View>
+            <View style={{ width: '100%' }}>
+                <FlatList
+                    data={foodStamps}
+                    style={{ width: '100%' }}
+                    contentContainerStyle={styles.listContainer}
+                    onEndReachedThreshold={0.1}
+                    keyExtractor={(item) => item.id}
+                    onEndReached={() => fetch(pagination.page + 1)}
+                    renderItem={({ item, index }) => (
+                        <View style={{ alignItems: 'center' }}>
+                            <InfoCard
+                                key={index}
+                                date={item.date}
+                                name={item.weight}
+                                show={modalRef.current && modalRef.current.show()}
+                            />
+                        </View>
+                    )}
+                />
+            </View>
 
-            <FlatList
-                data={foodStamps}
-                onEndReachedThreshold={0.1}
-                keyExtractor={(item) => item.id}
-                onEndReached={() => fetch(pagination.page + 1)}
-                renderItem={({ item, index }) => (
-                    <InfoCard
-                        key={index}
-                        date={item.date}
-                        name={item.weight}
-                        show={modalRef.current && modalRef.current.show()}
-                    />
-                )}
-            />
-
-            <Modal style={styles.modal} ref={modalRef}>
+            <Modal ref={modalRef}>
                 <View>
                     <View>
                         <Text style={styles.text}>Mais Informações</Text>
                     </View>
 
-                    <View style={styles.info}>
-                        <Text style={styles.underText}>Doada 1 cesta de 04kg</Text>
-                        <Text style={styles.underText}>No dia 20 de Abril de 2021 ás 14:54</Text>
-                        <Text style={styles.underText}>Para o CPF 111.222.333-45</Text>
-                        <Text style={styles.underText}>Por Jailson Mendes</Text>
+                    <View>
+                        <Text>Doada 1 cesta de 04kg</Text>
+                        <Text>No dia 20 de Abril de 2021 ás 14:54</Text>
+                        <Text>Para o CPF 111.222.333-45</Text>
+                        <Text>Por Jailson Mendes</Text>
                     </View>
                 </View>
             </Modal>

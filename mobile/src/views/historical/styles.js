@@ -9,18 +9,18 @@ import FONT from './../../assets/styles/font';
 //#endregion
 
 const useStyles = () =>
-    StyleSheet.create({
-        charityName:{
-            fontSize: 20,
-            marginTop: 10,
-            ...FONT.MEDIUM
-        },
+StyleSheet.create({
         container: {
             ...ALIGN.CENTER,
             ...MARGIN.H_FORM,
             flexDirection: 'column',
             justifyContent: 'space-around',
 
+        },
+        charityName:{
+            fontSize: 20,
+            marginTop: 10,
+            ...FONT.MEDIUM
         },
         text:{
             fontSize: 20,
