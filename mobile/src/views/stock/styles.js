@@ -1,9 +1,9 @@
 //#region Imports
 
+import ALIGN from 'assets/styles/align';
+import FONT from 'assets/styles/font';
+import MARGIN from 'assets/styles/margin';
 import { StyleSheet } from 'react-native';
-import MARGIN from './../../assets/styles/margin';
-import ALIGN from './../../assets/styles/align';
-import FONT from './../../assets/styles/font';
 
 //#endregion
 
@@ -14,10 +14,6 @@ const useStyles = () =>
             ...MARGIN.H_FORM,
             flexDirection: 'column',
             justifyContent: 'space-around'
-        },
-        listContainer: {
-            ...ALIGN.CENTER,
-            alignItems: 'center'
         },
         text: {
             fontSize: 20,

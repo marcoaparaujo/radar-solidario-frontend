@@ -60,7 +60,6 @@ const FieldSearch = ({ mask, name, placeholder, onPress, isLoading = false, isDi
                 <Icon
                     solid
                     name='search'
-                    type='font-awesome-5'
                     style={styles.searchIcon}
                     color={theme.colors.grey}
                     disabled={isDisabled || isLoading}

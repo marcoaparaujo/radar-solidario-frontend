@@ -21,9 +21,7 @@ const TabNavigator = () => (
                 component={Component}
                 options={{
                     ...options,
-                    tabBarIcon: ({ color }) => (
-                        <Icon solid size={22} color={color} name={options.tabBarIcon} type='font-awesome-5' />
-                    )
+                    tabBarIcon: ({ color }) => <Icon solid size={22} color={color} name={options.tabBarIcon} />
                 }}
             />
         ))}

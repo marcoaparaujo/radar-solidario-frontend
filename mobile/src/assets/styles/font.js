@@ -1,12 +1,12 @@
 const FONT = {
     REGULAR: {
-        fontFamily: 'Roboto-Regular'
+        fontFamily: 'Roboto_400Regular'
     },
     MEDIUM: {
-        fontFamily: 'Roboto-Medium'
+        fontFamily: 'Roboto_500Medium'
     },
     BOLD: {
-        fontFamily: 'Roboto-Bold'
+        fontFamily: 'Roboto_700Bold'
     }
 };
 

@@ -1,13 +1,14 @@
 //#region Imports
 
+import InfinityScroll from 'components/InfinityScroll';
 import Modal from 'containers/Modal';
 import React, { useEffect, useRef } from 'react';
-import { FlatList, ScrollView, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
-import InfoCard from './components/InfoCard';
+import HorizontalScrollingFilter from '../../components/HorizontalScrollingFilter';
 import useStyles from './styles';
 
 //#endregion
@@ -39,7 +40,6 @@ const Content = () => {
 
             <View>
                 <Text style={styles.text}>{charity.name}</Text>
-                <Text>{charity.name}</Text>
             </View>
 
             <View style={styles.buttonContainer}>
@@ -51,26 +51,16 @@ const Content = () => {
                     <Button buttonStyle={styles.secondButton} title={'Indisponível'} />
                 </View>
             </View>
-            <View style={{ width: '100%' }}>
-                <FlatList
-                    data={foodStamps}
-                    style={{ width: '100%' }}
-                    contentContainerStyle={styles.listContainer}
-                    onEndReachedThreshold={0.1}
-                    keyExtractor={(item) => item.id}
-                    onEndReached={() => fetch(pagination.page + 1)}
-                    renderItem={({ item, index }) => (
-                        <View style={{ alignItems: 'center' }}>
-                            <InfoCard
-                                key={index}
-                                date={item.date}
-                                name={item.weight}
-                                show={modalRef.current && modalRef.current.show()}
-                            />
-                        </View>
-                    )}
-                />
-            </View>
+
+            <HorizontalScrollingFilter />
+
+            <InfinityScroll
+                dateProp='date'
+                nameProp='weight'
+                data={foodStamps}
+                modalRef={modalRef}
+                fetch={() => fetch(pagination.page + 1)}
+            />
 
             <Modal ref={modalRef}>
                 <View>

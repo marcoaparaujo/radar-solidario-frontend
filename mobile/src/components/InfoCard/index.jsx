@@ -13,11 +13,18 @@ const InfoCard = ({ name, date, show }) => {
 
     return (
         <View style={styles.container}>
-            <Text>{date}</Text>
+            <View style={styles.dateContainer}>
+                <Text>{date}</Text>
+            </View>
 
             <View style={styles.infoContainer}>
                 <Text style={styles.text}>{name}</Text>
-                <Icon style={styles.button} name='ellipsis-h' type='font-awesome' onPress={() => show()} />
+                <Icon
+                    name='ellipsis-h'
+                    style={styles.button}
+                    onPress={() => show()}
+                    containerStyle={styles.iconContainer}
+                />
             </View>
         </View>
     );

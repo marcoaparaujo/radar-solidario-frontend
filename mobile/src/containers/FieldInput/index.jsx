@@ -65,7 +65,7 @@ const FieldInput = ({
                 placeholder={placeholder || label}
                 inputContainerStyle={styles.inputContainer}
                 onChangeText={(text) => handleChange(text)}
-                leftIcon={icon && <Icon solid name={icon} type='font-awesome-5' />}
+                leftIcon={icon && <Icon solid name={icon} />}
                 label={label && <FieldLabel label={label} isRequired={isRequired} />}
                 rightIcon={
                     <FieldInputRightIcon

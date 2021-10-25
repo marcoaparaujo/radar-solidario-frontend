@@ -18,6 +18,7 @@ const FieldInputRightContent = ({ isLoading, isPassword, visible, setVisible }) 
             {isLoading && (
                 <ActivityIndicator size='small' color={theme.colors.primary.medium} style={styles.container} />
             )}
+
             {isPassword && !isLoading && (
                 <Icon
                     name={icon}

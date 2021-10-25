@@ -1,12 +1,8 @@
 //#region Imports
 
-import RobotoBold from 'assets/fonts/Roboto-Bold.ttf';
-import RobotoMedium from 'assets/fonts/Roboto-Medium.ttf';
-import RobotoRegular from 'assets/fonts/Roboto-Regular.ttf';
+import { Roboto_400Regular, Roboto_500Medium, Roboto_700Bold, useFonts } from '@expo-google-fonts/roboto';
 import SplashScreen from 'components/SplashScreen';
-import * as Font from 'expo-font';
-import * as Splash from 'expo-splash-screen';
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import useStyles from './styles';
 
@@ -14,29 +10,14 @@ import useStyles from './styles';
 
 const SplashLoader = ({ children }) => {
     const styles = useStyles();
-    const [isLoading, setIsLoading] = useState(true);
 
-    const fonts = useCallback(async () => {
-        await Font.loadAsync({
-            'Roboto-Bold': RobotoBold,
-            'Roboto-Medium': RobotoMedium,
-            'Roboto-Regular': RobotoRegular
-        });
-    }, []);
+    const [isFontsLoaded] = useFonts({
+        Roboto_400Regular,
+        Roboto_500Medium,
+        Roboto_700Bold
+    });
 
-    useEffect(() => {
-        (async () => {
-            try {
-                await Splash.preventAutoHideAsync();
-                await fonts();
-            } finally {
-                setIsLoading(false);
-                await Splash.hideAsync();
-            }
-        })();
-    }, []);
-
-    return <View style={styles.view}>{!isLoading ? children : <SplashScreen />}</View>;
+    return <View style={styles.view}>{isFontsLoaded ? children : <SplashScreen />}</View>;
 };
 
 export default SplashLoader;
