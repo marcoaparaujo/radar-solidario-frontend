@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { View } from 'react-native';
-import { Text } from 'react-native-elements';
-import { Icon } from 'react-native-elements/dist/icons/Icon';
+import { Icon, Text } from 'react-native-elements';
 import useStyles from './styles';
 
 //#endregion
@@ -21,6 +20,7 @@ const InfoCard = ({ name, date, show }) => {
                 <Text style={styles.text}>{name}</Text>
                 <Icon
                     name='ellipsis-h'
+                    type='font-awesome'
                     style={styles.button}
                     onPress={() => show()}
                     containerStyle={styles.iconContainer}

@@ -8,7 +8,7 @@ import { Button, Text } from 'react-native-elements';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
-import HorizontalScrollingFilter from '../../components/HorizontalScrollingFilter';
+import StockHorizontalScrollingFilter from './components/StockHorizontalScrollingFilter';
 import useStyles from './styles';
 
 //#endregion
@@ -38,21 +38,11 @@ const Content = () => {
                 <Text style={styles.text}>Estoque</Text>
             </View>
 
+            <StockHorizontalScrollingFilter />
+
             <View>
                 <Text style={styles.text}>{charity.name}</Text>
             </View>
-
-            <View style={styles.buttonContainer}>
-                <View style={styles.buttonView}>
-                    <Button buttonStyle={styles.firstButton} title={'Disponível'} />
-                </View>
-
-                <View style={styles.buttonView}>
-                    <Button buttonStyle={styles.secondButton} title={'Indisponível'} />
-                </View>
-            </View>
-
-            <HorizontalScrollingFilter />
 
             <InfinityScroll
                 dateProp='date'

@@ -22,18 +22,6 @@ const useStyles = () =>
         },
         textSpace: {
             padding: 28
-        },
-        buttonContainer: {
-            flexDirection: 'row'
-        },
-        buttonView: {
-            margin: 10
-        },
-        firstButton: {
-            backgroundColor: '#2D8FB3'
-        },
-        secondButton: {
-            backgroundColor: '#CC4E4E'
         }
     });
 
