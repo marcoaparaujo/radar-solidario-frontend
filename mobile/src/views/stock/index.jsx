@@ -1,27 +1,25 @@
 //#region Imports
 
+import { useNavigation } from '@react-navigation/native';
 import InfinityScroll from 'components/InfinityScroll';
 import Modal from 'containers/Modal';
 import React, { useEffect, useRef } from 'react';
 import { ScrollView, View } from 'react-native';
-import { Button, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
+import FabButton from '../../components/FABButton';
 import HorizontalScrollingFilter from '../../components/HorizontalScrollingFilter';
-import useStyles from './styles';
-import { ROUTE_NAMES } from 'routes/routes';
-import { useNavigation } from '@react-navigation/native';
 import InfoCard from './../../components/InfoCard/index';
+import useStyles from './styles';
 
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
     const modalRef = useRef(null);
-    const { navigate } = useNavigation();
 
-    const { charity } = useSystemContext();
     const { foodStamps, pagination, fetchFindAllByIsAble } = useFoodStampContext();
 
     const fetch = async (page = 0, isAble = true) => {
@@ -42,13 +40,7 @@ const Content = () => {
                 <Text style={styles.text}>Estoque</Text>
             </View>
 
-            <View style={styles.containerBoard}>
-                <Button
-                    title='Cadastro de cesta'
-                    buttonStyle={styles.registerButton}
-                    onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.REGISTER)}
-                />
-            </View>
+            <FabButton />
 
             <HorizontalScrollingFilter />
 

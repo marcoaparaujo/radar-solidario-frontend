@@ -15,14 +15,6 @@ const useStyles = () =>
             flexDirection: 'column',
             justifyContent: 'space-around'
         },
-        registerButton: {
-            backgroundColor: '#2D8FB3',
-            borderRadius: 7,
-            margin: 'auto',
-            height: 55,
-            padding: 8,
-            width: 200
-        },
         text: {
             fontSize: 20,
             marginTop: 10,
@@ -42,15 +34,6 @@ const useStyles = () =>
         },
         secondButton: {
             backgroundColor: '#CC4E4E'
-        },
-        containerBoard: {
-            height: 150,
-            width: 350,
-            borderRadius: 8,
-            backgroundColor: '#F15B5B',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            paddingBottom: 20
         }
     });
 
