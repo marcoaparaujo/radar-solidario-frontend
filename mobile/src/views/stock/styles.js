@@ -3,7 +3,7 @@
 import ALIGN from 'assets/styles/align';
 import FONT from 'assets/styles/font';
 import MARGIN from 'assets/styles/margin';
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 //#endregion
 
@@ -14,6 +14,7 @@ const useStyles = () =>
             ...MARGIN.H_FORM,
             flexDirection: 'column',
             justifyContent: 'space-around'
+            // height: Dimensions.get('screen').height,
         },
         text: {
             fontSize: 20,
