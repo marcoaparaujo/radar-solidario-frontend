@@ -10,12 +10,16 @@ import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
 import HorizontalScrollingFilter from '../../components/HorizontalScrollingFilter';
 import useStyles from './styles';
+import { ROUTE_NAMES } from 'routes/routes';
+import { useNavigation } from '@react-navigation/native';
+import InfoCard from './../../components/InfoCard/index';
 
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
     const modalRef = useRef(null);
+    const { navigate } = useNavigation();
 
     const { charity } = useSystemContext();
     const { foodStamps, pagination, fetchFindAllByIsAble } = useFoodStampContext();
@@ -38,18 +42,12 @@ const Content = () => {
                 <Text style={styles.text}>Estoque</Text>
             </View>
 
-            <View>
-                <Text style={styles.text}>{charity.name}</Text>
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <View style={styles.buttonView}>
-                    <Button buttonStyle={styles.firstButton} title={'Disponível'} />
-                </View>
-
-                <View style={styles.buttonView}>
-                    <Button buttonStyle={styles.secondButton} title={'Indisponível'} />
-                </View>
+            <View style={styles.containerBoard}>
+                <Button
+                    title='Cadastro de cesta'
+                    buttonStyle={styles.registerButton}
+                    onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.REGISTER)}
+                />
             </View>
 
             <HorizontalScrollingFilter />

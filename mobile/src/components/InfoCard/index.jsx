@@ -3,7 +3,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
-import { Icon } from 'react-native-elements/dist/icons/Icon';
+import { Icon } from 'react-native-elements';
 import useStyles from './styles';
 
 //#endregion
@@ -24,6 +24,7 @@ const InfoCard = ({ name, date, show }) => {
                     style={styles.button}
                     onPress={() => show()}
                     containerStyle={styles.iconContainer}
+                    color='#00000'
                 />
             </View>
         </View>
