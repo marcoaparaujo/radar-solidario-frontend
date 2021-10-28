@@ -36,23 +36,21 @@ const Content = () => {
     }, []);
 
     return (
-        <View style={styles.color}>
-            <View style={styles.container}>
-                <View style={styles.textSpace}>
-                    <Text style={styles.text}>Histórico</Text>
-                </View>
-
-                <Text style={styles.charityName}>{charity.name}</Text>
-
-                <InfinityScroll
-                    data={donates}
-                    dateProp='date'
-                    nameProp='weight'
-                    modalRef={modalRef}
-                    requestState={requestState}
-                    fetch={() => fetch(pagination.page + 1)}
-                />
+        <View style={styles.container}>
+            <View style={styles.textSpace}>
+                <Text style={styles.text}>Histórico</Text>
             </View>
+
+            <Text style={styles.charityName}>{charity.name}</Text>
+
+            <InfinityScroll
+                data={donates}
+                dateProp='date'
+                nameProp='weight'
+                modalRef={modalRef}
+                requestState={requestState}
+                fetch={() => fetch(pagination.page + 1)}
+            />
         </View>
     );
 };
