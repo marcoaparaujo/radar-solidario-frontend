@@ -23,7 +23,6 @@ const Content = () => {
         async (page) => {
             if (!pagination.last) {
                 const { data } = await fetchFindAllDonatesPaginated(page);
-                console.log('data', data);
                 setDonatesInfinityPaginated(data);
             }
         },
