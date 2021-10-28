@@ -19,18 +19,24 @@ const useGetData = () => {
     );
 
     const getFindAllByIsAble = useCallback(
-        (page, isAble = true) => api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_BY_IS_ABLE(page, isAble)),
+        (page, order, isAble) => api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_BY_IS_ABLE(page, order, isAble)),
         [api]
     );
 
-    const getFindAllPaginated = useCallback((page) => api.get(ENDPOINT.DONATE.FIND_ALL_PAGINATED(page)), [api]);
+    const getFindAllPaginated = useCallback(
+        (page, order) => api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_PAGINATED(page, order)),
+        [api]
+    );
+
+    const getFindAllDonatesPaginated = useCallback((page) => api.get(ENDPOINT.DONATE.FIND_ALL_PAGINATED(page)), [api]);
 
     return {
         getFindById,
         getFindOptions,
         getFindAllByIsAble,
         getFindAllPaginated,
-        getFindAllByCharityName
+        getFindAllByCharityName,
+        getFindAllDonatesPaginated
     };
 };
 

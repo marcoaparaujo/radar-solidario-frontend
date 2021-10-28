@@ -7,12 +7,18 @@ import useSendData from './services/useSendData';
 
 //#endregion
 
-const useFoodStampService = ({ setFoodStamp, setFoodStamps, setFoodStampsPaginated, setOptions }) => {
+const useFoodStampService = ({ setOptions, setFoodStamp, setFoodStamps }) => {
     const { run, requestState } = useRequestState();
 
     const { postFoodStamp, postDonate } = useSendData();
-    const { getFindOptions, getFindById, getFindAllByCharityName, getFindAllByIsAble, getFindAllPaginated } =
-        useGetData();
+    const {
+        getFindById,
+        getFindOptions,
+        getFindAllByIsAble,
+        getFindAllPaginated,
+        getFindAllByCharityName,
+        getFindAllDonatesPaginated
+    } = useGetData();
 
     const fetchDonate = useCallback(
         async (form) => {
@@ -30,26 +36,6 @@ const useFoodStampService = ({ setFoodStamp, setFoodStamps, setFoodStampsPaginat
         [run, postFoodStamp]
     );
 
-    const fetchFindAllByIsAble = useCallback(
-        async (page, isAble) => {
-            const response = await run(() => getFindAllByIsAble(page, isAble));
-            setFoodStampsPaginated(response.data);
-
-            return response;
-        },
-        [run, getFindAllByIsAble]
-    );
-
-    const fetchFindAllPaginated = useCallback(
-        async (page) => {
-            const response = await run(() => getFindAllPaginated(page));
-            setFoodStampsPaginated(response.data);
-
-            return response;
-        },
-        [run, getFindAllPaginated]
-    );
-
     const fetchFindAllByCharityName = useCallback(
         async (form) => {
             const response = await run(() => getFindAllByCharityName(form));
@@ -58,6 +44,30 @@ const useFoodStampService = ({ setFoodStamp, setFoodStamps, setFoodStampsPaginat
             return response;
         },
         [run, getFindAllByCharityName]
+    );
+
+    const fetchFindAllPaginated = useCallback(
+        async (page = 0, order = 'weight') => {
+            const response = await run(() => getFindAllPaginated(page, order));
+            return response;
+        },
+        [run, getFindAllPaginated]
+    );
+
+    const fetchFindAllByIsAblePaginated = useCallback(
+        async (page = 0, isAble = true, order = 'weight') => {
+            const response = await run(() => getFindAllByIsAble(page, order, isAble));
+            return response;
+        },
+        [run, getFindAllByIsAble]
+    );
+
+    const fetchFindAllDonatesPaginated = useCallback(
+        async (page = 0) => {
+            const response = await run(() => getFindAllDonatesPaginated(page));
+            return response;
+        },
+        [run, getFindAllDonatesPaginated]
     );
 
     const fetchFindById = useCallback(
@@ -82,9 +92,10 @@ const useFoodStampService = ({ setFoodStamp, setFoodStamps, setFoodStampsPaginat
         fetchOptions,
         fetchFindById,
         includeFoodStamp,
-        fetchFindAllByIsAble,
         fetchFindAllPaginated,
         fetchFindAllByCharityName,
+        fetchFindAllDonatesPaginated,
+        fetchFindAllByIsAblePaginated,
         requestState,
         setFoodStamp
     };

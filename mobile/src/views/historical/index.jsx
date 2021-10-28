@@ -1,9 +1,9 @@
 //#region Imports
 
 import InfinityScroll from 'components/InfinityScroll';
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { ScrollView, View } from 'react-native';
-import { Button, Text } from 'react-native-elements';
+import { Text } from 'react-native-elements';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
@@ -16,13 +16,19 @@ const Content = () => {
     const modalRef = useRef(null);
 
     const { charity } = useSystemContext();
-    const { foodStamps, pagination, fetchFindAllPaginated } = useFoodStampContext();
+    const { donates, pagination, requestState, fetchFindAllDonatesPaginated, setDonatesInfinityPaginated } =
+        useFoodStampContext();
 
-    const fetch = async (page = 0) => {
-        if (!pagination.last) {
-            await fetchFindAllPaginated(page);
-        }
-    };
+    const fetch = useCallback(
+        async (page) => {
+            if (!pagination.last) {
+                const { data } = await fetchFindAllDonatesPaginated(page);
+                console.log('data', data);
+                setDonatesInfinityPaginated(data);
+            }
+        },
+        [pagination, setDonatesInfinityPaginated]
+    );
 
     useEffect(() => {
         (async () => {
@@ -40,10 +46,11 @@ const Content = () => {
                 <Text style={styles.charityName}>{charity.name}</Text>
 
                 <InfinityScroll
+                    data={donates}
                     dateProp='date'
                     nameProp='weight'
-                    data={foodStamps}
                     modalRef={modalRef}
+                    requestState={requestState}
                     fetch={() => fetch(pagination.page + 1)}
                 />
             </View>

@@ -33,7 +33,8 @@ const ENDPOINT = {
         FIND_OPTIONS: 'food-stamp/options',
         FIND_BY_ID: (id) => `food-stamp?${buildQueryParams({ id })}`,
         FIND_ALL_BY_CHARITY_NAME: (name) => `food-stamp?${buildQueryParams({ name })}`,
-        FIND_ALL_BY_IS_ABLE: (page, isAble) => `food-stamp?${buildQueryParams({ page, isAble })}`
+        FIND_ALL_PAGINATED: (page, order) => `food-stamp?${buildQueryParams({ page, order })}`,
+        FIND_ALL_BY_IS_ABLE: (page, order, isAble) => `food-stamp?${buildQueryParams({ page, order, isAble })}`
     }
 };
 
