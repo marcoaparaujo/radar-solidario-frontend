@@ -1,9 +1,11 @@
 //#region Imports
 
+import { useNavigation } from '@react-navigation/native';
 import FAB from 'components/FAB';
 import React, { Fragment } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Text } from 'react-native-elements';
+import { ROUTE_NAMES } from 'routes/routes';
 import { FoodStampContextProvider } from 'storages/food-stamp/context';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
@@ -18,8 +20,6 @@ const Content = () => {
 
     return (
         <Fragment>
-            <FAB />
-
             <View style={styles.container}>
                 <View style={styles.title}>
                     <Text style={styles.text}>Estoque</Text>
@@ -35,14 +35,20 @@ const Content = () => {
     );
 };
 
-const Stock = () => (
-    <ScrollView>
-        <FormContextProvider>
-            <FoodStampContextProvider>
-                <Content />
-            </FoodStampContextProvider>
-        </FormContextProvider>
-    </ScrollView>
-);
+const Stock = () => {
+    const { navigate } = useNavigation();
+    return (
+        <Fragment>
+            <ScrollView>
+                <FormContextProvider>
+                    <FoodStampContextProvider>
+                        <Content />
+                    </FoodStampContextProvider>
+                </FormContextProvider>
+            </ScrollView>
+            <FAB onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.REGISTER)} />
+        </Fragment>
+    );
+};
 
 export default Stock;

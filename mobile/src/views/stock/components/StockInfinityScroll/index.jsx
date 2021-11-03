@@ -66,7 +66,7 @@ const StockInfinityScroll = ({ children }) => {
                 fetch={() => fetchInfinityScroll(pagination.page + 1)}
             />
 
-            <StockModal />
+            <StockModal modalRef={modalRef} />
         </Fragment>
     );
 };

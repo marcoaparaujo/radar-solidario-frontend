@@ -7,9 +7,10 @@ import { StyleSheet } from 'react-native';
 const useStyles = () =>
     StyleSheet.create({
         container: {
-            width: '100%',
-            flexDirection: 'row',
-            justifyContent: 'flex-end'
+            zIndex: 999,
+            width: 'auto',
+            right: 10,
+            bottom: 10
         }
     });
 
