@@ -5,15 +5,25 @@ import { View } from 'react-native';
 import NativeModal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import slsx from 'slsx';
+import { Text } from 'react-native-elements';
 import useStyles from './styles';
 
 //#endregion
 
 const Modal = (
-    { children, onClose, animationIn = 'fadeIn', animationOut = 'fadeOut', isFullView = false, ...rest },
+    {
+        children,
+        title,
+        canClose = true,
+        onClose,
+        animationIn = 'fadeIn',
+        animationOut = 'fadeOut',
+        isFullView = false,
+        ...rest
+    },
     ref
 ) => {
-    const styles = useStyles();
+    const styles = useStyles({ hasTitle: title });
     const [isVisible, setIsVisible] = useState(false);
 
     useImperativeHandle(ref, () => ({
@@ -52,6 +62,7 @@ const Modal = (
     return (
         <NativeModal
             style={modalStyle}
+            title={title}
             isVisible={isVisible}
             animationIn={animationIn}
             animationOut={animationOut}
@@ -60,9 +71,12 @@ const Modal = (
             {...rest}
         >
             <View style={containerStyle}>
-                <View style={headerStyle}>
-                    <Icon name={icon} style={styles.backIcon} onPress={() => setIsVisible(false)} />
-                </View>
+                {(canClose || title) && (
+                    <View style={styles.headerStyle}>
+                        {canClose && <Icon name={icon} style={styles.backIcon} onPress={() => setIsVisible(false)} />}
+                        {title && <Text style={styles.title}>{title}</Text>}
+                    </View>
+                )}
                 {children}
             </View>
         </NativeModal>

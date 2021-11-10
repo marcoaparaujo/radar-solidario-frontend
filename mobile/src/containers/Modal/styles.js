@@ -24,6 +24,18 @@ const useStyles = () =>
         radius: {
             borderRadius: 5
         },
+        title: {
+            fontSize: 23,
+            color: 'red'
+        },
+        headerStyle: {
+            width: '100%',
+            flexWrap: 'wrap',
+            display: 'flex',
+            padding: 10,
+            alignItems: 'center',
+            justifyContent: 'space-between'
+        },
         header: {
             padding: 10,
             paddingBottom: 0,
@@ -36,14 +48,15 @@ const useStyles = () =>
             ...ALIGN.RIGHT
         },
         containerStyle: {
-            backgroundColor: ELEMENTS_THEME_LIGHT.colors.light.dark,
-            margin: 20,
-            padding: 20,
-            borderRadius: 20,
-            elevation: 10
+            backgroundColor: '#FFF',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            height: '100%'
         },
         backIcon: {
-            fontSize: 20
+            fontSize: 20,
+            marginLeft: 'auto'
         }
     });
 
