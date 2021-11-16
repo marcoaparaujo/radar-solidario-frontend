@@ -41,9 +41,14 @@ const Content = () => {
                     </Text>
                 </View>
             </View>
-            <EmailBoard />
-            <PhoneBoard />
-            <AdressBoard />
+
+            {charity && (
+                <Fragment>
+                    <EmailBoard />
+                    <PhoneBoard />
+                    <AdressBoard />
+                </Fragment>
+            )}
         </View>
     );
 };
