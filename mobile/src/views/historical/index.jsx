@@ -10,6 +10,7 @@ import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
 import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
 import useStyles from './styles';
+import FAMILY_FIELDS from 'utils/constants/fields/family';
 
 //#endregion
 
@@ -37,6 +38,7 @@ const Content = () => {
         })();
     }, []);
 
+    console.log(donates);
     return (
         <View style={styles.container}>
             <View style={styles.textSpace}>
@@ -54,7 +56,7 @@ const Content = () => {
                         key={index}
                         date={item[FOOD_STAMP_FIELDS.DATE]}
                         show={modalRef.current && modalRef.current.show}
-                        name={`Peso: ${item[FOOD_STAMP_FIELDS.WEIGHT]} - Qtd: ${item[FOOD_STAMP_FIELDS.LENGTH]}`}
+                        name={item[FAMILY_FIELDS.THIS][FAMILY_FIELDS.HEAD]}
                     />
                 )}
             />

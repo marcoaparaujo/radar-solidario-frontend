@@ -1,30 +1,44 @@
 //#region Imports
 
-import React, { Fragment } from 'react';
-import useStyles from './styles';
-import { View } from 'react-native';
-import { Text } from 'react-native-elements';
-import { Icon } from 'react-native-elements/dist/icons/Icon';
+import { useNavigation } from '@react-navigation/native';
+import React, { useCallback } from 'react';
+import { ScrollView, View } from 'react-native';
+import { Icon, Text } from 'react-native-elements';
+import { ROUTE_NAMES } from 'routes/routes';
+import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
-import { FormContextProvider } from './../../storages/form/context';
-import { ScrollView } from 'react-native-gesture-handler';
+import AdressBoard from './components/AdressBoard';
 import EmailBoard from './components/EmailBoard';
-import PhoneBoard from './components/PhoneBoard/index';
-import AdressBoard from './components/AdressBoard/index';
+import PhoneBoard from './components/PhoneBoard';
+import useStyles from './styles';
+
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
-    const { charity } = useSystemContext();
+
+    const { navigate } = useNavigation();
+    const { charity, reset } = useSystemContext();
+
+    const logoff = useCallback(() => {
+        reset();
+        navigate(ROUTE_NAMES.AUTHENTICATION);
+    }, [reset, navigate]);
+
     return (
         <View>
             <View style={styles.headerContainer}>
                 <View>
                     <Text style={styles.profile}>Perfil</Text>
                 </View>
+
                 <View style={styles.user}>
                     <Icon name='user-circle' type='font-awesome' size={50} style={styles.icon} />
-                    <Text style={styles.charityName}>{charity.name}</Text>
+                    <Text style={styles.charityName}>{charity && charity.name}</Text>
+
+                    <Text style={styles.exit} onPress={() => logoff()}>
+                        Sair
+                    </Text>
                 </View>
             </View>
             <EmailBoard />

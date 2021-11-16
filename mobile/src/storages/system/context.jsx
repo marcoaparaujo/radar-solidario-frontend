@@ -42,8 +42,10 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
         [setState]
     );
 
+    const reset = useCallback(() => setState(initialState), [setState]);
+
     return (
-        <SystemContext.Provider value={{ ...state, setTheme, setLogin, setSnackbar }}>
+        <SystemContext.Provider value={{ ...state, reset, setTheme, setLogin, setSnackbar }}>
             {children}
         </SystemContext.Provider>
     );
