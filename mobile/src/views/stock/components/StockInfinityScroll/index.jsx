@@ -1,8 +1,11 @@
 //#region Imports
 
 import InfinityScroll from 'components/InfinityScroll';
+import InfoCard from 'components/InfoCard';
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import { Text } from 'react-native-elements';
 import useFoodStampContext from 'storages/food-stamp/context';
+import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
 import StockModal from '../StockModal';
 import StockHorizontalScrollingFilter from './StockHorizontalScrollingFilter';
 
@@ -57,13 +60,18 @@ const StockInfinityScroll = ({ children }) => {
             {children}
 
             <InfinityScroll
-                dateProp='date'
-                nameProp='weight'
                 data={foodStamps}
-                modalRef={modalRef}
-                requestState={requestState}
+                isLoading={requestState.isLoading}
                 refresh={() => fetchInfinityScroll()}
                 fetch={() => fetchInfinityScroll(pagination.page + 1)}
+                render={(item, index) => (
+                    <InfoCard
+                        key={index}
+                        date={item[FOOD_STAMP_FIELDS.DATE]}
+                        show={modalRef.current && modalRef.current.show}
+                        name={`Peso: ${item[FOOD_STAMP_FIELDS.WEIGHT]} - Qtd: ${item[FOOD_STAMP_FIELDS.LENGTH]}`}
+                    />
+                )}
             />
 
             <StockModal modalRef={modalRef} />

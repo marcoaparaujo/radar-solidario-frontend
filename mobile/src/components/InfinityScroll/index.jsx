@@ -2,13 +2,12 @@
 
 import React, { useCallback, useState } from 'react';
 import { FlatList, RefreshControl } from 'react-native';
-import InfoCard from '../InfoCard';
 import InfinityScrollLoader from './InfinityScrollLoader';
 import useStyles from './styles';
 
 //#endregion
 
-const InfinityScroll = ({ modalRef, data, dateProp, nameProp, fetch, refresh, requestState }) => {
+const InfinityScroll = ({ render, data, fetch, refresh, isLoading }) => {
     const styles = useStyles();
     const [isRefreshing, setIsRefreshing] = useState(false);
 
@@ -27,16 +26,9 @@ const InfinityScroll = ({ modalRef, data, dateProp, nameProp, fetch, refresh, re
             onEndReached={() => fetch()}
             keyExtractor={(item) => item.id}
             contentContainerStyle={styles.contentContainer}
-            ListFooterComponent={requestState.isLoading && <InfinityScrollLoader />}
+            renderItem={({ item, index }) => render(item, index)}
+            ListFooterComponent={isLoading && <InfinityScrollLoader />}
             refreshControl={<RefreshControl refreshing={isRefreshing} onRefresh={() => handleRefresh()} />}
-            renderItem={({ item, index }) => (
-                <InfoCard
-                    key={index}
-                    date={item[dateProp]}
-                    name={item[nameProp]}
-                    show={modalRef.current && modalRef.current.show}
-                />
-            )}
         />
     );
 };
