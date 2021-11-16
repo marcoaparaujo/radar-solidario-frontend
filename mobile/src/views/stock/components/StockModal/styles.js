@@ -6,8 +6,8 @@ const useStyles = () =>
             backgroundColor: '#FFF',
             justifyContent: 'center',
             alignItems: 'center',
-            width: '100%',
-            height: '100%'
+            borderBottomEndRadius: 5,
+            borderBottomStartRadius: 5
         }
     });
 

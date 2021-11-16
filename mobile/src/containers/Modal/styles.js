@@ -3,7 +3,6 @@
 import ALIGN from 'assets/styles/align';
 import COLOR from 'assets/styles/color';
 import { StyleSheet } from 'react-native';
-import { ELEMENTS_THEME_LIGHT } from './../../utils/constants/theme/elements-theme';
 
 //#endregion
 
@@ -25,16 +24,15 @@ const useStyles = () =>
             borderRadius: 5
         },
         title: {
-            fontSize: 23,
-            color: 'red'
+            fontSize: 20
         },
         headerStyle: {
-            width: '100%',
-            flexWrap: 'wrap',
-            display: 'flex',
             padding: 10,
             alignItems: 'center',
-            justifyContent: 'space-between'
+            backgroundColor: '#FFF',
+            justifyContent: 'space-between',
+            borderTopEndRadius: 5,
+            borderTopStartRadius: 5
         },
         header: {
             padding: 10,
