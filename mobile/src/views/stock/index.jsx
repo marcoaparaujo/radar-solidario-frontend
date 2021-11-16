@@ -37,6 +37,7 @@ const Content = () => {
 
 const Stock = () => {
     const { navigate } = useNavigation();
+
     return (
         <Fragment>
             <ScrollView>

@@ -1,12 +1,14 @@
 //#region Imports
 
 import InfinityScroll from 'components/InfinityScroll';
+import InfoCard from 'components/InfoCard';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
+import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
 import useStyles from './styles';
 
 //#endregion
@@ -45,11 +47,16 @@ const Content = () => {
 
             <InfinityScroll
                 data={donates}
-                dateProp='date'
-                nameProp='weight'
-                modalRef={modalRef}
-                requestState={requestState}
+                isLoading={requestState.isLoading}
                 fetch={() => fetch(pagination.page + 1)}
+                render={(item, index) => (
+                    <InfoCard
+                        key={index}
+                        date={item[FOOD_STAMP_FIELDS.DATE]}
+                        show={modalRef.current && modalRef.current.show}
+                        name={`Peso: ${item[FOOD_STAMP_FIELDS.WEIGHT]} - Qtd: ${item[FOOD_STAMP_FIELDS.LENGTH]}`}
+                    />
+                )}
             />
         </View>
     );
