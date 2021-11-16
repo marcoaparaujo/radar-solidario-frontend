@@ -38,7 +38,6 @@ const Content = () => {
         })();
     }, []);
 
-    console.log(donates);
     return (
         <View style={styles.container}>
             <View style={styles.textSpace}>
