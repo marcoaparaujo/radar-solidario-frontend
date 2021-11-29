@@ -28,7 +28,7 @@ const FoodStampDonateDate = ({ data, navigate }) => {
         );
 
         const next = moment(data[DONATE_FIELDS.DONATE_PREVISION][DONATE_FIELDS.NEXT_DONATE_DATE], 'dd/MM/yyyy');
-        return next.diff(last, 'days') <= 0;
+        return next.diff(last, 'days') > 0;
     }, [data]);
 
     return (

@@ -12,9 +12,6 @@ const {
 
 const useStyles = () =>
     StyleSheet.create({
-        fullModal: {
-            margin: 0
-        },
         container: {
             margin: 0,
             borderRadius: 2,
@@ -26,31 +23,13 @@ const useStyles = () =>
         title: {
             fontSize: 20
         },
-        headerStyle: {
-            padding: 10,
-            alignItems: 'center',
-            backgroundColor: '#FFF',
-            justifyContent: 'space-between',
-            borderTopEndRadius: 5,
-            borderTopStartRadius: 5
-        },
         header: {
             padding: 10,
             paddingBottom: 0,
             flexDirection: 'row'
         },
-        alignLeft: {
-            ...ALIGN.LEFT
-        },
         alignRight: {
             ...ALIGN.RIGHT
-        },
-        containerStyle: {
-            backgroundColor: '#FFF',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '100%',
-            height: '100%'
         },
         backIcon: {
             fontSize: 20,

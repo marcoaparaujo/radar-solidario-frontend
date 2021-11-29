@@ -11,10 +11,9 @@ const useStyles = () =>
         container: {
             width: '100%',
             height: Dimensions.get('window').height,
-            ...ALIGN.CENTER,
+            ...ALIGN.LEFT,
             ...MARGIN.H_FORM,
-            flexDirection: 'column',
-            justifyContent: 'space-around'
+            flexDirection: 'column'
         },
         image: {
             width: 150,

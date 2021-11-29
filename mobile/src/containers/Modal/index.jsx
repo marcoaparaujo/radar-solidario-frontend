@@ -1,26 +1,16 @@
 //#region Imports
 
 import React, { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import NativeModal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import slsx from 'slsx';
 import useStyles from './styles';
 
 //#endregion
 
 const Modal = (
-    {
-        children,
-        title,
-        canClose = true,
-        onClose,
-        animationIn = 'fadeIn',
-        animationOut = 'fadeOut',
-        isFullView = false,
-        ...rest
-    },
+    { title, onClose, children, canClose = true, animationIn = 'fadeIn', animationOut = 'fadeOut', ...rest },
     ref
 ) => {
     const styles = useStyles({ hasTitle: title });
@@ -32,36 +22,12 @@ const Modal = (
         handle: () => setIsVisible((prevState) => !prevState)
     }));
 
-    const modalStyle = useMemo(
-        () =>
-            slsx({
-                [styles.fullModal]: isFullView
-            }),
-        [styles, isFullView]
-    );
+    const containerStyle = StyleSheet.compose(styles.container, styles.radius);
 
-    const containerStyle = useMemo(
-        () =>
-            slsx(styles.container, {
-                [styles.radius]: !isFullView
-            }),
-        [styles, isFullView]
-    );
-
-    const headerStyle = useMemo(
-        () =>
-            slsx(styles.header, {
-                [styles.alignLeft]: isFullView,
-                [styles.alignRight]: !isFullView
-            }),
-        [styles, isFullView]
-    );
-
-    const icon = useMemo(() => (isFullView ? 'arrow-left' : 'times'), [isFullView]);
+    const headerStyle = StyleSheet.compose(styles.header, styles.alignRight);
 
     return (
         <NativeModal
-            style={modalStyle}
             title={title}
             isVisible={isVisible}
             animationIn={animationIn}
@@ -72,8 +38,8 @@ const Modal = (
         >
             <View style={containerStyle}>
                 {(canClose || title) && (
-                    <View style={styles.headerStyle}>
-                        {canClose && <Icon name={icon} style={styles.backIcon} onPress={() => setIsVisible(false)} />}
+                    <View style={headerStyle}>
+                        {canClose && <Icon name='times' style={styles.backIcon} onPress={() => setIsVisible(false)} />}
                         {title && <Text style={styles.title}>{title}</Text>}
                     </View>
                 )}
