@@ -2,10 +2,10 @@
 
 import React, { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
 import { View } from 'react-native';
+import { Text } from 'react-native-elements';
 import NativeModal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import slsx from 'slsx';
-import { Text } from 'react-native-elements';
 import useStyles from './styles';
 
 //#endregion

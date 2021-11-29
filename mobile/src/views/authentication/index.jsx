@@ -1,5 +1,6 @@
 //#region Imports
 
+import { OPEN_REGISTER } from '@env';
 import { useNavigation } from '@react-navigation/native';
 import Logo from 'assets/images/logo.gif';
 import Snackbar from 'components/Snackbar';
@@ -7,18 +8,14 @@ import React from 'react';
 import { View } from 'react-native';
 import { Image, Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
-import slsx from 'slsx';
 import { AuthenticationContextProvider } from 'storages/authentication/context';
 import FormLogin from './FormLogin';
 import useStyles from './styles';
-import { OPEN_REGISTER } from '@env';
 
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
-    // const forgotPasswordStyle = slsx(styles.text, styles.forgotPassword);
-
     const { navigate } = useNavigation();
 
     return (
@@ -27,7 +24,6 @@ const Content = () => {
 
             <View style={styles.form}>
                 <FormLogin />
-                {/* <Text style={forgotPasswordStyle}>Esqueci a senha</Text> */}
             </View>
 
             {OPEN_REGISTER && (

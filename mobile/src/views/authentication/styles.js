@@ -26,9 +26,6 @@ const useStyles = () =>
             flexDirection: 'column',
             justifyContent: 'space-between'
         },
-        forgotPassword: {
-            marginTop: 10
-        },
         register: {
             ...ALIGN.CENTER,
             alignItems: 'flex-end'
