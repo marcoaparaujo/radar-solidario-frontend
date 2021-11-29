@@ -49,7 +49,6 @@ const FoodStampDonateDate = ({ data, navigate }) => {
             <Button onPress={() => (isValidDonateDataRange ? navigate() : modalConfirmDonateRef.current.show())}>
                 Doar
             </Button>
-            <Text style={styles.info}>Histórico de doações recebidas</Text>
         </View>
     );
 };

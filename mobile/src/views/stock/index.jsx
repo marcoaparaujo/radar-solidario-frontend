@@ -19,19 +19,17 @@ const Content = () => {
     const { charity } = useSystemContext();
 
     return (
-        <Fragment>
-            <View style={styles.container}>
-                <View style={styles.title}>
-                    <Text style={styles.text}>Estoque</Text>
-                </View>
-
-                <StockInfinityScroll>
-                    <View style={styles.name}>
-                        <Text style={styles.text}>{charity.name}</Text>
-                    </View>
-                </StockInfinityScroll>
+        <View style={styles.container}>
+            <View style={styles.title}>
+                <Text style={styles.text}>Estoque</Text>
             </View>
-        </Fragment>
+
+            <StockInfinityScroll>
+                <View style={styles.name}>
+                    <Text style={styles.text}>{charity.name}</Text>
+                </View>
+            </StockInfinityScroll>
+        </View>
     );
 };
 
@@ -47,6 +45,7 @@ const Stock = () => {
                     </FoodStampContextProvider>
                 </FormContextProvider>
             </ScrollView>
+
             <FAB onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.REGISTER)} />
         </Fragment>
     );

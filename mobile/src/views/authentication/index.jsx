@@ -11,12 +11,13 @@ import slsx from 'slsx';
 import { AuthenticationContextProvider } from 'storages/authentication/context';
 import FormLogin from './FormLogin';
 import useStyles from './styles';
+import { OPEN_REGISTER } from '@env';
 
 //#endregion
 
 const Content = () => {
     const styles = useStyles();
-    const forgotPasswordStyle = slsx(styles.text, styles.forgotPassword);
+    // const forgotPasswordStyle = slsx(styles.text, styles.forgotPassword);
 
     const { navigate } = useNavigation();
 
@@ -26,15 +27,17 @@ const Content = () => {
 
             <View style={styles.form}>
                 <FormLogin />
-                <Text style={forgotPasswordStyle}>Esqueci a senha</Text>
+                {/* <Text style={forgotPasswordStyle}>Esqueci a senha</Text> */}
             </View>
 
-            <View style={styles.register}>
-                <Text style={styles.text}>Não está cadastrado?</Text>
-                <Text style={styles.registerText} onPress={() => navigate(ROUTE_NAMES.USER.REGISTER)}>
-                    Cadastre-se
-                </Text>
-            </View>
+            {OPEN_REGISTER && (
+                <View style={styles.register}>
+                    <Text style={styles.text}>Não está cadastrado?</Text>
+                    <Text style={styles.registerText} onPress={() => navigate(ROUTE_NAMES.USER.REGISTER)}>
+                        Cadastre-se
+                    </Text>
+                </View>
+            )}
 
             <Snackbar />
         </View>

@@ -18,6 +18,7 @@ const InfoCard = ({ name, date, show }) => {
 
             <View style={styles.infoContainer}>
                 <Text style={styles.text}>{name}</Text>
+
                 <Icon
                     name='ellipsis-h'
                     type='font-awesome'

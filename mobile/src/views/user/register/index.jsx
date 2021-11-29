@@ -18,6 +18,7 @@ const Content = () => {
             <View style={styles.form}>
                 <FormUserRegister />
             </View>
+
             <Snackbar />
         </ScrollView>
     );

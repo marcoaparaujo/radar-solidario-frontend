@@ -2,14 +2,14 @@
 
 import ALIGN from 'assets/styles/align';
 import MARGIN from 'assets/styles/margin';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 //#endregion
 
 const useStyles = () =>
     StyleSheet.create({
         container: {
-            flex: 1,
+            height: Dimensions.get('window').height,
             ...MARGIN.F_FORM,
             ...ALIGN.BETWEEN,
             flexDirection: 'column'
