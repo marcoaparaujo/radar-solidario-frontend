@@ -9,7 +9,7 @@ const ENDPOINT = {
     // BASE: 'http://localhost:8877',
     BASE: 'http://192.168.0.107:8877',
     BASE: 'http://172.28.144.1:8877',
-    // BASE: API_URL,
+    //BASE: API_URL,
     SECURITY: {
         LOGIN: 'security/login'
     },

@@ -1,7 +1,7 @@
 //#region Imports
 
 import { useNavigation } from '@react-navigation/native';
-import React, { useCallback } from 'react';
+import React, { Fragment, useCallback } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';

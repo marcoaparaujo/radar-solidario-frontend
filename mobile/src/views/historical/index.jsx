@@ -11,6 +11,7 @@ import useSystemContext from 'storages/system/context';
 import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
 import useStyles from './styles';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
+import HistoricalModal from './components/HistoricalModal';
 
 //#endregion
 
@@ -59,6 +60,7 @@ const Content = () => {
                     />
                 )}
             />
+            <HistoricalModal modalRef={modalRef} />
         </View>
     );
 };

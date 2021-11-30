@@ -1,14 +1,13 @@
 //#region Imports
 
 import React from 'react';
-import useStyles from './styles';
-import Modal from 'containers/Modal';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
+import useStyles from './styles';
+import Modal from 'containers/Modal';
 
 //#endregion
-
-const StockModal = ({ modalRef }) => {
+const HistoricalModal = ({ modalRef }) => {
     const styles = useStyles();
     return (
         <Modal title={'Mais Informações'} ref={modalRef}>
@@ -22,4 +21,4 @@ const StockModal = ({ modalRef }) => {
     );
 };
 
-export default StockModal;
+export default HistoricalModal;
