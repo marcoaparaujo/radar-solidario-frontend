@@ -68,10 +68,6 @@ const Content = () => {
                     />
                 )}
             />
-<<<<<<< HEAD
-=======
-
->>>>>>> a88eaae0ebb5747870f842833a1071475e3850e5
             <HistoricalModal modalRef={modalRef} />
         </View>
     );
