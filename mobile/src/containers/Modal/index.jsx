@@ -39,8 +39,8 @@ const Modal = (
             <View style={containerStyle}>
                 {(canClose || title) && (
                     <View style={headerStyle}>
-                        {canClose && <Icon name='times' style={styles.backIcon} onPress={() => setIsVisible(false)} />}
                         {title && <Text style={styles.title}>{title}</Text>}
+                        {canClose && <Icon name='times' style={styles.backIcon} onPress={() => setIsVisible(false)} />}
                     </View>
                 )}
                 {children}

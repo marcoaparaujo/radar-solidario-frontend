@@ -8,9 +8,10 @@ import { Text } from 'react-native-elements';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
-import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
-import useStyles from './styles';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
+import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
+import HistoricalModal from './components/HistoricalModal';
+import useStyles from './styles';
 
 //#endregion
 
@@ -19,8 +20,15 @@ const Content = () => {
     const modalRef = useRef(null);
 
     const { charity } = useSystemContext();
-    const { donates, pagination, requestState, fetchFindAllDonatesPaginated, setDonatesInfinityPaginated } =
-        useFoodStampContext();
+
+    const {
+        donates,
+        pagination,
+        requestState,
+        setFoodStamp,
+        setDonatesInfinityPaginated,
+        fetchFindAllDonatesPaginated
+    } = useFoodStampContext();
 
     const fetch = useCallback(
         async (page) => {
@@ -53,12 +61,15 @@ const Content = () => {
                 render={(item, index) => (
                     <InfoCard
                         key={index}
+                        set={() => setFoodStamp(item)}
                         date={item[FOOD_STAMP_FIELDS.DATE]}
                         show={modalRef.current && modalRef.current.show}
                         name={item[FAMILY_FIELDS.THIS][FAMILY_FIELDS.HEAD]}
                     />
                 )}
             />
+
+            <HistoricalModal modalRef={modalRef} />
         </View>
     );
 };

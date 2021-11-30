@@ -1,12 +1,12 @@
 //#region Imports
 
-import SYSTEM_FIELDS from 'utils/constants/fields/system';
+import CHARITY_FIELDS from 'utils/constants/fields/charity';
 
 //#endregion
 
 const formatSendCharity = (data, charity) => ({
     ...data,
-    [SYSTEM_FIELDS.CHARITY]: {
+    [CHARITY_FIELDS.THIS]: {
         id: charity.id
     }
 });

@@ -1,14 +1,19 @@
 //#region Imports
 
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
 import useStyles from './styles';
 
 //#endregion
 
-const InfoCard = ({ name, date, show }) => {
+const InfoCard = ({ name, date, set, show }) => {
     const styles = useStyles();
+
+    const showModal = useCallback(() => {
+        set();
+        show();
+    }, [set, show]);
 
     return (
         <View style={styles.container}>
@@ -23,7 +28,7 @@ const InfoCard = ({ name, date, show }) => {
                     name='ellipsis-h'
                     type='font-awesome'
                     style={styles.button}
-                    onPress={() => show()}
+                    onPress={() => showModal()}
                     containerStyle={styles.iconContainer}
                 />
             </View>

@@ -21,7 +21,8 @@ const useStyles = () =>
             borderRadius: 5
         },
         title: {
-            fontSize: 20
+            fontSize: 20,
+            marginBottom: 10
         },
         header: {
             padding: 10,
@@ -29,7 +30,8 @@ const useStyles = () =>
             flexDirection: 'row'
         },
         alignRight: {
-            ...ALIGN.RIGHT
+            ...ALIGN.RIGHT,
+            alignItems: 'flex-start'
         },
         backIcon: {
             fontSize: 20,
