@@ -13,7 +13,8 @@ const useStyles = () =>
             ...ALIGN.LEFT
         },
         label: {
-            marginRight: 3,
+            fontSize: 16,
+            marginRight: 5,
             ...FONT.BOLD
         },
         text: {

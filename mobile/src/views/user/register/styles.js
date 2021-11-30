@@ -8,7 +8,6 @@ import { StyleSheet } from 'react-native';
 const useStyles = () =>
     StyleSheet.create({
         form: {
-            height: '100%',
             ...MARGIN.F_FORM
         }
     });

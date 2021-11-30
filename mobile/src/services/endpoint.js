@@ -8,8 +8,9 @@ import buildQueryParams from 'utils/functions/buildQueryParams';
 const ENDPOINT = {
     // BASE: 'http://localhost:8877',
     BASE: 'http://192.168.0.107:8877',
-    BASE: 'http://172.28.144.1:8877',
-    //BASE: API_URL,
+    // BASE: 'http://172.20.26.108:8877/radar-solidario-user-0.0.1/',
+    // BASE: 'http://187.72.160.201:8877/radar-solidario-user-0.0.1/',
+    // BASE: API_URL,
     SECURITY: {
         LOGIN: 'security/login'
     },

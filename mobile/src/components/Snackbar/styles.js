@@ -22,14 +22,17 @@ const useStyles = () => {
         content: {
             padding: 10,
             minHeight: 50,
+            width: '100%',
             borderWidth: 2,
             borderRadius: 10,
             borderColor: theme.colors.negative.dark,
             backgroundColor: theme.colors.primary.dark,
-            ...ALIGN.CENTER
+            ...ALIGN.CENTER,
+            flexDirection: 'column'
         },
         text: {
             fontSize: 16,
+            marginVertical: 10,
             marginHorizontal: 10,
             color: theme.colors.white,
             ...FONT.MEDIUM

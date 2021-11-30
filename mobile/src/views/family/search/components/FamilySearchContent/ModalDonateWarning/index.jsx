@@ -33,9 +33,11 @@ const ModalDonateWarning = ({ navigate }) => {
                 </View>
             </View>
 
-            <Button style={styles.button} onPress={() => beforeNavigate()}>
-                Tenho certeza
-            </Button>
+            <View style={styles.buttonContainer}>
+                <Button style={styles.button} onPress={() => beforeNavigate()}>
+                    Tenho certeza
+                </Button>
+            </View>
         </Modal>
     );
 };

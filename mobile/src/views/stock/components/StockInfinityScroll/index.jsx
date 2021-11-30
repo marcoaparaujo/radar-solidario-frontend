@@ -3,7 +3,6 @@
 import InfinityScroll from 'components/InfinityScroll';
 import InfoCard from 'components/InfoCard';
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
-import { Text } from 'react-native-elements';
 import useFoodStampContext from 'storages/food-stamp/context';
 import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
 import StockModal from '../StockModal';
@@ -18,6 +17,7 @@ const StockInfinityScroll = ({ children }) => {
     const {
         foodStamps,
         pagination,
+        setFoodStamp,
         requestState,
         fetchFindAllPaginated,
         fetchFindAllByIsAblePaginated,
@@ -67,6 +67,7 @@ const StockInfinityScroll = ({ children }) => {
                 render={(item, index) => (
                     <InfoCard
                         key={index}
+                        set={() => setFoodStamp(item)}
                         date={item[FOOD_STAMP_FIELDS.DATE]}
                         show={modalRef.current && modalRef.current.show}
                         name={`Peso: ${item[FOOD_STAMP_FIELDS.WEIGHT]} - Quantidade: ${item[FOOD_STAMP_FIELDS.LENGTH]}`}

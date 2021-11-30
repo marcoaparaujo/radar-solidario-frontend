@@ -25,6 +25,9 @@ const useStyles = () =>
         text: {
             fontSize: 16
         },
+        buttonContainer: {
+            padding: 20
+        },
         button: {
             margin: 10,
             padding: 10,

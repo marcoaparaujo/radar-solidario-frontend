@@ -2,7 +2,7 @@
 
 import ALIGN from 'assets/styles/align';
 import MARGIN from 'assets/styles/margin';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 //#endregion
 
@@ -10,10 +10,10 @@ const useStyles = () =>
     StyleSheet.create({
         container: {
             width: '100%',
-            ...ALIGN.CENTER,
+            height: Dimensions.get('window').height,
+            ...ALIGN.LEFT,
             ...MARGIN.H_FORM,
-            flexDirection: 'column',
-            justifyContent: 'space-around'
+            flexDirection: 'column'
         },
         image: {
             width: 150,

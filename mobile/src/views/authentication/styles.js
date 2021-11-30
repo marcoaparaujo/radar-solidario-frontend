@@ -3,15 +3,14 @@
 import ALIGN from 'assets/styles/align';
 import FONT from 'assets/styles/font';
 import MARGIN from 'assets/styles/margin';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 //#endregion
 
 const useStyles = () =>
     StyleSheet.create({
         container: {
-            flex: 1,
-            height: '100%',
+            height: Dimensions.get('window').height,
             ...ALIGN.CENTER,
             flexDirection: 'column',
             justifyContent: 'space-around'
@@ -27,9 +26,6 @@ const useStyles = () =>
             flexDirection: 'column',
             justifyContent: 'space-between'
         },
-        forgotPassword: {
-            marginTop: 10
-        },
         register: {
             ...ALIGN.CENTER,
             alignItems: 'flex-end'
@@ -41,6 +37,9 @@ const useStyles = () =>
         },
         registerText: {
             marginLeft: 3,
+            textDecorationStyle: 'dashed',
+            textDecorationLine: 'underline',
+            textDecorationColor: '#000',
             ...FONT.BOLD
         }
     });

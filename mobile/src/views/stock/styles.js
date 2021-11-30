@@ -3,13 +3,14 @@
 import ALIGN from 'assets/styles/align';
 import FONT from 'assets/styles/font';
 import MARGIN from 'assets/styles/margin';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 //#endregion
 
 const useStyles = () =>
     StyleSheet.create({
         container: {
+            height: Dimensions.get('window').height,
             ...ALIGN.CENTER,
             ...MARGIN.H_FORM,
             flexDirection: 'column',

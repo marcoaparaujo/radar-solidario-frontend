@@ -20,13 +20,12 @@ const useStyles = () => {
             fontSize: 16,
             ...FONT.BOLD
         },
-        text: {
-            fontSize: 21
-        },
         textValid: {
+            fontSize: 21,
             color: theme.colors.positive.medium
         },
         textInvalid: {
+            fontSize: 21,
             color: theme.colors.negative.medium
         }
     });

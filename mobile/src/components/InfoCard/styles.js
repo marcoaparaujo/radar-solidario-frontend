@@ -37,10 +37,7 @@ const useStyles = () =>
             ...FONT.MEDIUM
         },
         button: {
-            width: 35,
-            padding: 3,
-            borderRadius: 6,
-            backgroundColor: '#42AFD7'
+            width: 35
         },
         iconContainer: {
             marginBottom: 3

@@ -14,9 +14,6 @@ const useStyles = () =>
         },
         content: {
             marginBottom: 20
-        },
-        info: {
-            marginVertical: 10
         }
     });
 
