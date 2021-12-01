@@ -9,7 +9,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 const useStyles = () =>
     StyleSheet.create({
         container: {
-            height: Dimensions.get('window').height,
+            height: Dimensions.get('window').height - 50,
             ...MARGIN.F_FORM,
             ...ALIGN.BETWEEN,
             flexDirection: 'column'

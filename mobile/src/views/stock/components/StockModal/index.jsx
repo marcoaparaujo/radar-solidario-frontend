@@ -1,8 +1,7 @@
 //#region Imports
 
-import React from 'react';
-import useStyles from './styles';
 import Modal from 'containers/Modal';
+import React from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import useFoodStampContext from 'storages/food-stamp/context';

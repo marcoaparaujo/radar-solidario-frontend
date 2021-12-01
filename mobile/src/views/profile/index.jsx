@@ -42,13 +42,13 @@ const Content = () => {
                 </View>
             </View>
 
-            {charity && (
+            {/* {charity && (
                 <Fragment>
                     <EmailBoard />
                     <PhoneBoard />
                     <AdressBoard />
                 </Fragment>
-            )}
+            )} */}
         </View>
     );
 };
