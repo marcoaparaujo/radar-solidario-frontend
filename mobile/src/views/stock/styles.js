@@ -25,8 +25,7 @@ const useStyles = () =>
             ...FONT.MEDIUM
         },
         name: {
-            marginTop: 8,
-            marginBottom: 20
+            marginBottom: 10
         }
     });
 

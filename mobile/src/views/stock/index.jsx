@@ -37,17 +37,15 @@ const Stock = () => {
     const { navigate } = useNavigation();
 
     return (
-        <Fragment>
-            <ScrollView>
-                <FormContextProvider>
-                    <FoodStampContextProvider>
-                        <Content />
-                    </FoodStampContextProvider>
-                </FormContextProvider>
-            </ScrollView>
+        <View>
+            <FormContextProvider>
+                <FoodStampContextProvider>
+                    <Content />
+                </FoodStampContextProvider>
+            </FormContextProvider>
 
             <FAB onPress={() => navigate(ROUTE_NAMES.FOOD_STAMP.REGISTER)} />
-        </Fragment>
+        </View>
     );
 };
 

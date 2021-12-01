@@ -11,12 +11,14 @@ const useStyles = () =>
     StyleSheet.create({
         flatList: {
             width: '100%',
+            flexGrow: 0,
             height: height - 280
         },
         contentContainer: {
             ...ALIGN.CENTER,
             alignItems: 'center',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            paddingBottom: 20
         }
     });
 
