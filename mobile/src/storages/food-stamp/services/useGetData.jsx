@@ -19,12 +19,13 @@ const useGetData = () => {
     );
 
     const getFindAllByIsAble = useCallback(
-        (page, order, isAble) => api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_BY_IS_ABLE(page, order, isAble)),
+        (page, order, isAble, charityId) =>
+            api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_BY_IS_ABLE(page, order, isAble, charityId)),
         [api]
     );
 
     const getFindAllPaginated = useCallback(
-        (page, order) => api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_PAGINATED(page, order)),
+        (page, order, charityId) => api.get(ENDPOINT.FOOD_STAMP.FIND_ALL_PAGINATED(page, order, charityId)),
         [api]
     );
 

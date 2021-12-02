@@ -47,16 +47,16 @@ const useFoodStampService = ({ setOptions, setFoodStamp, setFoodStamps }) => {
     );
 
     const fetchFindAllPaginated = useCallback(
-        async (page = 0, order = 'weight') => {
-            const response = await run(() => getFindAllPaginated(page, order));
+        async (page = 0, order = 'weight', charityId = undefined) => {
+            const response = await run(() => getFindAllPaginated(page, order, charityId));
             return response;
         },
         [run, getFindAllPaginated]
     );
 
     const fetchFindAllByIsAblePaginated = useCallback(
-        async (page = 0, isAble = true, order = 'weight') => {
-            const response = await run(() => getFindAllByIsAble(page, order, isAble));
+        async (page = 0, isAble = true, order = 'weight', charityId = undefined) => {
+            const response = await run(() => getFindAllByIsAble(page, order, isAble, charityId));
             return response;
         },
         [run, getFindAllByIsAble]

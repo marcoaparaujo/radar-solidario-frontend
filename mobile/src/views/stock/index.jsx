@@ -2,8 +2,8 @@
 
 import { useNavigation } from '@react-navigation/native';
 import FAB from 'components/FAB';
-import React, { Fragment } from 'react';
-import { ScrollView, View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
 import { FoodStampContextProvider } from 'storages/food-stamp/context';

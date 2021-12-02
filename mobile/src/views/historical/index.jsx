@@ -60,11 +60,11 @@ const Content = () => {
                 fetch={() => fetch(pagination.page + 1)}
                 render={(item, index) => (
                     <InfoCard
-                        key={index}
                         set={() => setFoodStamp(item)}
                         date={item[FOOD_STAMP_FIELDS.DATE]}
                         show={modalRef.current && modalRef.current.show}
                         name={item[FAMILY_FIELDS.THIS][FAMILY_FIELDS.HEAD]}
+                        key={`${index}-${Math.random()}-${item[FAMILY_FIELDS.THIS][FAMILY_FIELDS.HEAD]}`}
                     />
                 )}
             />

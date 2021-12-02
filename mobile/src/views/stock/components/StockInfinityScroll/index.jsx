@@ -13,7 +13,7 @@ import StockHorizontalScrollingFilter from './StockHorizontalScrollingFilter';
 const StockInfinityScroll = ({ children }) => {
     const modalRef = useRef(null);
 
-    const [options, setOptions] = useState({ isAll: true, isAble: true });
+    const [options, setOptions] = useState({ isAll: true, isAble: true, charityId: undefined });
     const {
         foodStamps,
         pagination,
@@ -24,19 +24,19 @@ const StockInfinityScroll = ({ children }) => {
         setFoodStampsInfinityPaginated
     } = useFoodStampContext();
 
-    const fetch = useCallback(async (page = 0, isAble = true, isAll = true) => {
+    const fetch = useCallback(async (page = 0, isAble = true, isAll = true, charityId = undefined) => {
         if (isAll) {
-            const { data } = await fetchFindAllPaginated(page);
+            const { data } = await fetchFindAllPaginated(page, 'weight', charityId);
             setFoodStampsInfinityPaginated(data);
         } else {
-            const { data } = await fetchFindAllByIsAblePaginated(page, isAble);
+            const { data } = await fetchFindAllByIsAblePaginated(page, isAble, 'weight', charityId);
             setFoodStampsInfinityPaginated(data);
         }
     }, []);
 
     useEffect(() => {
         (async () => {
-            await fetch();
+            await fetch(0, false, false, options.charityId);
         })();
     }, []);
 
@@ -44,9 +44,9 @@ const StockInfinityScroll = ({ children }) => {
         (page) => {
             if (!pagination.last) {
                 if (options.isAll) {
-                    fetch(page);
+                    fetch(page, false, false, options.charityId);
                 } else {
-                    fetch(page, options.isAble, options.isAll);
+                    fetch(page, options.isAble, options.isAll, options.charityId);
                 }
             }
         },
@@ -55,9 +55,9 @@ const StockInfinityScroll = ({ children }) => {
 
     return (
         <Fragment>
-            <StockHorizontalScrollingFilter setOptions={setOptions} />
-
             {children}
+
+            <StockHorizontalScrollingFilter setOptions={setOptions} />
 
             <InfinityScroll
                 data={foodStamps}
@@ -66,10 +66,10 @@ const StockInfinityScroll = ({ children }) => {
                 fetch={() => fetchInfinityScroll(pagination.page + 1)}
                 render={(item, index) => (
                     <InfoCard
-                        key={index}
                         set={() => setFoodStamp(item)}
                         date={item[FOOD_STAMP_FIELDS.DATE]}
                         show={modalRef.current && modalRef.current.show}
+                        key={`${index}-${Math.random()}-${item[FOOD_STAMP_FIELDS.WEIGHT]}`}
                         name={`Peso: ${item[FOOD_STAMP_FIELDS.WEIGHT]} - Quantidade: ${item[FOOD_STAMP_FIELDS.LENGTH]}`}
                     />
                 )}
