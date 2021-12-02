@@ -7,7 +7,7 @@ import USER_FIELDS from 'utils/constants/fields/user';
 
 //#endregion
 
-const formatDonate = (data, user, charity, options) => {
+const formatDonate = (data, user, family, charity, options) => {
     const selectedOption = options.find((option) => option.value === data[FOOD_STAMP_FIELDS.WEIGHT]);
 
     data = {

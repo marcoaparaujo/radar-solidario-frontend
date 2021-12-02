@@ -26,7 +26,7 @@ const Content = ({ family }) => {
 
     const onSubmit = useCallback(
         async (data) => {
-            date = formatDonate(data, user, charity, options);
+            data = formatDonate(data, user, family, charity, options);
 
             const { errors } = await fetchDonate(data);
             !errors.length && navigate(ROUTE_NAMES.TABS, { screen: ROUTE_NAMES.FAMILY.SEARCH });

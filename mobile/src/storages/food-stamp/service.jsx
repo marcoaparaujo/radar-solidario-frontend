@@ -80,12 +80,15 @@ const useFoodStampService = ({ setOptions, setFoodStamp, setFoodStamps }) => {
         [run, getFindById]
     );
 
-    const fetchOptions = useCallback(async () => {
-        const response = await run(() => getFindOptions());
-        setOptions(response.data);
+    const fetchOptions = useCallback(
+        async (charityId) => {
+            const response = await run(() => getFindOptions(charityId));
+            setOptions(response.data);
 
-        return response;
-    }, [run, getFindOptions, setOptions]);
+            return response;
+        },
+        [run, getFindOptions, setOptions]
+    );
 
     return {
         fetchDonate,

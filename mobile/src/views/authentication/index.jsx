@@ -26,7 +26,7 @@ const Content = () => {
                 <FormLogin />
             </View>
 
-            {OPEN_REGISTER && (
+            {false && (
                 <View style={styles.register}>
                     <Text style={styles.text}>Não está cadastrado?</Text>
                     <Text style={styles.registerText} onPress={() => navigate(ROUTE_NAMES.USER.REGISTER)}>

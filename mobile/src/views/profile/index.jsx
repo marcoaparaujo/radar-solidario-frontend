@@ -1,15 +1,15 @@
 //#region Imports
 
 import { useNavigation } from '@react-navigation/native';
+import InfoBoard from 'components/InfoBoard';
 import React, { Fragment, useCallback } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
 import { FormContextProvider } from 'storages/form/context';
 import useSystemContext from 'storages/system/context';
-import AdressBoard from './components/AdressBoard';
-import EmailBoard from './components/EmailBoard';
-import PhoneBoard from './components/PhoneBoard';
+import CHARITY_FIELDS from 'utils/constants/fields/charity';
+import USER_FIELDS from 'utils/constants/fields/user';
 import useStyles from './styles';
 
 //#endregion
@@ -18,7 +18,7 @@ const Content = () => {
     const styles = useStyles();
 
     const { navigate } = useNavigation();
-    const { charity, reset } = useSystemContext();
+    const { charity, user, reset } = useSystemContext();
 
     const logoff = useCallback(() => {
         reset();
@@ -26,30 +26,22 @@ const Content = () => {
     }, [reset, navigate]);
 
     return (
-        <View>
-            <View style={styles.headerContainer}>
-                <View>
-                    <Text style={styles.profile}>Perfil</Text>
-                </View>
-
+        <Fragment>
+            <View style={styles.header}>
                 <View style={styles.user}>
-                    <Icon name='user-circle' type='font-awesome' size={50} style={styles.icon} />
-                    <Text style={styles.charityName}>{charity && charity.name}</Text>
+                    <Icon iconStyle={styles.icon} name='user-circle' size={70} type='font-awesome' />
 
-                    <Text style={styles.exit} onPress={() => logoff()}>
+                    <Text style={styles.logoff} onPress={() => logoff()}>
                         Sair
                     </Text>
                 </View>
             </View>
 
-            {/* {charity && (
-                <Fragment>
-                    <EmailBoard />
-                    <PhoneBoard />
-                    <AdressBoard />
-                </Fragment>
-            )} */}
-        </View>
+            <View>
+                <InfoBoard icon='user' label='Nome' value={user[USER_FIELDS.NAME]} />
+                <InfoBoard icon='users' label='Entidade' value={charity[CHARITY_FIELDS.NAME]} />
+            </View>
+        </Fragment>
     );
 };
 

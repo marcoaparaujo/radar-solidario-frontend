@@ -1,14 +1,14 @@
 //#region Imports
 
 import { StyleSheet } from 'react-native';
-import FONT from './../../assets/styles/font';
+import FONT from 'assets/styles/font';
+import ALIGN from 'assets/styles/align';
 
 //#endregion
 
 const useStyles = () =>
     StyleSheet.create({
-        headerContainer: {
-            height: 200,
+        header: {
             backgroundColor: '#2D8FB3'
         },
         profile: {
@@ -18,17 +18,16 @@ const useStyles = () =>
             ...FONT.MEDIUM
         },
         user: {
-            flexDirection: 'column',
-            alignItems: 'center'
+            marginTop: 60,
+            marginBottom: 20,
+            ...ALIGN.CENTER,
+            flexDirection: 'column'
         },
         icon: {
+            color: '#FFFFFF',
             marginBottom: 20
         },
-        charityName: {
-            fontSize: 20,
-            color: '#F6F6F6'
-        },
-        exit: {
+        logoff: {
             fontSize: 18,
             color: 'red'
         }
