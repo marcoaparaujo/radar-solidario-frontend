@@ -2,7 +2,6 @@
 
 import React, { useCallback, useMemo } from 'react';
 import { useController } from 'react-hook-form';
-import { ActivityIndicator } from 'react-native';
 import { Icon, SearchBar, useTheme } from 'react-native-elements';
 import useFormContext from 'storages/form/context';
 import extractErrors from 'utils/functions/extractErrors';

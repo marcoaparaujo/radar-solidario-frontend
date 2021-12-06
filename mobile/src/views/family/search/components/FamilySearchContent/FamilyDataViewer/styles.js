@@ -2,7 +2,7 @@
 
 import FONT from 'assets/styles/font';
 import ALIGN from 'assets/styles/align';
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 //#endregion
 
@@ -10,7 +10,9 @@ const useStyles = () =>
     StyleSheet.create({
         container: {
             marginTop: 5,
-            ...ALIGN.LEFT
+            width: Dimensions.get('screen').width - 200,
+            ...ALIGN.LEFT,
+            alignItems: 'flex-start'
         },
         label: {
             fontSize: 16,

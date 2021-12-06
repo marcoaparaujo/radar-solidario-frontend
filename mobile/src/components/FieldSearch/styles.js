@@ -32,10 +32,9 @@ const useStyles = () => {
         },
         error: {
             margin: 0,
-            height: 18,
             fontSize: 14,
             marginTop: 5,
-            width: '100%',
+            minHeight: 18,
             marginBottom: 5,
             color: theme.colors.negative.dark,
             ...ALIGN.RIGHT,

@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useMemo } from 'react';
 import { View } from 'react-native';
 import { ROUTE_NAMES } from 'routes/routes';
+import useFamilyContext from 'storages/family/context';
 import ADDRESS_FIELDS from 'utils/constants/fields/address';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
 import ADDRESS_LABELS from 'utils/constants/labels/address';
@@ -19,6 +20,8 @@ const FamilySearchContent = ({ data }) => {
     const styles = useStyles();
     const { navigate } = useNavigation();
 
+    const { family, fetchFamilyByNisOrCpf } = useFamilyContext();
+
     const address = useMemo(
         () =>
             `${data[ADDRESS_FIELDS.THIS][ADDRESS_FIELDS.STREET]}, ${
@@ -30,7 +33,11 @@ const FamilySearchContent = ({ data }) => {
     const navigateToDonationPage = useCallback(
         () =>
             navigate(ROUTE_NAMES.FOOD_STAMP.DONATION, {
-                family: data
+                family: data,
+                refresh: async () => {
+                    const response = await fetchFamilyByNisOrCpf(family.nis);
+                    return response;
+                }
             }),
         [navigate, data]
     );

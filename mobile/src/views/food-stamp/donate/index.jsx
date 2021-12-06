@@ -3,7 +3,7 @@
 import { useNavigation } from '@react-navigation/native';
 import Button from 'components/Button';
 import FieldsDonate from 'form-fields/FieldsDonate';
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { View } from 'react-native';
 import { ROUTE_NAMES } from 'routes/routes';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
@@ -15,7 +15,7 @@ import useStyles from './styles';
 
 //#endregion
 
-const Content = ({ family }) => {
+const Content = ({ family, refresh }) => {
     const styles = useStyles();
 
     const { navigate } = useNavigation();
@@ -34,6 +34,14 @@ const Content = ({ family }) => {
         [options, family]
     );
 
+    useEffect(() => {
+        return () => {
+            (async () => {
+                await refresh();
+            })();
+        };
+    }, [refresh]);
+
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -48,7 +56,7 @@ const Content = ({ family }) => {
 const FoodStampDonate = ({ route }) => (
     <FormContextProvider schema={foodStampSchema}>
         <FoodStampContextProvider>
-            <Content family={route.params.family} />
+            <Content family={route.params.family} refresh={route.params.refresh} />
         </FoodStampContextProvider>
     </FormContextProvider>
 );
