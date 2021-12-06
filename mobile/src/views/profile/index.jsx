@@ -3,7 +3,7 @@
 import { useNavigation } from '@react-navigation/native';
 import InfoBoard from 'components/InfoBoard';
 import React, { Fragment, useCallback } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
 import { ROUTE_NAMES } from 'routes/routes';
 import { FormContextProvider } from 'storages/form/context';
@@ -18,22 +18,21 @@ const Content = () => {
     const styles = useStyles();
 
     const { navigate } = useNavigation();
-    const { charity, user, reset } = useSystemContext();
+    const { charity, user } = useSystemContext();
 
     const logoff = useCallback(() => {
-        reset();
         navigate(ROUTE_NAMES.AUTHENTICATION);
-    }, [reset, navigate]);
+    }, [navigate]);
 
     return (
         <Fragment>
             <View style={styles.header}>
                 <View style={styles.user}>
-                    <Icon iconStyle={styles.icon} name='user-circle' size={70} type='font-awesome' />
+                    <Icon iconStyle={styles.icon} name='user-circle' size={70} />
 
-                    <Text style={styles.logoff} onPress={() => logoff()}>
-                        Sair
-                    </Text>
+                    <TouchableOpacity onPress={() => logoff()}>
+                        <Text style={styles.logoff}>Sair</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
 
