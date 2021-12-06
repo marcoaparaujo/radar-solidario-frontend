@@ -10,9 +10,9 @@ const useStyles = () => {
 
     return StyleSheet.create({
         container: {
-            width: 90,
             margin: 10,
             height: 30,
+            minWidth: 90,
             borderWidth: 2,
             borderRadius: 20,
             borderStyle: 'solid',
