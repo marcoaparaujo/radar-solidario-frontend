@@ -10,7 +10,7 @@ import StockHorizontalScrollingFilter from './StockHorizontalScrollingFilter';
 
 //#endregion
 
-const StockInfinityScroll = ({ children }) => {
+const StockInfinityScroll = ({ children, navigation }) => {
     const modalRef = useRef(null);
 
     const [options, setOptions] = useState({ isAll: true, isAble: true, charityId: undefined });
@@ -35,10 +35,14 @@ const StockInfinityScroll = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        (async () => {
-            await fetch(0, false, false, options.charityId);
-        })();
-    }, []);
+        const unsubscribe = navigation.addListener('focus', () => {
+            (async () => {
+                await fetch(0, false, false, options.charityId);
+            })();
+        });
+
+        return unsubscribe;
+    }, [navigation]);
 
     const fetchInfinityScroll = useCallback(
         (page) => {

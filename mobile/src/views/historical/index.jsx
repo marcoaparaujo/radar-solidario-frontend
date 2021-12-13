@@ -15,7 +15,7 @@ import useStyles from './styles';
 
 //#endregion
 
-const Content = () => {
+const Content = ({ navigation }) => {
     const styles = useStyles();
     const modalRef = useRef(null);
 
@@ -41,10 +41,14 @@ const Content = () => {
     );
 
     useEffect(() => {
-        (async () => {
-            await fetch();
-        })();
-    }, []);
+        const unsubscribe = navigation.addListener('focus', () => {
+            (async () => {
+                await fetch();
+            })();
+        });
+
+        return unsubscribe;
+    }, [navigation]);
 
     return (
         <View style={styles.container}>
@@ -73,11 +77,11 @@ const Content = () => {
     );
 };
 
-const Historical = () => (
+const Historical = ({ navigation }) => (
     <ScrollView>
         <FormContextProvider>
             <FoodStampContextProvider>
-                <Content />
+                <Content navigation={navigation} />
             </FoodStampContextProvider>
         </FormContextProvider>
     </ScrollView>

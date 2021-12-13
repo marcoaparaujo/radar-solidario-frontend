@@ -14,7 +14,7 @@ import useStyles from './styles';
 
 //#endregion
 
-const Content = () => {
+const Content = ({ navigation }) => {
     const styles = useStyles();
     const { charity } = useSystemContext();
 
@@ -24,7 +24,7 @@ const Content = () => {
                 <Text style={styles.text}>Estoque</Text>
             </View>
 
-            <StockInfinityScroll>
+            <StockInfinityScroll navigation={navigation}>
                 <View style={styles.name}>
                     <Text style={styles.text}>{charity.name}</Text>
                 </View>
@@ -33,14 +33,14 @@ const Content = () => {
     );
 };
 
-const Stock = () => {
+const Stock = ({ navigation }) => {
     const { navigate } = useNavigation();
 
     return (
         <View>
             <FormContextProvider>
                 <FoodStampContextProvider>
-                    <Content />
+                    <Content navigation={navigation} />
                 </FoodStampContextProvider>
             </FormContextProvider>
 
