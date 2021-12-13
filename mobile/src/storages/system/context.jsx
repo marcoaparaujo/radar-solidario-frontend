@@ -1,5 +1,6 @@
 //#region Imports
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import CHARITY_FIELDS from 'utils/constants/fields/charity';
 import SYSTEM_FIELDS from 'utils/constants/fields/system';
@@ -29,7 +30,12 @@ export const SystemContextProvider = ({ children, defaultValues }) => {
     const setTheme = useCallback((theme = 'light') => setState((prevState) => ({ ...prevState, theme })), [setState]);
 
     const setLogin = useCallback(
-        ({ token, roles, user, charity }) => setState((prevState) => ({ ...prevState, token, roles, user, charity })),
+        async (data) => {
+            setState((prevState) => ({ ...prevState, ...data }));
+
+            const object = JSON.stringify(data);
+            await AsyncStorage.setItem('@login', object);
+        },
         [setState]
     );
 

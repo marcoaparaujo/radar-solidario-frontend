@@ -18,7 +18,7 @@ const useAuthenticationService = () => {
             const response = await run(() => postLogin(form));
             const { data, errors } = response;
 
-            !errors.length && setLogin(data);
+            !errors.length && (await setLogin(data));
             return response;
         },
         [run, postLogin, setLogin]
