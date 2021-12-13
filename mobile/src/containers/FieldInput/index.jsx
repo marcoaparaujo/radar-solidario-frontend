@@ -47,7 +47,7 @@ const FieldInput = ({
     const handleChange = useCallback(
         (text) => {
             const value = mask ? mask(text) : text;
-            field.onChange(value);
+            field.onChange(String(value));
         },
         [mask, field]
     );

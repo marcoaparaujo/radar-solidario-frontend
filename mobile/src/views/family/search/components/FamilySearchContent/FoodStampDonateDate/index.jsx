@@ -39,14 +39,19 @@ const FoodStampDonateDate = ({ data, navigate }) => {
                     data={data[DONATE_FIELDS.DONATE_PREVISION][DONATE_FIELDS.LAST_DONATE_DATE]}
                 />
 
-                <FoodStampDonateDateViewer
+                {/* <FoodStampDonateDateViewer
                     label='Próximo recebimento a partir de: '
                     isValidDonateDataRange={isValidDonateDataRange}
                     data={data[DONATE_FIELDS.DONATE_PREVISION][DONATE_FIELDS.NEXT_DONATE_DATE]}
-                />
+                /> */}
             </View>
 
-            <Button onPress={() => (isValidDonateDataRange ? navigate() : modalConfirmDonateRef.current.show())}>
+            <Button
+                onPress={
+                    () => navigate()
+                    // (isValidDonateDataRange ? navigate() : modalConfirmDonateRef.current.show())
+                }
+            >
                 Doar
             </Button>
         </View>
