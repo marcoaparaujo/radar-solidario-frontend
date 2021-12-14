@@ -44,7 +44,7 @@ const Content = ({ navigation }) => {
     useFocusEffect(
         useCallback(async () => {
             await fetch();
-        }, [options])
+        }, [])
     );
 
     return (
