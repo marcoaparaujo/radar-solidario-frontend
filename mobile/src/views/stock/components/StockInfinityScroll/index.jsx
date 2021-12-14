@@ -1,8 +1,9 @@
 //#region Imports
 
+import { useFocusEffect } from '@react-navigation/native';
 import InfinityScroll from 'components/InfinityScroll';
 import InfoCard from 'components/InfoCard';
-import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import React, { Fragment, useCallback, useRef, useState } from 'react';
 import useFoodStampContext from 'storages/food-stamp/context';
 import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
 import StockModal from '../StockModal';
@@ -34,15 +35,11 @@ const StockInfinityScroll = ({ children, navigation }) => {
         }
     }, []);
 
-    useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            (async () => {
-                await fetch(0, false, false, options.charityId);
-            })();
-        });
-
-        return unsubscribe;
-    }, [navigation]);
+    useFocusEffect(
+        useCallback(async () => {
+            await fetch(0, false, false, options.charityId);
+        }, [options])
+    );
 
     const fetchInfinityScroll = useCallback(
         (page) => {

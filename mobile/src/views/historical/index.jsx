@@ -1,8 +1,9 @@
 //#region Imports
 
+import { useFocusEffect } from '@react-navigation/native';
 import InfinityScroll from 'components/InfinityScroll';
 import InfoCard from 'components/InfoCard';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import useFoodStampContext, { FoodStampContextProvider } from 'storages/food-stamp/context';
@@ -40,15 +41,11 @@ const Content = ({ navigation }) => {
         [pagination, setDonatesInfinityPaginated]
     );
 
-    useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            (async () => {
-                await fetch();
-            })();
-        });
-
-        return unsubscribe;
-    }, [navigation]);
+    useFocusEffect(
+        useCallback(async () => {
+            await fetch();
+        }, [options])
+    );
 
     return (
         <View style={styles.container}>
