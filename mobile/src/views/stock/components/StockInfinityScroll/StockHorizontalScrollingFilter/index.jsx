@@ -52,14 +52,14 @@ const StockHorizontalScrollingFilter = ({ setOptions }) => {
             <HorizontalScrollingFilter>
                 <OptionButton onPress={() => handleAll(charity.id)}>Todas</OptionButton>
                 <OptionButton onPress={() => handleAble(charity.id)}>Disponível</OptionButton>
-                <OptionButton onPress={() => handleReserved(charity.id)}>Reservada</OptionButton>
+                {/* <OptionButton onPress={() => handleReserved(charity.id)}>Reservada</OptionButton> */}
             </HorizontalScrollingFilter>
 
             <Text style={styles.text}>Todas as entidades</Text>
             <HorizontalScrollingFilter>
                 <OptionButton onPress={() => handleAll()}>Todas</OptionButton>
                 <OptionButton onPress={() => handleAble()}>Disponível</OptionButton>
-                <OptionButton onPress={() => handleReserved()}>Reservada</OptionButton>
+                {/* <OptionButton onPress={() => handleReserved()}>Reservada</OptionButton> */}
             </HorizontalScrollingFilter>
         </Fragment>
     );
