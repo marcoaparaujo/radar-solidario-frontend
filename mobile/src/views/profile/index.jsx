@@ -39,6 +39,8 @@ const Content = () => {
             <View>
                 <InfoBoard icon='user' label='Nome' value={user[USER_FIELDS.NAME]} />
                 <InfoBoard icon='users' label='Entidade' value={charity[CHARITY_FIELDS.NAME]} />
+
+                <Text>Versão 0.0.6</Text>
             </View>
         </Fragment>
     );

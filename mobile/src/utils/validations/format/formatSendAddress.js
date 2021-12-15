@@ -1,6 +1,7 @@
 //#region Imports
 
 import ADDRESS_FIELDS from 'utils/constants/fields/address';
+import FAMILY_FIELDS from 'utils/constants/fields/family';
 
 //#endregion
 
@@ -23,7 +24,7 @@ const formatSendAddress = (data) => {
     delete data[COMPLEMENT];
     delete data[NEIGHBORHOOD];
 
-    return { ...data, address };
+    return { ...data, address, [FAMILY_FIELDS.NIS]: data[FAMILY_FIELDS.NIS] ? data[FAMILY_FIELDS.NIS] : null };
 };
 
 export default formatSendAddress;

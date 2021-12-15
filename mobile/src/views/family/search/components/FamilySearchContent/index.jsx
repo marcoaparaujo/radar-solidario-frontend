@@ -6,8 +6,10 @@ import { View } from 'react-native';
 import { ROUTE_NAMES } from 'routes/routes';
 import useFamilyContext from 'storages/family/context';
 import ADDRESS_FIELDS from 'utils/constants/fields/address';
+import CHARITY_FIELDS from 'utils/constants/fields/charity';
 import FAMILY_FIELDS from 'utils/constants/fields/family';
 import ADDRESS_LABELS from 'utils/constants/labels/address';
+import CHARITY_LABELS from 'utils/constants/labels/charity';
 import FAMILY_LABELS from 'utils/constants/labels/family';
 import FamilyDataViewer from './FamilyDataViewer';
 import FoodStampDonateDate from './FoodStampDonateDate';
@@ -50,6 +52,7 @@ const FamilySearchContent = ({ data }) => {
 
             <FamilyDataViewer label={ADDRESS_LABELS.THIS} field={address} />
             <FamilyDataViewer label={ADDRESS_LABELS.PHONE} field={data[ADDRESS_FIELDS.THIS][ADDRESS_FIELDS.PHONE]} />
+            <FamilyDataViewer label={CHARITY_LABELS.THIS} field={data[CHARITY_FIELDS.THIS][CHARITY_FIELDS.NAME]} />
 
             <FoodStampDonateDate data={data} navigate={navigateToDonationPage} />
             <ModalDonateWarning navigate={navigateToDonationPage} />

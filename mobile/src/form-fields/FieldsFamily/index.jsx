@@ -23,7 +23,7 @@ const FieldsFamily = () => (
         />
 
         <FieldInput name={FAMILY_FIELDS.CPF} label={FAMILY_LABELS.CPF} mask={cpf} />
-        <FieldInput name={FAMILY_FIELDS.NIS} label={FAMILY_LABELS.NIS} mask={nis} />
+        <FieldInput isRequired={false} name={FAMILY_FIELDS.NIS} label={FAMILY_LABELS.NIS} mask={nis} />
     </Fragment>
 );
 

@@ -5,6 +5,7 @@ import InfinityScroll from 'components/InfinityScroll';
 import InfoCard from 'components/InfoCard';
 import React, { Fragment, useCallback, useRef, useState } from 'react';
 import useFoodStampContext from 'storages/food-stamp/context';
+import useSystemContext from 'storages/system/context';
 import FOOD_STAMP_FIELDS from 'utils/constants/fields/food-stamp';
 import StockModal from '../StockModal';
 import StockHorizontalScrollingFilter from './StockHorizontalScrollingFilter';
@@ -14,51 +15,71 @@ import StockHorizontalScrollingFilter from './StockHorizontalScrollingFilter';
 const StockInfinityScroll = ({ children, navigation }) => {
     const modalRef = useRef(null);
 
-    const [options, setOptions] = useState({ isAll: true, isAble: true, charityId: undefined });
+    const [options, setOptions] = useState({ isAll: false });
+
+    const { charity } = useSystemContext();
     const {
         foodStamps,
         pagination,
         setFoodStamp,
         requestState,
         fetchFindAllPaginated,
-        fetchFindAllByIsAblePaginated,
+        setFoodStampsPaginated,
         setFoodStampsInfinityPaginated
     } = useFoodStampContext();
 
-    const fetch = useCallback(async (page = 0, isAble = true, isAll = true, charityId = undefined) => {
-        if (isAll) {
-            const { data } = await fetchFindAllPaginated(page, 'weight', charityId);
-            setFoodStampsInfinityPaginated(data);
-        } else {
-            const { data } = await fetchFindAllByIsAblePaginated(page, isAble, 'weight', charityId);
-            setFoodStampsInfinityPaginated(data);
-        }
-    }, []);
+    const fecthAll = useCallback(
+        async (page = 0) => {
+            const { data } = await fetchFindAllPaginated(page, 'weight');
+            if (page === 0) {
+                setFoodStampsPaginated(data);
+            } else {
+                setFoodStampsInfinityPaginated(data);
+            }
 
-    useFocusEffect(
-        useCallback(async () => {
-            await fetch(0, false, false, options.charityId);
-        }, [options])
+            setOptions({ isAll: true });
+        },
+        [setFoodStampsInfinityPaginated, setOptions]
+    );
+
+    const fecthAllByCharityId = useCallback(
+        async (page = 0) => {
+            const { data } = await fetchFindAllPaginated(page, 'weight', charity.id);
+            if (page === 0) {
+                setFoodStampsPaginated(data);
+            } else {
+                setFoodStampsInfinityPaginated(data);
+            }
+
+            setOptions({ isAll: false });
+        },
+        [charity, setFoodStampsInfinityPaginated, setOptions]
     );
 
     const fetchInfinityScroll = useCallback(
-        (page) => {
+        async (page) => {
             if (!pagination.last) {
                 if (options.isAll) {
-                    fetch(page, false, false, options.charityId);
+                    await fecthAll(page);
                 } else {
-                    fetch(page, options.isAble, options.isAll, options.charityId);
+                    await fecthAllByCharityId(page);
                 }
             }
         },
         [pagination, options]
     );
 
+    useFocusEffect(
+        useCallback(async () => {
+            await fecthAllByCharityId();
+        }, [])
+    );
+
     return (
         <Fragment>
             {children}
 
-            <StockHorizontalScrollingFilter setOptions={setOptions} />
+            <StockHorizontalScrollingFilter fecthAll={fecthAll} fecthAllByCharityId={fecthAllByCharityId} />
 
             <InfinityScroll
                 data={foodStamps}
