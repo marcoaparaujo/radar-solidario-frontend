@@ -16,7 +16,7 @@ const StockModal = ({ modalRef }) => {
     const styles = useStyles();
 
     const { foodStamp } = useFoodStampContext();
-    console.log(foodStamp);
+
     return (
         <Modal ref={modalRef} title='Mais Informações'>
             {foodStamp && (
